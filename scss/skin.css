@@ -1,16 +1,16 @@
-/******************* RED THEME *******************/
-body.red span {
+/******************* cyan THEME *******************/
+body.cyan span {
 	color: #e54e53;
 }
-body.red .slide:hover, body.red .slide:focus {
+body.cyan .slide:hover, body.cyan .slide:focus {
 	box-shadow: inset 15.5em 0 0 0 #e54e53;
 }
-body.red .btn-primary:focus, body.red .btn-primary.focus {
+body.cyan .btn-primary:focus, body.cyan .btn-primary.focus {
 	color: #fff;
 	background-color: #e54e53;
 	border-color: #e54e53;
 }
-body.red .btn-primary {
+body.cyan .btn-primary {
 	padding: 15px 50px;
 	border-radius: 0px;
 	font-weight: bold;
@@ -20,82 +20,82 @@ body.red .btn-primary {
 	border-color: #e54e53;
 	background: none;
 }
-body.red .btn-primary:focus, body.red .btn-primary.focus {
+body.cyan .btn-primary:focus, body.cyan .btn-primary.focus {
 	color: #e54e53;
 	background-color: #e6e6e6;
 	border-color: #9d171b;
 }
-body.red .btn-primary:hover {
+body.cyan .btn-primary:hover {
 	color: #e54e53;
 	background-color: #e6e6e6;
 	border-color: #d61f26;
 }
-body.red .btn-primary:active, body.red .btn-primary.active, .open > body.red .btn-primary.dropdown-toggle {
+body.cyan .btn-primary:active, body.cyan .btn-primary.active, .open > body.cyan .btn-primary.dropdown-toggle {
 	color: #e54e53;
 	background-color: #e6e6e6;
 	border-color: #d61f26;
 }
-body.red .btn-primary:active:hover, body.red .btn-primary:active:focus, body.red .btn-primary:active.focus, body.red .btn-primary.active:hover, body.red .btn-primary.active:focus, body.red .btn-primary.active.focus, .open > body.red .btn-primary.dropdown-toggle:hover, .open > body.red .btn-primary.dropdown-toggle:focus, .open > body.red .btn-primary.dropdown-toggle.focus {
+body.cyan .btn-primary:active:hover, body.cyan .btn-primary:active:focus, body.cyan .btn-primary:active.focus, body.cyan .btn-primary.active:hover, body.cyan .btn-primary.active:focus, body.cyan .btn-primary.active.focus, .open > body.cyan .btn-primary.dropdown-toggle:hover, .open > body.cyan .btn-primary.dropdown-toggle:focus, .open > body.cyan .btn-primary.dropdown-toggle.focus {
 	color: #e54e53;
 	background-color: #d4d4d4;
 	border-color: #9d171b;
 }
-body.red .btn-primary:active, body.red .btn-primary.active, .open > body.red .btn-primary.dropdown-toggle {
+body.cyan .btn-primary:active, body.cyan .btn-primary.active, .open > body.cyan .btn-primary.dropdown-toggle {
 	background-image: none;
 }
-body.red .btn-primary.disabled:hover, body.red .btn-primary.disabled:focus, body.red .btn-primary.disabled.focus, body.red .btn-primary[disabled]:hover, body.red .btn-primary[disabled]:focus, body.red .btn-primary[disabled].focus, fieldset[disabled] body.red .btn-primary:hover, fieldset[disabled] body.red .btn-primary:focus, fieldset[disabled] body.red .btn-primary.focus {
+body.cyan .btn-primary.disabled:hover, body.cyan .btn-primary.disabled:focus, body.cyan .btn-primary.disabled.focus, body.cyan .btn-primary[disabled]:hover, body.cyan .btn-primary[disabled]:focus, body.cyan .btn-primary[disabled].focus, fieldset[disabled] body.cyan .btn-primary:hover, fieldset[disabled] body.cyan .btn-primary:focus, fieldset[disabled] body.cyan .btn-primary.focus {
 	background-color: #fff;
 	border-color: #e54e53;
 }
-body.red .btn-primary .badge {
+body.cyan .btn-primary .badge {
 	color: #fff;
 	background-color: #e54e53;
 }
-body.red .btn-primary:hover, body.red .btn-primary:focus, body.red .btn-primary:active {
+body.cyan .btn-primary:hover, body.cyan .btn-primary:focus, body.cyan .btn-primary:active {
 	color: #fff;
 	background-color: #e54e53;
 	border-color: #e54e53;
 	transition: 0.25s;
 }
-body.red .btn-primary:hover:focus, body.red .btn-primary:hover.focus, body.red .btn-primary:focus:focus, body.red .btn-primary:focus.focus, body.red .btn-primary:active:focus, body.red .btn-primary:active.focus {
+body.cyan .btn-primary:hover:focus, body.cyan .btn-primary:hover.focus, body.cyan .btn-primary:focus:focus, body.cyan .btn-primary:focus.focus, body.cyan .btn-primary:active:focus, body.cyan .btn-primary:active.focus {
 	color: #fff;
 	background-color: #de2228;
 	border-color: #9d171b;
 }
-body.red .btn-primary:hover:hover, body.red .btn-primary:focus:hover, body.red .btn-primary:active:hover {
+body.cyan .btn-primary:hover:hover, body.cyan .btn-primary:focus:hover, body.cyan .btn-primary:active:hover {
 	color: #fff;
 	background-color: #de2228;
 	border-color: #d61f26;
 }
-body.red .btn-primary:hover:active, body.red .btn-primary:hover.active, .open > body.red .btn-primary:hover.dropdown-toggle, body.red .btn-primary:focus:active, body.red .btn-primary:focus.active, .open > body.red .btn-primary:focus.dropdown-toggle, body.red .btn-primary:active:active, body.red .btn-primary:active.active, .open > body.red .btn-primary:active.dropdown-toggle {
+body.cyan .btn-primary:hover:active, body.cyan .btn-primary:hover.active, .open > body.cyan .btn-primary:hover.dropdown-toggle, body.cyan .btn-primary:focus:active, body.cyan .btn-primary:focus.active, .open > body.cyan .btn-primary:focus.dropdown-toggle, body.cyan .btn-primary:active:active, body.cyan .btn-primary:active.active, .open > body.cyan .btn-primary:active.dropdown-toggle {
 	color: #fff;
 	background-color: #de2228;
 	border-color: #d61f26;
 }
-body.red .btn-primary:hover:active:hover, body.red .btn-primary:hover:active:focus, body.red .btn-primary:hover:active.focus, body.red .btn-primary:hover.active:hover, body.red .btn-primary:hover.active:focus, body.red .btn-primary:hover.active.focus, .open > body.red .btn-primary:hover.dropdown-toggle:hover, .open > body.red .btn-primary:hover.dropdown-toggle:focus, .open > body.red .btn-primary:hover.dropdown-toggle.focus, body.red .btn-primary:focus:active:hover, body.red .btn-primary:focus:active:focus, body.red .btn-primary:focus:active.focus, body.red .btn-primary:focus.active:hover, body.red .btn-primary:focus.active:focus, body.red .btn-primary:focus.active.focus, .open > body.red .btn-primary:focus.dropdown-toggle:hover, .open > body.red .btn-primary:focus.dropdown-toggle:focus, .open > body.red .btn-primary:focus.dropdown-toggle.focus, body.red .btn-primary:active:active:hover, body.red .btn-primary:active:active:focus, body.red .btn-primary:active:active.focus, body.red .btn-primary:active.active:hover, body.red .btn-primary:active.active:focus, body.red .btn-primary:active.active.focus, .open > body.red .btn-primary:active.dropdown-toggle:hover, .open > body.red .btn-primary:active.dropdown-toggle:focus, .open > body.red .btn-primary:active.dropdown-toggle.focus {
+body.cyan .btn-primary:hover:active:hover, body.cyan .btn-primary:hover:active:focus, body.cyan .btn-primary:hover:active.focus, body.cyan .btn-primary:hover.active:hover, body.cyan .btn-primary:hover.active:focus, body.cyan .btn-primary:hover.active.focus, .open > body.cyan .btn-primary:hover.dropdown-toggle:hover, .open > body.cyan .btn-primary:hover.dropdown-toggle:focus, .open > body.cyan .btn-primary:hover.dropdown-toggle.focus, body.cyan .btn-primary:focus:active:hover, body.cyan .btn-primary:focus:active:focus, body.cyan .btn-primary:focus:active.focus, body.cyan .btn-primary:focus.active:hover, body.cyan .btn-primary:focus.active:focus, body.cyan .btn-primary:focus.active.focus, .open > body.cyan .btn-primary:focus.dropdown-toggle:hover, .open > body.cyan .btn-primary:focus.dropdown-toggle:focus, .open > body.cyan .btn-primary:focus.dropdown-toggle.focus, body.cyan .btn-primary:active:active:hover, body.cyan .btn-primary:active:active:focus, body.cyan .btn-primary:active:active.focus, body.cyan .btn-primary:active.active:hover, body.cyan .btn-primary:active.active:focus, body.cyan .btn-primary:active.active.focus, .open > body.cyan .btn-primary:active.dropdown-toggle:hover, .open > body.cyan .btn-primary:active.dropdown-toggle:focus, .open > body.cyan .btn-primary:active.dropdown-toggle.focus {
 	color: #fff;
 	background-color: #c01c22;
 	border-color: #9d171b;
 }
-body.red .btn-primary:hover:active, body.red .btn-primary:hover.active, .open > body.red .btn-primary:hover.dropdown-toggle, body.red .btn-primary:focus:active, body.red .btn-primary:focus.active, .open > body.red .btn-primary:focus.dropdown-toggle, body.red .btn-primary:active:active, body.red .btn-primary:active.active, .open > body.red .btn-primary:active.dropdown-toggle {
+body.cyan .btn-primary:hover:active, body.cyan .btn-primary:hover.active, .open > body.cyan .btn-primary:hover.dropdown-toggle, body.cyan .btn-primary:focus:active, body.cyan .btn-primary:focus.active, .open > body.cyan .btn-primary:focus.dropdown-toggle, body.cyan .btn-primary:active:active, body.cyan .btn-primary:active.active, .open > body.cyan .btn-primary:active.dropdown-toggle {
 	background-image: none;
 }
-body.red .btn-primary:hover.disabled:hover, body.red .btn-primary:hover.disabled:focus, body.red .btn-primary:hover.disabled.focus, body.red .btn-primary:hover[disabled]:hover, body.red .btn-primary:hover[disabled]:focus, body.red .btn-primary:hover[disabled].focus, fieldset[disabled] body.red .btn-primary:hover:hover, fieldset[disabled] body.red .btn-primary:hover:focus, fieldset[disabled] body.red .btn-primary:hover.focus, body.red .btn-primary:focus.disabled:hover, body.red .btn-primary:focus.disabled:focus, body.red .btn-primary:focus.disabled.focus, body.red .btn-primary:focus[disabled]:hover, body.red .btn-primary:focus[disabled]:focus, body.red .btn-primary:focus[disabled].focus, fieldset[disabled] body.red .btn-primary:focus:hover, fieldset[disabled] body.red .btn-primary:focus:focus, fieldset[disabled] body.red .btn-primary:focus.focus, body.red .btn-primary:active.disabled:hover, body.red .btn-primary:active.disabled:focus, body.red .btn-primary:active.disabled.focus, body.red .btn-primary:active[disabled]:hover, body.red .btn-primary:active[disabled]:focus, body.red .btn-primary:active[disabled].focus, fieldset[disabled] body.red .btn-primary:active:hover, fieldset[disabled] body.red .btn-primary:active:focus, fieldset[disabled] body.red .btn-primary:active.focus {
+body.cyan .btn-primary:hover.disabled:hover, body.cyan .btn-primary:hover.disabled:focus, body.cyan .btn-primary:hover.disabled.focus, body.cyan .btn-primary:hover[disabled]:hover, body.cyan .btn-primary:hover[disabled]:focus, body.cyan .btn-primary:hover[disabled].focus, fieldset[disabled] body.cyan .btn-primary:hover:hover, fieldset[disabled] body.cyan .btn-primary:hover:focus, fieldset[disabled] body.cyan .btn-primary:hover.focus, body.cyan .btn-primary:focus.disabled:hover, body.cyan .btn-primary:focus.disabled:focus, body.cyan .btn-primary:focus.disabled.focus, body.cyan .btn-primary:focus[disabled]:hover, body.cyan .btn-primary:focus[disabled]:focus, body.cyan .btn-primary:focus[disabled].focus, fieldset[disabled] body.cyan .btn-primary:focus:hover, fieldset[disabled] body.cyan .btn-primary:focus:focus, fieldset[disabled] body.cyan .btn-primary:focus.focus, body.cyan .btn-primary:active.disabled:hover, body.cyan .btn-primary:active.disabled:focus, body.cyan .btn-primary:active.disabled.focus, body.cyan .btn-primary:active[disabled]:hover, body.cyan .btn-primary:active[disabled]:focus, body.cyan .btn-primary:active[disabled].focus, fieldset[disabled] body.cyan .btn-primary:active:hover, fieldset[disabled] body.cyan .btn-primary:active:focus, fieldset[disabled] body.cyan .btn-primary:active.focus {
 	background-color: #e54e53;
 	border-color: #e54e53;
 }
-body.red .btn-primary:hover .badge, body.red .btn-primary:focus .badge, body.red .btn-primary:active .badge {
+body.cyan .btn-primary:hover .badge, body.cyan .btn-primary:focus .badge, body.cyan .btn-primary:active .badge {
 	color: #e54e53;
 	background-color: #fff;
 }
-body.red .btn-primary:hover:hover, body.red .btn-primary:hover:focus, body.red .btn-primary:hover.focus, body.red .btn-primary:focus:hover, body.red .btn-primary:focus:focus, body.red .btn-primary:focus.focus, body.red .btn-primary:active:hover, body.red .btn-primary:active:focus, body.red .btn-primary:active.focus {
+body.cyan .btn-primary:hover:hover, body.cyan .btn-primary:hover:focus, body.cyan .btn-primary:hover.focus, body.cyan .btn-primary:focus:hover, body.cyan .btn-primary:focus:focus, body.cyan .btn-primary:focus.focus, body.cyan .btn-primary:active:hover, body.cyan .btn-primary:active:focus, body.cyan .btn-primary:active.focus {
 	color: #fff;
 	text-decoration: none;
 }
-body.red .btn-primary:hover i, body.red .btn-primary:focus i, body.red .btn-primary:active i {
+body.cyan .btn-primary:hover i, body.cyan .btn-primary:focus i, body.cyan .btn-primary:active i {
 	color: #fff;
 }
-body.red .btn-default {
+body.cyan .btn-default {
 	padding: 15px 50px;
 	border-radius: 0px;
 	font-weight: bold;
@@ -104,239 +104,239 @@ body.red .btn-default {
 	background-color: #e54e53;
 	border-color: #e54e53;
 }
-body.red .btn-default:focus, body.red .btn-default.focus {
+body.cyan .btn-default:focus, body.cyan .btn-default.focus {
 	color: #fff;
 	background-color: #de2228;
 	border-color: #9d171b;
 }
-body.red .btn-default:hover {
+body.cyan .btn-default:hover {
 	color: #fff;
 	background-color: #de2228;
 	border-color: #d61f26;
 }
-body.red .btn-default:active, body.red .btn-default.active, .open > body.red .btn-default.dropdown-toggle {
+body.cyan .btn-default:active, body.cyan .btn-default.active, .open > body.cyan .btn-default.dropdown-toggle {
 	color: #fff;
 	background-color: #de2228;
 	border-color: #d61f26;
 }
-body.red .btn-default:active:hover, body.red .btn-default:active:focus, body.red .btn-default:active.focus, body.red .btn-default.active:hover, body.red .btn-default.active:focus, body.red .btn-default.active.focus, .open > body.red .btn-default.dropdown-toggle:hover, .open > body.red .btn-default.dropdown-toggle:focus, .open > body.red .btn-default.dropdown-toggle.focus {
+body.cyan .btn-default:active:hover, body.cyan .btn-default:active:focus, body.cyan .btn-default:active.focus, body.cyan .btn-default.active:hover, body.cyan .btn-default.active:focus, body.cyan .btn-default.active.focus, .open > body.cyan .btn-default.dropdown-toggle:hover, .open > body.cyan .btn-default.dropdown-toggle:focus, .open > body.cyan .btn-default.dropdown-toggle.focus {
 	color: #fff;
 	background-color: #c01c22;
 	border-color: #9d171b;
 }
-body.red .btn-default:active, body.red .btn-default.active, .open > body.red .btn-default.dropdown-toggle {
+body.cyan .btn-default:active, body.cyan .btn-default.active, .open > body.cyan .btn-default.dropdown-toggle {
 	background-image: none;
 }
-body.red .btn-default.disabled:hover, body.red .btn-default.disabled:focus, body.red .btn-default.disabled.focus, body.red .btn-default[disabled]:hover, body.red .btn-default[disabled]:focus, body.red .btn-default[disabled].focus, fieldset[disabled] body.red .btn-default:hover, fieldset[disabled] body.red .btn-default:focus, fieldset[disabled] body.red .btn-default.focus {
+body.cyan .btn-default.disabled:hover, body.cyan .btn-default.disabled:focus, body.cyan .btn-default.disabled.focus, body.cyan .btn-default[disabled]:hover, body.cyan .btn-default[disabled]:focus, body.cyan .btn-default[disabled].focus, fieldset[disabled] body.cyan .btn-default:hover, fieldset[disabled] body.cyan .btn-default:focus, fieldset[disabled] body.cyan .btn-default.focus {
 	background-color: #e54e53;
 	border-color: #e54e53;
 }
-body.red .btn-default .badge {
+body.cyan .btn-default .badge {
 	color: #e54e53;
 	background-color: #fff;
 }
-body.red .btn-default i {
+body.cyan .btn-default i {
 	color: #fff;
 }
-body.red .btn-default:hover {
+body.cyan .btn-default:hover {
 	color: #fff;
 	background-color: #e54e53;
 	border-color: #e54e53;
 	transition: 0.25s;
 }
-body.red .btn-default:hover:focus, body.red .btn-default:hover.focus {
+body.cyan .btn-default:hover:focus, body.cyan .btn-default:hover.focus {
 	color: #fff;
 	background-color: #de2228;
 	border-color: #9d171b;
 }
-body.red .btn-default:hover:hover {
+body.cyan .btn-default:hover:hover {
 	color: #fff;
 	background-color: #de2228;
 	border-color: #d61f26;
 }
-body.red .btn-default:hover:active, body.red .btn-default:hover.active, .open > body.red .btn-default:hover.dropdown-toggle {
+body.cyan .btn-default:hover:active, body.cyan .btn-default:hover.active, .open > body.cyan .btn-default:hover.dropdown-toggle {
 	color: #fff;
 	background-color: #de2228;
 	border-color: #d61f26;
 }
-body.red .btn-default:hover:active:hover, body.red .btn-default:hover:active:focus, body.red .btn-default:hover:active.focus, body.red .btn-default:hover.active:hover, body.red .btn-default:hover.active:focus, body.red .btn-default:hover.active.focus, .open > body.red .btn-default:hover.dropdown-toggle:hover, .open > body.red .btn-default:hover.dropdown-toggle:focus, .open > body.red .btn-default:hover.dropdown-toggle.focus {
+body.cyan .btn-default:hover:active:hover, body.cyan .btn-default:hover:active:focus, body.cyan .btn-default:hover:active.focus, body.cyan .btn-default:hover.active:hover, body.cyan .btn-default:hover.active:focus, body.cyan .btn-default:hover.active.focus, .open > body.cyan .btn-default:hover.dropdown-toggle:hover, .open > body.cyan .btn-default:hover.dropdown-toggle:focus, .open > body.cyan .btn-default:hover.dropdown-toggle.focus {
 	color: #fff;
 	background-color: #c01c22;
 	border-color: #9d171b;
 }
-body.red .btn-default:hover:active, body.red .btn-default:hover.active, .open > body.red .btn-default:hover.dropdown-toggle {
+body.cyan .btn-default:hover:active, body.cyan .btn-default:hover.active, .open > body.cyan .btn-default:hover.dropdown-toggle {
 	background-image: none;
 }
-body.red .btn-default:hover.disabled:hover, body.red .btn-default:hover.disabled:focus, body.red .btn-default:hover.disabled.focus, body.red .btn-default:hover[disabled]:hover, body.red .btn-default:hover[disabled]:focus, body.red .btn-default:hover[disabled].focus, fieldset[disabled] body.red .btn-default:hover:hover, fieldset[disabled] body.red .btn-default:hover:focus, fieldset[disabled] body.red .btn-default:hover.focus {
+body.cyan .btn-default:hover.disabled:hover, body.cyan .btn-default:hover.disabled:focus, body.cyan .btn-default:hover.disabled.focus, body.cyan .btn-default:hover[disabled]:hover, body.cyan .btn-default:hover[disabled]:focus, body.cyan .btn-default:hover[disabled].focus, fieldset[disabled] body.cyan .btn-default:hover:hover, fieldset[disabled] body.cyan .btn-default:hover:focus, fieldset[disabled] body.cyan .btn-default:hover.focus {
 	background-color: #e54e53;
 	border-color: #e54e53;
 }
-body.red .btn-default:hover .badge {
+body.cyan .btn-default:hover .badge {
 	color: #e54e53;
 	background-color: #fff;
 }
-body.red .btn-default:hover:hover, body.red .btn-default:hover:focus, body.red .btn-default:hover.focus {
+body.cyan .btn-default:hover:hover, body.cyan .btn-default:hover:focus, body.cyan .btn-default:hover.focus {
 	color: #fff;
 	text-decoration: none;
 }
-body.red .btn-default:hover i {
+body.cyan .btn-default:hover i {
 	color: #777777;
 }
-body.red #top-header ul.contact_links a:hover {
+body.cyan #top-header ul.contact_links a:hover {
 	color: #e54e53;
 }
-body.red #top-header ul.social_links i:hover {
+body.cyan #top-header ul.social_links i:hover {
 	color: #e54e53;
 }
-body.red .navbar-brand h1 {
+body.cyan .navbar-brand h1 {
 	color: #e54e53 !important;
 }
-body.red .navbar-brand span {
+body.cyan .navbar-brand span {
 	color: #333333 !important;
 }
-body.red .navbar-inverse .navbar-toggle:hover, body.red .navbar-inverse .navbar-toggle:focus {
+body.cyan .navbar-inverse .navbar-toggle:hover, body.cyan .navbar-inverse .navbar-toggle:focus {
 	background-color: #fff;
 }
-body.red .navbar-inverse .navbar-toggle {
+body.cyan .navbar-inverse .navbar-toggle {
 	border-color: #e54e53;
 }
-body.red .navbar-inverse .navbar-toggle .icon-bar {
+body.cyan .navbar-inverse .navbar-toggle .icon-bar {
 	background-color: #e54e53;
 }
-body.red i {
+body.cyan i {
 	color: #e54e53;
 }
-body.red .btn-default:hover {
+body.cyan .btn-default:hover {
 	color: #fff;
 	background-color: #e54e53;
 	border-color: #e54e53;
 }
-body.red .btn-default:hover:focus, body.red .btn-default:hover.focus {
+body.cyan .btn-default:hover:focus, body.cyan .btn-default:hover.focus {
 	color: #fff;
 	background-color: #de2228;
 	border-color: #9d171b;
 }
-body.red .btn-default:hover:hover {
+body.cyan .btn-default:hover:hover {
 	color: #fff;
 	background-color: #de2228;
 	border-color: #d61f26;
 }
-body.red .btn-default:hover:active, body.red .btn-default:hover.active, .open > body.red .btn-default:hover.dropdown-toggle {
+body.cyan .btn-default:hover:active, body.cyan .btn-default:hover.active, .open > body.cyan .btn-default:hover.dropdown-toggle {
 	color: #fff;
 	background-color: #de2228;
 	border-color: #d61f26;
 }
-body.red .btn-default:hover:active:hover, body.red .btn-default:hover:active:focus, body.red .btn-default:hover:active.focus, body.red .btn-default:hover.active:hover, body.red .btn-default:hover.active:focus, body.red .btn-default:hover.active.focus, .open > body.red .btn-default:hover.dropdown-toggle:hover, .open > body.red .btn-default:hover.dropdown-toggle:focus, .open > body.red .btn-default:hover.dropdown-toggle.focus {
+body.cyan .btn-default:hover:active:hover, body.cyan .btn-default:hover:active:focus, body.cyan .btn-default:hover:active.focus, body.cyan .btn-default:hover.active:hover, body.cyan .btn-default:hover.active:focus, body.cyan .btn-default:hover.active.focus, .open > body.cyan .btn-default:hover.dropdown-toggle:hover, .open > body.cyan .btn-default:hover.dropdown-toggle:focus, .open > body.cyan .btn-default:hover.dropdown-toggle.focus {
 	color: #fff;
 	background-color: #c01c22;
 	border-color: #9d171b;
 }
-body.red .btn-default:hover:active, body.red .btn-default:hover.active, .open > body.red .btn-default:hover.dropdown-toggle {
+body.cyan .btn-default:hover:active, body.cyan .btn-default:hover.active, .open > body.cyan .btn-default:hover.dropdown-toggle {
 	background-image: none;
 }
-body.red .btn-default:hover.disabled:hover, body.red .btn-default:hover.disabled:focus, body.red .btn-default:hover.disabled.focus, body.red .btn-default:hover[disabled]:hover, body.red .btn-default:hover[disabled]:focus, body.red .btn-default:hover[disabled].focus, fieldset[disabled] body.red .btn-default:hover:hover, fieldset[disabled] body.red .btn-default:hover:focus, fieldset[disabled] body.red .btn-default:hover.focus {
+body.cyan .btn-default:hover.disabled:hover, body.cyan .btn-default:hover.disabled:focus, body.cyan .btn-default:hover.disabled.focus, body.cyan .btn-default:hover[disabled]:hover, body.cyan .btn-default:hover[disabled]:focus, body.cyan .btn-default:hover[disabled].focus, fieldset[disabled] body.cyan .btn-default:hover:hover, fieldset[disabled] body.cyan .btn-default:hover:focus, fieldset[disabled] body.cyan .btn-default:hover.focus {
 	background-color: #e54e53;
 	border-color: #e54e53;
 }
-body.red .btn-default:hover .badge {
+body.cyan .btn-default:hover .badge {
 	color: #e54e53;
 	background-color: #fff;
 }
-body.red .btn-default:hover:hover, body.red .btn-default:hover:focus, body.red .btn-default:hover.focus {
+body.cyan .btn-default:hover:hover, body.cyan .btn-default:hover:focus, body.cyan .btn-default:hover.focus {
 	color: #777777;
 	background-color: #e54e53;
 	text-decoration: none;
 }
-body.red .btn-primary:hover, body.red .btn-primary:focus, body.red .btn-primary:active {
+body.cyan .btn-primary:hover, body.cyan .btn-primary:focus, body.cyan .btn-primary:active {
 	color: #fff;
 	background-color: #e54e53;
 	border-color: #e54e53;
 }
-body.red .btn-primary:hover:focus, body.red .btn-primary:hover.focus, body.red .btn-primary:focus:focus, body.red .btn-primary:focus.focus, body.red .btn-primary:active:focus, body.red .btn-primary:active.focus {
+body.cyan .btn-primary:hover:focus, body.cyan .btn-primary:hover.focus, body.cyan .btn-primary:focus:focus, body.cyan .btn-primary:focus.focus, body.cyan .btn-primary:active:focus, body.cyan .btn-primary:active.focus {
 	color: #fff;
 	background-color: #de2228;
 	border-color: #9d171b;
 }
-body.red .btn-primary:hover:hover, body.red .btn-primary:focus:hover, body.red .btn-primary:active:hover {
+body.cyan .btn-primary:hover:hover, body.cyan .btn-primary:focus:hover, body.cyan .btn-primary:active:hover {
 	color: #fff;
 	background-color: #de2228;
 	border-color: #d61f26;
 }
-body.red .btn-primary:hover:active, body.red .btn-primary:hover.active, .open > body.red .btn-primary:hover.dropdown-toggle, body.red .btn-primary:focus:active, body.red .btn-primary:focus.active, .open > body.red .btn-primary:focus.dropdown-toggle, body.red .btn-primary:active:active, body.red .btn-primary:active.active, .open > body.red .btn-primary:active.dropdown-toggle {
+body.cyan .btn-primary:hover:active, body.cyan .btn-primary:hover.active, .open > body.cyan .btn-primary:hover.dropdown-toggle, body.cyan .btn-primary:focus:active, body.cyan .btn-primary:focus.active, .open > body.cyan .btn-primary:focus.dropdown-toggle, body.cyan .btn-primary:active:active, body.cyan .btn-primary:active.active, .open > body.cyan .btn-primary:active.dropdown-toggle {
 	color: #fff;
 	background-color: #de2228;
 	border-color: #d61f26;
 }
-body.red .btn-primary:hover:active:hover, body.red .btn-primary:hover:active:focus, body.red .btn-primary:hover:active.focus, body.red .btn-primary:hover.active:hover, body.red .btn-primary:hover.active:focus, body.red .btn-primary:hover.active.focus, .open > body.red .btn-primary:hover.dropdown-toggle:hover, .open > body.red .btn-primary:hover.dropdown-toggle:focus, .open > body.red .btn-primary:hover.dropdown-toggle.focus, body.red .btn-primary:focus:active:hover, body.red .btn-primary:focus:active:focus, body.red .btn-primary:focus:active.focus, body.red .btn-primary:focus.active:hover, body.red .btn-primary:focus.active:focus, body.red .btn-primary:focus.active.focus, .open > body.red .btn-primary:focus.dropdown-toggle:hover, .open > body.red .btn-primary:focus.dropdown-toggle:focus, .open > body.red .btn-primary:focus.dropdown-toggle.focus, body.red .btn-primary:active:active:hover, body.red .btn-primary:active:active:focus, body.red .btn-primary:active:active.focus, body.red .btn-primary:active.active:hover, body.red .btn-primary:active.active:focus, body.red .btn-primary:active.active.focus, .open > body.red .btn-primary:active.dropdown-toggle:hover, .open > body.red .btn-primary:active.dropdown-toggle:focus, .open > body.red .btn-primary:active.dropdown-toggle.focus {
+body.cyan .btn-primary:hover:active:hover, body.cyan .btn-primary:hover:active:focus, body.cyan .btn-primary:hover:active.focus, body.cyan .btn-primary:hover.active:hover, body.cyan .btn-primary:hover.active:focus, body.cyan .btn-primary:hover.active.focus, .open > body.cyan .btn-primary:hover.dropdown-toggle:hover, .open > body.cyan .btn-primary:hover.dropdown-toggle:focus, .open > body.cyan .btn-primary:hover.dropdown-toggle.focus, body.cyan .btn-primary:focus:active:hover, body.cyan .btn-primary:focus:active:focus, body.cyan .btn-primary:focus:active.focus, body.cyan .btn-primary:focus.active:hover, body.cyan .btn-primary:focus.active:focus, body.cyan .btn-primary:focus.active.focus, .open > body.cyan .btn-primary:focus.dropdown-toggle:hover, .open > body.cyan .btn-primary:focus.dropdown-toggle:focus, .open > body.cyan .btn-primary:focus.dropdown-toggle.focus, body.cyan .btn-primary:active:active:hover, body.cyan .btn-primary:active:active:focus, body.cyan .btn-primary:active:active.focus, body.cyan .btn-primary:active.active:hover, body.cyan .btn-primary:active.active:focus, body.cyan .btn-primary:active.active.focus, .open > body.cyan .btn-primary:active.dropdown-toggle:hover, .open > body.cyan .btn-primary:active.dropdown-toggle:focus, .open > body.cyan .btn-primary:active.dropdown-toggle.focus {
 	color: #fff;
 	background-color: #c01c22;
 	border-color: #9d171b;
 }
-body.red .btn-primary:hover:active, body.red .btn-primary:hover.active, .open > body.red .btn-primary:hover.dropdown-toggle, body.red .btn-primary:focus:active, body.red .btn-primary:focus.active, .open > body.red .btn-primary:focus.dropdown-toggle, body.red .btn-primary:active:active, body.red .btn-primary:active.active, .open > body.red .btn-primary:active.dropdown-toggle {
+body.cyan .btn-primary:hover:active, body.cyan .btn-primary:hover.active, .open > body.cyan .btn-primary:hover.dropdown-toggle, body.cyan .btn-primary:focus:active, body.cyan .btn-primary:focus.active, .open > body.cyan .btn-primary:focus.dropdown-toggle, body.cyan .btn-primary:active:active, body.cyan .btn-primary:active.active, .open > body.cyan .btn-primary:active.dropdown-toggle {
 	background-image: none;
 }
-body.red .btn-primary:hover.disabled:hover, body.red .btn-primary:hover.disabled:focus, body.red .btn-primary:hover.disabled.focus, body.red .btn-primary:hover[disabled]:hover, body.red .btn-primary:hover[disabled]:focus, body.red .btn-primary:hover[disabled].focus, fieldset[disabled] body.red .btn-primary:hover:hover, fieldset[disabled] body.red .btn-primary:hover:focus, fieldset[disabled] body.red .btn-primary:hover.focus, body.red .btn-primary:focus.disabled:hover, body.red .btn-primary:focus.disabled:focus, body.red .btn-primary:focus.disabled.focus, body.red .btn-primary:focus[disabled]:hover, body.red .btn-primary:focus[disabled]:focus, body.red .btn-primary:focus[disabled].focus, fieldset[disabled] body.red .btn-primary:focus:hover, fieldset[disabled] body.red .btn-primary:focus:focus, fieldset[disabled] body.red .btn-primary:focus.focus, body.red .btn-primary:active.disabled:hover, body.red .btn-primary:active.disabled:focus, body.red .btn-primary:active.disabled.focus, body.red .btn-primary:active[disabled]:hover, body.red .btn-primary:active[disabled]:focus, body.red .btn-primary:active[disabled].focus, fieldset[disabled] body.red .btn-primary:active:hover, fieldset[disabled] body.red .btn-primary:active:focus, fieldset[disabled] body.red .btn-primary:active.focus {
+body.cyan .btn-primary:hover.disabled:hover, body.cyan .btn-primary:hover.disabled:focus, body.cyan .btn-primary:hover.disabled.focus, body.cyan .btn-primary:hover[disabled]:hover, body.cyan .btn-primary:hover[disabled]:focus, body.cyan .btn-primary:hover[disabled].focus, fieldset[disabled] body.cyan .btn-primary:hover:hover, fieldset[disabled] body.cyan .btn-primary:hover:focus, fieldset[disabled] body.cyan .btn-primary:hover.focus, body.cyan .btn-primary:focus.disabled:hover, body.cyan .btn-primary:focus.disabled:focus, body.cyan .btn-primary:focus.disabled.focus, body.cyan .btn-primary:focus[disabled]:hover, body.cyan .btn-primary:focus[disabled]:focus, body.cyan .btn-primary:focus[disabled].focus, fieldset[disabled] body.cyan .btn-primary:focus:hover, fieldset[disabled] body.cyan .btn-primary:focus:focus, fieldset[disabled] body.cyan .btn-primary:focus.focus, body.cyan .btn-primary:active.disabled:hover, body.cyan .btn-primary:active.disabled:focus, body.cyan .btn-primary:active.disabled.focus, body.cyan .btn-primary:active[disabled]:hover, body.cyan .btn-primary:active[disabled]:focus, body.cyan .btn-primary:active[disabled].focus, fieldset[disabled] body.cyan .btn-primary:active:hover, fieldset[disabled] body.cyan .btn-primary:active:focus, fieldset[disabled] body.cyan .btn-primary:active.focus {
 	background-color: #e54e53;
 	border-color: #e54e53;
 }
-body.red .btn-primary:hover .badge, body.red .btn-primary:focus .badge, body.red .btn-primary:active .badge {
+body.cyan .btn-primary:hover .badge, body.cyan .btn-primary:focus .badge, body.cyan .btn-primary:active .badge {
 	color: #e54e53;
 	background-color: #fff;
 }
-body.red .btn-primary:hover:hover, body.red .btn-primary:hover:focus, body.red .btn-primary:hover.focus, body.red .btn-primary:focus:hover, body.red .btn-primary:focus:focus, body.red .btn-primary:focus.focus, body.red .btn-primary:active:hover, body.red .btn-primary:active:focus, body.red .btn-primary:active.focus {
+body.cyan .btn-primary:hover:hover, body.cyan .btn-primary:hover:focus, body.cyan .btn-primary:hover.focus, body.cyan .btn-primary:focus:hover, body.cyan .btn-primary:focus:focus, body.cyan .btn-primary:focus.focus, body.cyan .btn-primary:active:hover, body.cyan .btn-primary:active:focus, body.cyan .btn-primary:active.focus {
 	color: #fff;
 	background-color: #e54e53;
 	border-color: #e54e53;
 	text-decoration: none;
 }
-body.red .section-heading span {
+body.cyan .section-heading span {
 	color: #e54e53;
 }
-body.red .navbar-inverse .navbar-nav > li > a:hover, body.red .navbar-inverse .navbar-nav > li > a:focus {
-	color: #e54e53;
-	background-color: transparent;
-	border-bottom-width: 5px;
-	border-bottom-style: solid;
-	border-bottom-color: #e54e53;
-}
-body.red .navbar-inverse .navbar-nav > .active > a, body.red .navbar-inverse .navbar-nav > .active > a:hover, body.red .navbar-inverse .navbar-nav > .active > a:focus {
+body.cyan .navbar-inverse .navbar-nav > li > a:hover, body.cyan .navbar-inverse .navbar-nav > li > a:focus {
 	color: #e54e53;
 	background-color: transparent;
 	border-bottom-width: 5px;
 	border-bottom-style: solid;
 	border-bottom-color: #e54e53;
 }
-body.red #myCarousel .carousel-indicators .active {
+body.cyan .navbar-inverse .navbar-nav > .active > a, body.cyan .navbar-inverse .navbar-nav > .active > a:hover, body.cyan .navbar-inverse .navbar-nav > .active > a:focus {
+	color: #e54e53;
+	background-color: transparent;
+	border-bottom-width: 5px;
+	border-bottom-style: solid;
+	border-bottom-color: #e54e53;
+}
+body.cyan #myCarousel .carousel-indicators .active {
 	background-color: #e54e53;
 	border-color: #e54e53;
 }
-body.red #features a.readmore {
+body.cyan #features a.readmore {
 	color: #e54e53;
 	font-weight: bold;
 	text-transform: uppercase;
 }
-body.red #process .process-block:hover .process-icon {
+body.cyan #process .process-block:hover .process-icon {
 	background-color: #e54e53;
 }
-body.red #process .process-block:hover .process-icon-holder {
+body.cyan #process .process-block:hover .process-icon-holder {
 	border-color: #e54e53;
 }
-body.red #process .process-block:hover .process-border {
+body.cyan #process .process-block:hover .process-border {
 	border: 20px solid rgba(229, 78, 83, 0.2);
 }
-body.red #testimonial .user-info {
+body.cyan #testimonial .user-info {
 	display: inline-block;
 }
-body.red #testimonial .user-info p {
+body.cyan #testimonial .user-info p {
 	color: #e54e53;
 }
-body.red #footer a:hover {
+body.cyan #footer a:hover {
 	color: #e54e53;
 }
-body.red #footer a:hover i {
+body.cyan #footer a:hover i {
 	color: #e54e53;
 }
-body.red #footer .footer-block hr {
+body.cyan #footer .footer-block hr {
 	background-color: #e54e53;
 	width: 50px;
 	height: 3px;
@@ -344,16 +344,16 @@ body.red #footer .footer-block hr {
 	margin-top: 0px;
 	display: inline-block;
 }
-body.red #bottom-footer .copyright a {
+body.cyan #bottom-footer .copyright a {
 	color: #e54e53;
 }
-body.red #bottom-footer .copyright a:hover {
+body.cyan #bottom-footer .copyright a:hover {
 	text-decoration: underline;
 }
-body.red #bottom-footer a:hover {
+body.cyan #bottom-footer a:hover {
 	color: #e54e53;
 }
-body.red #panel .open {
+body.cyan #panel .open {
 	background-color: #e54e53;
 	display: block;
 	width: 42px;
@@ -366,44 +366,44 @@ body.red #panel .open {
 	z-index: 1000;
 	position: absolute;
 }
-body.red #skills .progress.color .progress-bar {
+body.cyan #skills .progress.color .progress-bar {
 	border-color: #e54e53;
 }
-body.red #skills .progress.color .progress-value {
+body.cyan #skills .progress.color .progress-value {
 	color: #fff;
 	background-color: #e54e53;
 }
-body.red #skills .progress.progress-bar-1 .progress-left .progress-bar {
+body.cyan #skills .progress.progress-bar-1 .progress-left .progress-bar {
 	animation: loading-2 1.5s linear forwards 1.8s;
 }
-body.red #skills .progress.progress-bar-2 .progress-left .progress-bar {
+body.cyan #skills .progress.progress-bar-2 .progress-left .progress-bar {
 	animation: loading-3 1s linear forwards 1.8s;
 }
-body.red #skills .progress.progress-bar-3 .progress-left .progress-bar {
+body.cyan #skills .progress.progress-bar-3 .progress-left .progress-bar {
 	animation: loading-4 0.4s linear forwards 1.8s;
 }
-body.red #skills .progress.progress-bar-4 .progress-left .progress-bar {
+body.cyan #skills .progress.progress-bar-4 .progress-left .progress-bar {
 	animation: loading-5 1.2s linear forwards 1.8s;
 }
-body.red #team-member .qodef-circle-animate {
+body.cyan #team-member .qodef-circle-animate {
 	background-color: #e54e53;
 }
-body.red #portfolio .portfolio-hover {
+body.cyan #portfolio .portfolio-hover {
 	background-color: #e54e53;
 }
-body.red #contact-page .submit-button {
+body.cyan #contact-page .submit-button {
 	background: #e54e53;
 }
-body.red #faq .icon-circle {
+body.cyan #faq .icon-circle {
 	background: #e54e53;
 }
-body.red #faq .panel-title a:hover, body.red #faq .panel-title a:active {
+body.cyan #faq .panel-title a:hover, body.cyan #faq .panel-title a:active {
 	color: #e54e53;
 }
-body.red #features-page .right-background {
+body.cyan #features-page .right-background {
 	background-color: #e54e53;
 }
-body.red #features-page .right-background:before {
+body.cyan #features-page .right-background:before {
 	right: -999em;
 	background: #e54e53;
 	content: '';
@@ -413,33 +413,33 @@ body.red #features-page .right-background:before {
 	top: 0;
 	bottom: 0;
 }
-body.red #features-page .iconbox-style.icon-color i.boxicon {
+body.cyan #features-page .iconbox-style.icon-color i.boxicon {
 	color: #e54e53 !important;
 }
-body.red #features-page .flip .icon-color.card .back {
+body.cyan #features-page .flip .icon-color.card .back {
 	background: #e54e53;
 }
-body.red #features-page .divider5 {
+body.cyan #features-page .divider5 {
 	border-bottom-color: #e54e53;
 }
-body.red #features-page .feature-section-3-left {
+body.cyan #features-page .feature-section-3-left {
 	color: #e54e53;
 }
-body.red #features-page .feature-section-3-left h1 {
+body.cyan #features-page .feature-section-3-left h1 {
 	color: #e54e53;
 }
-body.red #features-page .feature-section-3-right {
+body.cyan #features-page .feature-section-3-right {
 	background-color: #e54e53;
 }
-body.red #features-page .pricing-plan-2 {
+body.cyan #features-page .pricing-plan-2 {
 	background-color: #e54e53;
 }
-body.red #features-page hr {
+body.cyan #features-page hr {
 	background-color: #e54e53;
 }
-body.red #features-page .right-section {
+body.cyan #features-page .right-section {
 	background-color: #e54e53;
 }
-body.red #login-reg .form-box .btn {
+body.cyan #login-reg .form-box .btn {
 	background-color: #e54e53;
 }
