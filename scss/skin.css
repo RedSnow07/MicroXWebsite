@@ -1,14 +1,6 @@
-/******************* cyan THEME *******************/
+/******************* CYAN THEME *******************/
 body.cyan span {
 	color: #e54e53;
-}
-body.cyan .slide:hover, body.cyan .slide:focus {
-	box-shadow: inset 15.5em 0 0 0 #e54e53;
-}
-body.cyan .btn-primary:focus, body.cyan .btn-primary.focus {
-	color: #fff;
-	background-color: #e54e53;
-	border-color: #e54e53;
 }
 body.cyan .btn-primary {
 	padding: 15px 50px;
@@ -23,22 +15,22 @@ body.cyan .btn-primary {
 body.cyan .btn-primary:focus, body.cyan .btn-primary.focus {
 	color: #e54e53;
 	background-color: #e6e6e6;
-	border-color: #9d171b;
+	border-color: #0b5157;
 }
 body.cyan .btn-primary:hover {
 	color: #e54e53;
 	background-color: #e6e6e6;
-	border-color: #d61f26;
+	border-color: #138892;
 }
 body.cyan .btn-primary:active, body.cyan .btn-primary.active, .open > body.cyan .btn-primary.dropdown-toggle {
 	color: #e54e53;
 	background-color: #e6e6e6;
-	border-color: #d61f26;
+	border-color: #138892;
 }
 body.cyan .btn-primary:active:hover, body.cyan .btn-primary:active:focus, body.cyan .btn-primary:active.focus, body.cyan .btn-primary.active:hover, body.cyan .btn-primary.active:focus, body.cyan .btn-primary.active.focus, .open > body.cyan .btn-primary.dropdown-toggle:hover, .open > body.cyan .btn-primary.dropdown-toggle:focus, .open > body.cyan .btn-primary.dropdown-toggle.focus {
 	color: #e54e53;
 	background-color: #d4d4d4;
-	border-color: #9d171b;
+	border-color: #0b5157;
 }
 body.cyan .btn-primary:active, body.cyan .btn-primary.active, .open > body.cyan .btn-primary.dropdown-toggle {
 	background-image: none;
@@ -59,23 +51,23 @@ body.cyan .btn-primary:hover, body.cyan .btn-primary:focus, body.cyan .btn-prima
 }
 body.cyan .btn-primary:hover:focus, body.cyan .btn-primary:hover.focus, body.cyan .btn-primary:focus:focus, body.cyan .btn-primary:focus.focus, body.cyan .btn-primary:active:focus, body.cyan .btn-primary:active.focus {
 	color: #fff;
-	background-color: #de2228;
-	border-color: #9d171b;
+	background-color: #14909b;
+	border-color: #0b5157;
 }
 body.cyan .btn-primary:hover:hover, body.cyan .btn-primary:focus:hover, body.cyan .btn-primary:active:hover {
 	color: #fff;
-	background-color: #de2228;
-	border-color: #d61f26;
+	background-color: #14909b;
+	border-color: #138892;
 }
 body.cyan .btn-primary:hover:active, body.cyan .btn-primary:hover.active, .open > body.cyan .btn-primary:hover.dropdown-toggle, body.cyan .btn-primary:focus:active, body.cyan .btn-primary:focus.active, .open > body.cyan .btn-primary:focus.dropdown-toggle, body.cyan .btn-primary:active:active, body.cyan .btn-primary:active.active, .open > body.cyan .btn-primary:active.dropdown-toggle {
 	color: #fff;
-	background-color: #de2228;
-	border-color: #d61f26;
+	background-color: #14909b;
+	border-color: #138892;
 }
 body.cyan .btn-primary:hover:active:hover, body.cyan .btn-primary:hover:active:focus, body.cyan .btn-primary:hover:active.focus, body.cyan .btn-primary:hover.active:hover, body.cyan .btn-primary:hover.active:focus, body.cyan .btn-primary:hover.active.focus, .open > body.cyan .btn-primary:hover.dropdown-toggle:hover, .open > body.cyan .btn-primary:hover.dropdown-toggle:focus, .open > body.cyan .btn-primary:hover.dropdown-toggle.focus, body.cyan .btn-primary:focus:active:hover, body.cyan .btn-primary:focus:active:focus, body.cyan .btn-primary:focus:active.focus, body.cyan .btn-primary:focus.active:hover, body.cyan .btn-primary:focus.active:focus, body.cyan .btn-primary:focus.active.focus, .open > body.cyan .btn-primary:focus.dropdown-toggle:hover, .open > body.cyan .btn-primary:focus.dropdown-toggle:focus, .open > body.cyan .btn-primary:focus.dropdown-toggle.focus, body.cyan .btn-primary:active:active:hover, body.cyan .btn-primary:active:active:focus, body.cyan .btn-primary:active:active.focus, body.cyan .btn-primary:active.active:hover, body.cyan .btn-primary:active.active:focus, body.cyan .btn-primary:active.active.focus, .open > body.cyan .btn-primary:active.dropdown-toggle:hover, .open > body.cyan .btn-primary:active.dropdown-toggle:focus, .open > body.cyan .btn-primary:active.dropdown-toggle.focus {
 	color: #fff;
-	background-color: #c01c22;
-	border-color: #9d171b;
+	background-color: #10737b;
+	border-color: #0b5157;
 }
 body.cyan .btn-primary:hover:active, body.cyan .btn-primary:hover.active, .open > body.cyan .btn-primary:hover.dropdown-toggle, body.cyan .btn-primary:focus:active, body.cyan .btn-primary:focus.active, .open > body.cyan .btn-primary:focus.dropdown-toggle, body.cyan .btn-primary:active:active, body.cyan .btn-primary:active.active, .open > body.cyan .btn-primary:active.dropdown-toggle {
 	background-image: none;
@@ -106,23 +98,23 @@ body.cyan .btn-default {
 }
 body.cyan .btn-default:focus, body.cyan .btn-default.focus {
 	color: #fff;
-	background-color: #de2228;
-	border-color: #9d171b;
+	background-color: #14909b;
+	border-color: #0b5157;
 }
 body.cyan .btn-default:hover {
 	color: #fff;
-	background-color: #de2228;
-	border-color: #d61f26;
+	background-color: #14909b;
+	border-color: #138892;
 }
 body.cyan .btn-default:active, body.cyan .btn-default.active, .open > body.cyan .btn-default.dropdown-toggle {
 	color: #fff;
-	background-color: #de2228;
-	border-color: #d61f26;
+	background-color: #14909b;
+	border-color: #138892;
 }
 body.cyan .btn-default:active:hover, body.cyan .btn-default:active:focus, body.cyan .btn-default:active.focus, body.cyan .btn-default.active:hover, body.cyan .btn-default.active:focus, body.cyan .btn-default.active.focus, .open > body.cyan .btn-default.dropdown-toggle:hover, .open > body.cyan .btn-default.dropdown-toggle:focus, .open > body.cyan .btn-default.dropdown-toggle.focus {
 	color: #fff;
-	background-color: #c01c22;
-	border-color: #9d171b;
+	background-color: #10737b;
+	border-color: #0b5157;
 }
 body.cyan .btn-default:active, body.cyan .btn-default.active, .open > body.cyan .btn-default.dropdown-toggle {
 	background-image: none;
@@ -146,23 +138,23 @@ body.cyan .btn-default:hover {
 }
 body.cyan .btn-default:hover:focus, body.cyan .btn-default:hover.focus {
 	color: #fff;
-	background-color: #de2228;
-	border-color: #9d171b;
+	background-color: #14909b;
+	border-color: #0b5157;
 }
 body.cyan .btn-default:hover:hover {
 	color: #fff;
-	background-color: #de2228;
-	border-color: #d61f26;
+	background-color: #14909b;
+	border-color: #138892;
 }
 body.cyan .btn-default:hover:active, body.cyan .btn-default:hover.active, .open > body.cyan .btn-default:hover.dropdown-toggle {
 	color: #fff;
-	background-color: #de2228;
-	border-color: #d61f26;
+	background-color: #14909b;
+	border-color: #138892;
 }
 body.cyan .btn-default:hover:active:hover, body.cyan .btn-default:hover:active:focus, body.cyan .btn-default:hover:active.focus, body.cyan .btn-default:hover.active:hover, body.cyan .btn-default:hover.active:focus, body.cyan .btn-default:hover.active.focus, .open > body.cyan .btn-default:hover.dropdown-toggle:hover, .open > body.cyan .btn-default:hover.dropdown-toggle:focus, .open > body.cyan .btn-default:hover.dropdown-toggle.focus {
 	color: #fff;
-	background-color: #c01c22;
-	border-color: #9d171b;
+	background-color: #10737b;
+	border-color: #0b5157;
 }
 body.cyan .btn-default:hover:active, body.cyan .btn-default:hover.active, .open > body.cyan .btn-default:hover.dropdown-toggle {
 	background-image: none;
@@ -176,11 +168,22 @@ body.cyan .btn-default:hover .badge {
 	background-color: #fff;
 }
 body.cyan .btn-default:hover:hover, body.cyan .btn-default:hover:focus, body.cyan .btn-default:hover.focus {
-	color: #fff;
+	color: #777777;
 	text-decoration: none;
 }
 body.cyan .btn-default:hover i {
 	color: #777777;
+}
+body.cyan .fillbtn:hover, body.cyan .fillbtn:focus {
+	box-shadow: inset 0 0 0 2em #e54e53;
+}
+body.cyan .slide:hover, body.cyan .slide:focus {
+	box-shadow: inset 15.5em 0 0 0 #e54e53;
+}
+body.cyan .btn-primary:focus, body.cyan .btn-primary.focus {
+	color: #fff;
+	background-color: #e54e53;
+	border-color: #e54e53;
 }
 body.cyan #top-header ul.contact_links a:hover {
 	color: #e54e53;
@@ -213,23 +216,23 @@ body.cyan .btn-default:hover {
 }
 body.cyan .btn-default:hover:focus, body.cyan .btn-default:hover.focus {
 	color: #fff;
-	background-color: #de2228;
-	border-color: #9d171b;
+	background-color: #14909b;
+	border-color: #0b5157;
 }
 body.cyan .btn-default:hover:hover {
 	color: #fff;
-	background-color: #de2228;
-	border-color: #d61f26;
+	background-color: #14909b;
+	border-color: #138892;
 }
 body.cyan .btn-default:hover:active, body.cyan .btn-default:hover.active, .open > body.cyan .btn-default:hover.dropdown-toggle {
 	color: #fff;
-	background-color: #de2228;
-	border-color: #d61f26;
+	background-color: #14909b;
+	border-color: #138892;
 }
 body.cyan .btn-default:hover:active:hover, body.cyan .btn-default:hover:active:focus, body.cyan .btn-default:hover:active.focus, body.cyan .btn-default:hover.active:hover, body.cyan .btn-default:hover.active:focus, body.cyan .btn-default:hover.active.focus, .open > body.cyan .btn-default:hover.dropdown-toggle:hover, .open > body.cyan .btn-default:hover.dropdown-toggle:focus, .open > body.cyan .btn-default:hover.dropdown-toggle.focus {
 	color: #fff;
-	background-color: #c01c22;
-	border-color: #9d171b;
+	background-color: #10737b;
+	border-color: #0b5157;
 }
 body.cyan .btn-default:hover:active, body.cyan .btn-default:hover.active, .open > body.cyan .btn-default:hover.dropdown-toggle {
 	background-image: none;
@@ -254,23 +257,23 @@ body.cyan .btn-primary:hover, body.cyan .btn-primary:focus, body.cyan .btn-prima
 }
 body.cyan .btn-primary:hover:focus, body.cyan .btn-primary:hover.focus, body.cyan .btn-primary:focus:focus, body.cyan .btn-primary:focus.focus, body.cyan .btn-primary:active:focus, body.cyan .btn-primary:active.focus {
 	color: #fff;
-	background-color: #de2228;
-	border-color: #9d171b;
+	background-color: #14909b;
+	border-color: #0b5157;
 }
 body.cyan .btn-primary:hover:hover, body.cyan .btn-primary:focus:hover, body.cyan .btn-primary:active:hover {
 	color: #fff;
-	background-color: #de2228;
-	border-color: #d61f26;
+	background-color: #14909b;
+	border-color: #138892;
 }
 body.cyan .btn-primary:hover:active, body.cyan .btn-primary:hover.active, .open > body.cyan .btn-primary:hover.dropdown-toggle, body.cyan .btn-primary:focus:active, body.cyan .btn-primary:focus.active, .open > body.cyan .btn-primary:focus.dropdown-toggle, body.cyan .btn-primary:active:active, body.cyan .btn-primary:active.active, .open > body.cyan .btn-primary:active.dropdown-toggle {
 	color: #fff;
-	background-color: #de2228;
-	border-color: #d61f26;
+	background-color: #14909b;
+	border-color: #138892;
 }
 body.cyan .btn-primary:hover:active:hover, body.cyan .btn-primary:hover:active:focus, body.cyan .btn-primary:hover:active.focus, body.cyan .btn-primary:hover.active:hover, body.cyan .btn-primary:hover.active:focus, body.cyan .btn-primary:hover.active.focus, .open > body.cyan .btn-primary:hover.dropdown-toggle:hover, .open > body.cyan .btn-primary:hover.dropdown-toggle:focus, .open > body.cyan .btn-primary:hover.dropdown-toggle.focus, body.cyan .btn-primary:focus:active:hover, body.cyan .btn-primary:focus:active:focus, body.cyan .btn-primary:focus:active.focus, body.cyan .btn-primary:focus.active:hover, body.cyan .btn-primary:focus.active:focus, body.cyan .btn-primary:focus.active.focus, .open > body.cyan .btn-primary:focus.dropdown-toggle:hover, .open > body.cyan .btn-primary:focus.dropdown-toggle:focus, .open > body.cyan .btn-primary:focus.dropdown-toggle.focus, body.cyan .btn-primary:active:active:hover, body.cyan .btn-primary:active:active:focus, body.cyan .btn-primary:active:active.focus, body.cyan .btn-primary:active.active:hover, body.cyan .btn-primary:active.active:focus, body.cyan .btn-primary:active.active.focus, .open > body.cyan .btn-primary:active.dropdown-toggle:hover, .open > body.cyan .btn-primary:active.dropdown-toggle:focus, .open > body.cyan .btn-primary:active.dropdown-toggle.focus {
 	color: #fff;
-	background-color: #c01c22;
-	border-color: #9d171b;
+	background-color: #10737b;
+	border-color: #0b5157;
 }
 body.cyan .btn-primary:hover:active, body.cyan .btn-primary:hover.active, .open > body.cyan .btn-primary:hover.dropdown-toggle, body.cyan .btn-primary:focus:active, body.cyan .btn-primary:focus.active, .open > body.cyan .btn-primary:focus.dropdown-toggle, body.cyan .btn-primary:active:active, body.cyan .btn-primary:active.active, .open > body.cyan .btn-primary:active.dropdown-toggle {
 	background-image: none;
@@ -322,7 +325,7 @@ body.cyan #process .process-block:hover .process-icon-holder {
 	border-color: #e54e53;
 }
 body.cyan #process .process-block:hover .process-border {
-	border: 20px solid rgba(229, 78, 83, 0.2);
+	border: 20px solid rgba(26, 186, 200, 0.2);
 }
 body.cyan #testimonial .user-info {
 	display: inline-block;
@@ -400,6 +403,9 @@ body.cyan #faq .icon-circle {
 body.cyan #faq .panel-title a:hover, body.cyan #faq .panel-title a:active {
 	color: #e54e53;
 }
+body.cyan #features-page .iconbox-style.icon-color i.boxicon {
+	color: #e54e53;
+}
 body.cyan #features-page .right-background {
 	background-color: #e54e53;
 }
@@ -412,9 +418,6 @@ body.cyan #features-page .right-background:before {
 	width: 999em;
 	top: 0;
 	bottom: 0;
-}
-body.cyan #features-page .iconbox-style.icon-color i.boxicon {
-	color: #e54e53 !important;
 }
 body.cyan #features-page .flip .icon-color.card .back {
 	background: #e54e53;
