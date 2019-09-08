@@ -5811,7 +5811,7 @@ body a {
 	color: #777777;
 }
 body a:hover, body a:active {
-	color: #159eee;
+	color: #e54e53;
 	text-decoration: none;
 }
 body ul {
@@ -5922,7 +5922,7 @@ body #top-header ul.contact_links a {
 	color: #fff;
 }
 body #top-header ul.contact_links a:hover {
-	color: #159eee;
+	color: #e54e53;
 }
 body #top-header ul.social_links {
 	float: right;
@@ -6039,13 +6039,13 @@ body .navbar-inverse .navbar-nav > li > a:hover, body .navbar-inverse .navbar-na
 	background-color: transparent;
 	border-bottom-width: 5px;
 	border-bottom-style: solid;
-	border-bottom-color: #159eee;
+	border-bottom-color: #e54e53;
 }
 body .navbar-inverse .navbar-nav > .active > a, body .navbar-inverse .navbar-nav > .active > a:hover, body .navbar-inverse .navbar-nav > .active > a:focus {
 	background-color: transparent;
 	border-bottom-width: 5px;
 	border-bottom-style: solid;
-	border-bottom-color: #159eee;
+	border-bottom-color: #e54e53;
 }
 @media screen and (max-width: 1024px) {
 body .navbar-nav > li > a {
