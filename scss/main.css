@@ -5966,7 +5966,38 @@ body header {
 	transition: 0.8s;
 	z-index: 999;
 }
-
+body header.sticky {
+	position: fixed;
+	font-size: 13px;
+	line-height: 70px;
+	height: 70px;
+	width: 100%;
+	background: #fff;
+	text-align: left;
+	top: 0px;
+	-webkit-box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
+	-moz-box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
+	box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
+}
+body header.sticky .navbar-nav > li > a {
+	padding-top: 25px;
+	padding-bottom: 20px;
+	transition: 0.8s;
+	z-index: 999;
+}
+body header.sticky .navbar-brand {
+	height: 70px;
+	padding: 7px 15px;
+	line-height: 15px;
+	transition: 0.8s;
+	z-index: 999;
+}
+body header.sticky .navbar-brand h1 {
+	font-size: 35px;
+}
+body header.sticky .navbar-brand span {
+	font-size: 8px;
+}
 body .navbar {
 	margin-bottom: 0px;
 }
