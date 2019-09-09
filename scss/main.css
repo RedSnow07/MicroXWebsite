@@ -5912,7 +5912,7 @@ body #top-header {
 body #top-header ul.contact_links li {
 	float: left;
 	display: inline-block;
-	margin-right: 20px;
+	margin-right: 10px;
 }
 body #top-header ul.contact_links i {
 	margin-right: 10px;
@@ -6152,10 +6152,12 @@ body #myCarousel .carousel-caption .slider_btn {
 	margin: 30px 0px;
 }
 body #myCarousel .carousel-caption h1.banner_heading {
-	font-size: 45px;
+	font-size: 100px;
 	font-weight: bolder;
 	margin-bottom: 30px;
 	text-transform: uppercase;
+	text-align: right;
+	margin-right: 250px;
 }
 body #myCarousel .carousel-caption p.banner_txt {
 	font-size: 20px;
