@@ -5959,7 +5959,7 @@ body #myCarousel .carousel {
 	height: 600px;
 }
 body #myCarousel .carousel-inner {
-	height: 600px;
+	height: 800px;
 }
 body #myCarousel .item {
 	background-position: 50% 50%;
@@ -5967,7 +5967,6 @@ body #myCarousel .item {
 	background-attachment: fixed;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
-	-o-background-size: cover;
 	background-size: cover;
 	height: 100%;
 	z-index: 1;
