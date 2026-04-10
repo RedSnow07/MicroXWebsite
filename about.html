@@ -1,437 +1,403 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>About</title>
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="scss/main.css">
-    <link rel="stylesheet" href="scss/skin.css">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About Us — Micro EXE Tech Services</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --red: #e8251a; --red-dark: #b01a12; --red-dim: rgba(232,37,26,0.12);
+    --black: #0d0d0d; --dark: #141414; --dark2: #1c1c1c; --dark3: #242424;
+    --mid: #3a3a3a; --light: #a8a8a8; --lighter: #d4d4d4; --white: #f5f3ef;
+    --font-display: 'Bebas Neue', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+    --font-mono: 'DM Mono', monospace;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font-body); background: var(--black); color: var(--white); overflow-x: hidden; line-height: 1.6; }
+  .topbar { background: var(--dark2); border-bottom: 1px solid var(--mid); padding: 8px 0; font-size: 12px; color: var(--light); letter-spacing: 0.04em; }
+  .topbar-inner { max-width: 1200px; margin: 0 auto; padding: 0 32px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+  .topbar-links { display: flex; gap: 24px; align-items: center; }
+  .topbar-links a, .topbar-social a { color: var(--light); text-decoration: none; transition: color 0.2s; }
+  .topbar-links a:hover, .topbar-social a:hover { color: var(--red); }
+  .topbar-links i { margin-right: 6px; font-size: 11px; }
+  .topbar-social { display: flex; gap: 16px; }
+  .topbar-social a { font-size: 14px; }
+  nav { position: sticky; top: 0; z-index: 100; background: rgba(13,13,13,0.95); backdrop-filter: blur(16px); border-bottom: 1px solid var(--dark3); }
+  .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 32px; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .logo-mark { width: 38px; height: 38px; background: var(--red); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 22px; color: #fff; letter-spacing: -1px; }
+  .logo-text { font-family: var(--font-display); font-size: 28px; letter-spacing: 3px; color: var(--white); line-height: 1; }
+  .logo-sub { font-family: var(--font-mono); font-size: 9px; letter-spacing: 2px; color: var(--red); text-transform: uppercase; display: block; margin-top: -2px; }
+  .nav-links { display: flex; gap: 4px; list-style: none; }
+  .nav-links a { padding: 8px 14px; text-decoration: none; color: var(--lighter); font-size: 13px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.2s; position: relative; }
+  .nav-links a::after { content: ''; position: absolute; bottom: 0; left: 14px; right: 14px; height: 2px; background: var(--red); transform: scaleX(0); transition: transform 0.2s; }
+  .nav-links a:hover { color: var(--white); }
+  .nav-links a:hover::after, .nav-links a.active::after { transform: scaleX(1); }
+  .nav-links a.active { color: var(--white); }
+  .nav-cta { background: var(--red); color: #fff !important; padding: 8px 20px !important; }
+  .nav-cta::after { display: none !important; }
+  .nav-cta:hover { background: var(--red-dark) !important; }
+  .hamburger { display: none; background: none; border: none; cursor: pointer; color: var(--white); font-size: 22px; }
+  .mobile-nav { display: none; position: fixed; inset: 0; background: rgba(13,13,13,0.98); z-index: 200; padding: 80px 32px 40px; flex-direction: column; gap: 4px; }
+  .mobile-nav.open { display: flex; }
+  .mobile-nav-close { position: absolute; top: 20px; right: 24px; background: none; border: none; color: var(--white); font-size: 28px; cursor: pointer; }
+  .mobile-nav a { font-family: var(--font-display); font-size: 40px; letter-spacing: 3px; color: var(--lighter); text-decoration: none; transition: color 0.2s; border-bottom: 1px solid var(--dark3); padding: 16px 0; }
+  .mobile-nav a:hover { color: var(--red); }
+  section { padding: 96px 32px; }
+  .section-inner { max-width: 1200px; margin: 0 auto; }
+  .section-tag { font-family: var(--font-mono); font-size: 11px; letter-spacing: 3px; color: var(--red); text-transform: uppercase; display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+  .section-tag::before { content: ''; width: 24px; height: 1px; background: var(--red); }
+  h2.section-title { font-family: var(--font-display); font-size: clamp(40px, 5vw, 64px); letter-spacing: 2px; line-height: 1; color: var(--white); margin-bottom: 20px; }
+  h2.section-title span { color: var(--red); }
+  .section-sub { font-size: 16px; color: var(--light); max-width: 560px; line-height: 1.75; }
+  .btn-primary { background: var(--red); color: #fff; border: 2px solid var(--red); padding: 14px 32px; font-family: var(--font-body); font-size: 14px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; cursor: pointer; transition: all 0.2s; display: inline-block; }
+  .btn-primary:hover { background: var(--red-dark); border-color: var(--red-dark); }
+  .page-hero { position: relative; padding: 80px 32px; background: var(--dark); overflow: hidden; border-bottom: 1px solid var(--dark3); }
+  .page-hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 60% 100% at 80% 50%, rgba(232,37,26,0.05) 0%, transparent 70%), repeating-linear-gradient(0deg, transparent, transparent 59px, rgba(255,255,255,0.02) 59px, rgba(255,255,255,0.02) 60px), repeating-linear-gradient(90deg, transparent, transparent 59px, rgba(255,255,255,0.02) 59px, rgba(255,255,255,0.02) 60px); }
+  .page-hero-inner { max-width: 1200px; margin: 0 auto; position: relative; }
+  .page-hero-title { font-family: var(--font-display); font-size: clamp(48px, 7vw, 96px); letter-spacing: 3px; line-height: 0.9; color: var(--white); margin-bottom: 24px; }
+  .page-hero-title span { color: var(--red); }
+  .breadcrumb { display: flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 12px; letter-spacing: 1px; color: var(--light); list-style: none; padding: 0; background: transparent; border-radius: 0; margin: 0; }
+  .breadcrumb a { color: var(--light); text-decoration: none; transition: color 0.2s; }
+  .breadcrumb a:hover { color: var(--red); }
+  .breadcrumb .sep { color: var(--mid); }
+  .breadcrumb .current { color: var(--red); }
+  .cta-band { background: var(--red); padding: 72px 32px; }
+  .cta-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
+  .cta-band h2 { font-family: var(--font-display); font-size: clamp(36px, 4vw, 56px); letter-spacing: 2px; color: #fff; line-height: 1; }
+  .cta-band p { color: rgba(255,255,255,0.75); font-size: 15px; margin-top: 10px; max-width: 480px; }
+  .btn-white { background: #fff; color: var(--red); border: 2px solid #fff; padding: 14px 36px; font-family: var(--font-body); font-size: 14px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; white-space: nowrap; transition: all 0.2s; display: inline-block; }
+  .btn-white:hover { background: transparent; color: #fff; }
+  footer { background: var(--dark2); border-top: 1px solid var(--dark3); }
+  .footer-main { max-width: 1200px; margin: 0 auto; padding: 64px 32px 48px; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
+  .footer-brand .logo { margin-bottom: 20px; display: inline-flex; }
+  .footer-brand p { font-size: 14px; color: var(--light); line-height: 1.7; max-width: 280px; margin-bottom: 24px; }
+  .footer-social { display: flex; gap: 12px; }
+  .footer-social a { width: 36px; height: 36px; background: var(--dark3); border: 1px solid var(--mid); display: flex; align-items: center; justify-content: center; color: var(--light); font-size: 14px; text-decoration: none; transition: all 0.2s; }
+  .footer-social a:hover { background: var(--red); border-color: var(--red); color: #fff; }
+  .footer-col h4 { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--white); margin-bottom: 20px; font-weight: 600; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-col a { color: var(--light); text-decoration: none; font-size: 14px; transition: color 0.2s; }
+  .footer-col a:hover { color: var(--red); }
+  .footer-contact-item { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 14px; }
+  .footer-contact-item i { color: var(--red); font-size: 13px; margin-top: 3px; }
+  .footer-contact-item span { font-size: 13px; color: var(--light); line-height: 1.5; }
+  .footer-bottom { border-top: 1px solid var(--dark3); padding: 20px 32px; }
+  .footer-bottom-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+  .footer-bottom p { font-size: 12px; color: var(--mid); letter-spacing: 0.04em; }
+  .footer-bottom span { color: var(--red); }
+  .map-wrap { border: 1px solid var(--dark3); overflow: hidden; height: 240px; }
+  .map-wrap iframe { width: 100%; height: 100%; border: 0; filter: grayscale(1) invert(0.85) contrast(1.1); }
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-    <script src="./script/index.js"></script>
+  /* ─── ABOUT PAGE ─── */
+  #about-story { background: var(--dark); }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; margin-top: 64px; }
+  .about-text p { color: var(--light); font-size: 16px; line-height: 1.8; margin-bottom: 20px; }
+  .about-features { margin-top: 36px; display: flex; flex-direction: column; gap: 16px; }
+  .about-feat { display: flex; align-items: flex-start; gap: 16px; }
+  .about-feat-icon { width: 40px; height: 40px; min-width: 40px; background: var(--red-dim); border: 1px solid rgba(232,37,26,0.25); display: flex; align-items: center; justify-content: center; color: var(--red); font-size: 16px; }
+  .about-feat h4 { font-size: 14px; font-weight: 600; color: var(--white); margin-bottom: 4px; }
+  .about-feat p { font-size: 13px; color: var(--light); margin: 0; line-height: 1.5; }
+  .about-graphic { position: relative; }
+  .about-big-text { font-family: var(--font-display); font-size: clamp(80px, 12vw, 160px); line-height: 0.85; color: transparent; -webkit-text-stroke: 1px rgba(255,255,255,0.06); letter-spacing: 2px; user-select: none; pointer-events: none; }
+  .about-badge { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: var(--dark2); border: 1px solid var(--mid); padding: 28px 36px; text-align: center; min-width: 220px; }
+  .about-badge-num { font-family: var(--font-display); font-size: 72px; color: var(--red); line-height: 1; }
+  .about-badge-label { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--light); margin-top: 6px; }
 
+  #stats-band { background: var(--black); border-top: 1px solid var(--dark3); border-bottom: 1px solid var(--dark3); padding: 0 32px; }
+  .stats-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; background: var(--dark3); }
+  .stat-item { background: var(--black); padding: 48px 32px; text-align: center; }
+  .stat-num { font-family: var(--font-display); font-size: 64px; color: var(--red); line-height: 1; }
+  .stat-label { font-size: 12px; color: var(--light); letter-spacing: 2px; text-transform: uppercase; margin-top: 8px; }
+
+  #values { background: var(--dark); }
+  .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 56px; }
+  .value-card { background: var(--dark2); border: 1px solid var(--dark3); padding: 36px 28px; transition: border-color 0.2s; position: relative; overflow: hidden; }
+  .value-card::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 100%; background: var(--red); }
+  .value-card:hover { border-color: var(--mid); }
+  .value-icon { font-size: 28px; color: var(--red); margin-bottom: 20px; }
+  .value-card h3 { font-size: 16px; font-weight: 600; color: var(--white); margin-bottom: 12px; }
+  .value-card p { font-size: 14px; color: var(--light); line-height: 1.7; }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+  .fade-up { animation: fadeUp 0.7s ease forwards; }
+  .delay-1 { animation-delay: 0.1s; opacity: 0; }
+  .delay-2 { animation-delay: 0.22s; opacity: 0; }
+
+  @media (max-width: 960px) {
+    .about-grid { grid-template-columns: 1fr; gap: 48px; }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .values-grid { grid-template-columns: 1fr 1fr; }
+    .footer-main { grid-template-columns: 1fr 1fr; gap: 32px; }
+    nav .nav-links { display: none; }
+    .hamburger { display: block; }
+  }
+  @media (max-width: 640px) {
+    section { padding: 64px 20px; }
+    .values-grid { grid-template-columns: 1fr; }
+    .stats-grid { grid-template-columns: 1fr 1fr; }
+    .footer-main { grid-template-columns: 1fr; }
+    .topbar { display: none; }
+    .cta-inner { flex-direction: column; }
+    .page-hero { padding: 60px 20px; }
+    .about-graphic { display: none; }
+  }
+</style>
 </head>
+<body>
 
-<body id="wrapper">
-
-    <section id="top-header">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 col-sm-6 col-xs-12 top-header-links">
-                    <ul class="contact_links">
-                        <li><i class="fa fa-phone"></i><a href="#">+91 848 594 5080</a></li>
-                        <li><i class="fa fa-envelope"></i><a href="#">sales@aspiresoftware.in</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-6 col-sm-6 col-xs-12">
-                    <ul class="social_links">
-                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                        <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                        <li><a href="#"><i class="fa fa-skype"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        </div>
-
-    </section>
-
-    <header>
-        <nav class="navbar navbar-inverse">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-				<span class="sr-only">Toggle navigation</span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			  </button>
-                    <a class="navbar-brand" href="#">
-                        <h1>Aspire</h1><span>Software Solutions</span></a>
-                </div>
-                <div id="navbar" class="collapse navbar-collapse navbar-right">
-                    <ul class="nav navbar-nav">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="features.html">Features</a></li>
-                        <li class="active"><a href="#about">About</a></li>
-                        <li><a href="portfolio.html">Portfolio</a></li>
-                        <li><a href="faq.html">FAQ</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                        <li><a href="login.html">Sign In</a></li>
-                        <li><a href="registration.html">Sign Up</a></li>
-                    </ul>
-                </div>
-                <!--/.nav-collapse -->
-            </div>
-        </nav>
-        <!--/.nav-ends -->
-    </header>
-    <section id="top_banner">
-        <div class="banner">
-            <div class="inner text-center">
-                <h2>Lorem ipsum dolor sit amet</h2>
-            </div>
-        </div>
-        <div class="page_info">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-8 col-sm-8 col-xs-6">
-                        <h4>About</h4>
-                    </div>
-                    <div class="col-md-4 col-sm-4 col-xs-6" style="text-align:right;">Home<span class="sep"> 	/ </span><span class="current"> About</span></div>
-                </div>
-            </div>
-        </div>
-
-        </div>
-    </section>
-
-
-    <section id="about-page-section-3">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-7 text-align">
-                    <div class="section-heading">
-                        <h2>About <span>Us</span></h2>
-                        <p class="subheading">Lorem ipsum send do tempor consectetur ipsum send do tempor.</p>
-                    </div>
-                    <p>
-                        Aenean commodo ligula eget dolor. Aenean massa. Lorem ipsum dolor sit amet, consec tetuer adipis elit, aliquam eget nibh etlibura. Aenean commodo ligula eget dolor. Aenean massa. Lorem ipsum dolor sit amet, consec tetuer adipis elit, aliquam eget nibh
-                        etlibura. Aenean commodo ligula eget dolor. Aenean massa. Lorem ipsum dolor sit amet, consec tetuer adipis elit, aliquam eget nibh etlibura.
-
-                        <br><br> Aenean commodo ligula eget dolor. Aenean massa. Lorem ipsum dolor sit amet, consec tetuer adipis elit, aliquam eget nibh etlibura. Aenean commodo ligula eget dolor. Aenean massa. Lorem ipsum dolor sit amet, consec tetuer
-                        adipis elit, aliquam eget nibh etlibura.
-
-                    </p>
-                    <button type="button" class="btn btn-primary slide">Learn More <i class="fa fa-caret-right"></i></button>
-                </div>
-                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-5">
-                    <img height="" width="auto" src="img/iphone62.png" class="attachment-full img-responsive" alt="">
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-
-    <section id="skills">
-        <div class="titlebar">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12 xol-md-12 col-sm-12 col-xs-12">
-                        <div class="section-heading text-center">
-                            <h2>Our <span>Skills</span></h2>
-                            <p class="subheading">Lorem ipsum dolor sit amet sit legimus copiosae instructior ei ut vix denique fierentis ea saperet inimicu ut qui dolor oratio mnesarchum ea utamur impetus fuisset nam nostrud euismod volumus ne mei.</p>
-                        </div>
-
-
-
-                        <div class="row">
-                            <div class="col-md-3 col-sm-6 col-xs-6 block mybox">
-                                <div class="progress color progress-bar-1">
-                                    <span class="progress-left">
-                    <span class="progress-bar"></span>
-                                    </span>
-                                    <span class="progress-right">
-                    <span class="progress-bar"></span>
-                                    </span>
-                                    <div class="progress-value">90%</div>
-
-                                </div>
-                                <div class="progress-title">
-                                    <h5>Portal Development</h5>
-                                </div>
-                            </div>
-
-                            <div class="col-md-3 col-sm-6 col-xs-6 block mybox">
-                                <div class="progress color progress-bar-2">
-                                    <span class="progress-left">
-                    <span class="progress-bar"></span>
-                                    </span>
-                                    <span class="progress-right">
-                    <span class="progress-bar"></span>
-                                    </span>
-                                    <div class="progress-value">75%</div>
-                                </div>
-                                <div class="progress-title">
-                                    <h5>Enterprise Mobility</h5>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-sm-6 col-xs-6 block mybox">
-                                <div class="progress color progress-bar-3">
-                                    <span class="progress-left">
-                    <span class="progress-bar"></span>
-                                    </span>
-                                    <span class="progress-right">
-                    <span class="progress-bar"></span>
-                                    </span>
-                                    <div class="progress-value">60%</div>
-                                </div>
-                                <div class="progress-title">
-                                    <h5>Start Up</h5>
-                                </div>
-                            </div>
-
-                            <div class="col-md-3 col-sm-6 col-xs-6 block mybox">
-                                <div class="progress color progress-bar-4">
-                                    <span class="progress-left">
-                    <span class="progress-bar"></span>
-                                    </span>
-                                    <span class="progress-right">
-                    <span class="progress-bar"></span>
-                                    </span>
-                                    <div class="progress-value">80%</div>
-                                </div>
-                                <div class="progress-title">
-                                    <h5>Product Development</h5>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-    </section>
-    <section id="team-member">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 xol-md-12 col-sm-12 col-xs-12">
-                    <div class="section-heading text-center">
-                        <h1>Our <span>Team</span></h1>
-                        <p class="subheading">Lorem ipsum dolor sit amet sit legimus copiosae instructior ei ut vix denique fierentis ea saperet inimicu ut qui dolor oratio mnesarchum ea utamur impetus fuisset nam nostrud euismod volumus ne mei.</p>
-                    </div>
-                    <div class="wpb_column vc_column_container col-md-3 col-sm-6 col-xs-6 block mybox">
-                        <div class="vc_column-inner">
-                            <div class="wpb_wrapper">
-                                <div class="our-team main-info-below-image">
-                                    <div class="our-team-inner">
-                                        <div class="our-team-image">
-                                            <img src="img/team-4.jpg" />
-                                            <div class="qodef-circle-animate"></div>
-                                            <div class="our-team-position-icon">
-                                                <span class="qodef-icon-shortcode circle">
-        			<i class="qodef-icon-simple-line-icon qodef-icon-element fa fa-cog"></i>
-            </span>
-                                            </div>
-                                            <h6 class="q_team_position">Developer</h6>
-                                        </div>
-                                        <div class="our-team-info">
-                                            <div class="our-team-title-holder">
-                                                <h5 class="our-team-name">Lorem Ipsum</h5>
-                                            </div>
-                                            <div class='our-team-text-inner'>
-                                                <div class='our-team-description'>
-                                                    <p>Lorem ipsum dolor sit amet sit legimus copiosae instructior ei ut vix</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="wpb_column vc_column_container col-md-3 col-sm-6 col-xs-6 block mybox">
-                        <div class="vc_column-inner">
-                            <div class="wpb_wrapper">
-                                <div class="our-team main-info-below-image">
-                                    <div class="our-team-inner">
-                                        <div class="our-team-image">
-                                            <img src="img/team-4.jpg" />
-                                            <div class="qodef-circle-animate"></div>
-                                            <div class="our-team-position-icon">
-                                                <span class="qodef-icon-shortcode circle">
-        				<i class="qodef-icon-simple-line-icon fa fa-pencil qodef-icon-element"></i>
-    					</span>
-                                            </div>
-                                            <h6 class="q_team_position">Graphic Designer</h6>
-                                        </div>
-                                        <div class="our-team-info">
-                                            <div class="our-team-title-holder">
-                                                <h5 class="our-team-name">Lorem Ipsum</h5>
-                                            </div>
-                                            <div class='our-team-text-inner'>
-                                                <div class='our-team-description'>
-                                                    <p>Lorem ipsum dolor sit amet sit legimus copiosae instructior ei ut vix</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="wpb_column vc_column_container col-md-3 col-sm-6 col-xs-6 block mybox">
-                        <div class="vc_column-inner ">
-                            <div class="wpb_wrapper">
-                                <div class="our-team main-info-below-image">
-                                    <div class="our-team-inner">
-                                        <div class="our-team-image">
-                                            <img src="img/team-4.jpg" />
-                                            <div class="qodef-circle-animate"></div>
-                                            <div class="our-team-position-icon">
-                                                <span class="qodef-icon-shortcode circle">        
-        					<i class="qodef-icon-simple-line-icon fa fa-hashtag qodef-icon-element"></i>
-            		</span>
-                                            </div>
-                                            <h6 class="q_team_position">Accountant</h6>
-                                        </div>
-                                        <div class="our-team-info">
-                                            <div class="our-team-title-holder">
-                                                <h5 class="our-team-name">Lorem Ipsum</h5>
-                                            </div>
-                                            <div class='our-team-text-inner'>
-                                                <div class='our-team-description'>
-                                                    <p>Lorem ipsum dolor sit amet sit legimus copiosae instructior ei ut vix</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="wpb_column vc_column_container col-md-3 col-sm-6 col-xs-6 block mybox">
-                        <div class="vc_column-inner ">
-                            <div class="wpb_wrapper">
-                                <div class="our-team main-info-below-image">
-                                    <div class="our-team-inner">
-                                        <div class="our-team-image">
-                                            <img src="img/team-4.jpg" />
-                                            <div class="qodef-circle-animate"></div>
-                                            <div class="our-team-position-icon">
-                                                <span class="qodef-icon-shortcode circle ">
-						        <i class="qodef-icon-simple-line-icon fa fa-wrench qodef-icon-element" ></i>
-			            </span>
-                                            </div>
-                                            <h6 class="q_team_position">Engineer</h6>
-                                        </div>
-                                        <div class="our-team-info">
-                                            <div class="our-team-title-holder">
-                                                <h5 class="our-team-name">Lorem Ipsum</h5>
-                                            </div>
-                                            <div class='our-team-text-inner'>
-                                                <div class='our-team-description'>
-                                                    <p>Lorem ipsum dolor sit amet sit legimus copiosae instructior ei ut vix</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-
-    <section id="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3 col-sm-3 col-xs-12 block">
-                    <div class="footer-block">
-                        <h4>Address</h4>
-                        <hr/>
-                        <p>Lorem ipsum dolor sit amet sit legimus copiosae instructior ei ut vix denique fierentis ea saperet inimicu ut qui dolor oratio mnesarchum.
-                        </p>
-                        <a href="#" class="learnmore">Learn More <i class="fa fa-caret-right"></i></a>
-                    </div>
-                </div>
-
-                <div class="col-md-3 col-sm-3 col-xs-12 block">
-                    <div class="footer-block">
-                        <h4>Useful Links</h4>
-                        <hr/>
-                        <ul class="footer-links">
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Features</a></li>
-                            <li><a href="#">Portfolio</a></li>
-                            <li><a href="#">Contact</a></li>
-                            <li><a href="#">Sign In</a></li>
-                            <li><a href="#">Sign Up</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="col-md-3 col-sm-3 col-xs-12 block">
-                    <div class="footer-block">
-                        <h4>Community</h4>
-                        <hr/>
-                        <ul class="footer-links">
-                            <li><a href="#">Blog</a></li>
-                            <li><a href="#">Forum</a></li>
-                            <li><a href="#">Free Goods</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="col-md-3 col-sm-3 col-xs-12 <block></block>">
-                    <div class="footer-block">
-                        <h4>Recent Posts</h4>
-                        <hr/>
-                        <ul class="footer-links">
-                            <li>
-                                <a href="#" class="post">Lorem ipsum dolor sit amet</a>
-                                <p class="post-date">May 25, 2017</p>
-                            </li>
-                            <li>
-                                <a href="#" class="post">Lorem ipsum dolor sit amet</a>
-                                <p class="post-date">May 25, 2017</p>
-                            </li>
-                            <li>
-                                <a href="#" class="post">Lorem ipsum dolor sit amet</a>
-                                <p class="post-date">May 25, 2017</p>
-                            </li>
-
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-    </section>
-
-    <section id="bottom-footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 col-sm-6 col-xs-12 btm-footer-links">
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Use</a>
-                </div>
-                <div class="col-md-6 col-sm-6 col-xs-12 copyright">
-                    Developed by <a href="#">Aspire Software Solutions</a> designed by <a href="#">Designing Team</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <div id="panel">
-        <div id="panel-admin">
-            <div class="panel-admin-box">
-                <div id="tootlbar_colors">
-                    <button class="color" style="background-color:#1abac8;" onclick="mytheme(0)"></button>
-                    <button class="color" style="background-color:#ff8a00;" onclick="mytheme(1)"> </button>
-                    <button class="color" style="background-color:#b4de50;" onclick="mytheme(2)"> </button>
-                    <button class="color" style="background-color:#e54e53;" onclick="mytheme(3)"> </button>
-                    <button class="color" style="background-color:#1abc9c;" onclick="mytheme(4)"> </button>
-                    <button class="color" style="background-color:#159eee;" onclick="mytheme(5)"> </button>
-                </div>
-            </div>
-
-        </div>
-        <a class="open" href="#"><span><i class="fa fa-gear fa-spin"></i></span></a>
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-links">
+      <span>Redesigned by Micro EXE</span>
+      <a href="tel:+639286581524"><i class="fa fa-phone"></i>+63 928 658 1524</a>
+      <a href="mailto:inquiries@microexe.net"><i class="fa fa-envelope"></i>inquiries@microexe.net</a>
     </div>
+    <div class="topbar-social">
+      <a href="https://www.facebook.com/microexe" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://twitter.com/microexegaming" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+      <a href="#" aria-label="Skype"><i class="fab fa-skype"></i></a>
+    </div>
+  </div>
+</div>
 
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-mark">MX</div>
+      <div>
+        <span class="logo-text">MICRO EXE</span>
+        <span class="logo-sub">Tech Services</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="about.html" class="active">About Us</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="mtt.html">Meet the Team</a></li>
+      <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+    </ul>
+    <button class="hamburger" onclick="document.querySelector('.mobile-nav').classList.add('open')" aria-label="Open menu">
+      <i class="fas fa-bars"></i>
+    </button>
+  </div>
+</nav>
+
+<div class="mobile-nav">
+  <button class="mobile-nav-close" onclick="document.querySelector('.mobile-nav').classList.remove('open')">
+    <i class="fas fa-times"></i>
+  </button>
+  <a href="index.html">Home</a>
+  <a href="services.html">Services</a>
+  <a href="about.html">About Us</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="mtt.html">Meet the Team</a>
+  <a href="contact.html">Contact Us</a>
+</div>
+
+<section class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-inner">
+    <div class="section-tag fade-up">Our Story</div>
+    <h1 class="page-hero-title fade-up delay-1">ABOUT<br><span>MICRO EXE</span></h1>
+    <div class="breadcrumb fade-up delay-2">
+      <a href="index.html">Home</a>
+      <span class="sep">/</span>
+      <span class="current">About Us</span>
+    </div>
+  </div>
+</section>
+
+<section id="about-story">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div>
+        <div class="section-tag">About Micro EXE</div>
+        <h2 class="section-title">BUILT ON<br><span>PASSION</span></h2>
+        <div class="about-text">
+          <p>Micro EXE is a start-up service group founded in December 2018 in Taytay, Rizal. Driven by a genuine love for technology, we provide top-quality computer hardware and software maintenance services to homes, businesses, and organizations.</p>
+          <p>What started as a small group of tech enthusiasts has grown into a trusted name for computer repair, custom builds, diskless solutions, and digital services across Rizal. We believe that quality work and honest service should be accessible to everyone.</p>
+          <p>Our team combines technical efficiency with a customer-first approach — ensuring every client's machine, project, and system runs at its absolute best.</p>
+        </div>
+        <div class="about-features">
+          <div class="about-feat">
+            <div class="about-feat-icon"><i class="fas fa-bolt"></i></div>
+            <div>
+              <h4>Fast Turnaround</h4>
+              <p>We respect your time. Most repairs are diagnosed and resolved within 24–48 hours.</p>
+            </div>
+          </div>
+          <div class="about-feat">
+            <div class="about-feat-icon"><i class="fas fa-shield-halved"></i></div>
+            <div>
+              <h4>Reliable & Trusted</h4>
+              <p>Quality workmanship with transparent pricing — no surprises, ever.</p>
+            </div>
+          </div>
+          <div class="about-feat">
+            <div class="about-feat-icon"><i class="fas fa-users"></i></div>
+            <div>
+              <h4>Dedicated Team</h4>
+              <p>A passionate crew of technicians who genuinely care about the outcome of every job.</p>
+            </div>
+          </div>
+        </div>
+        <a href="contact.html" class="btn-primary" style="margin-top: 36px;">Get In Touch</a>
+      </div>
+      <div class="about-graphic">
+        <div class="about-big-text">MCX</div>
+        <div class="about-badge">
+          <div class="about-badge-num">2018</div>
+          <div class="about-badge-label">Est. in Taytay, Rizal</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="stats-band">
+  <div class="stats-grid">
+    <div class="stat-item">
+      <div class="stat-num">6+</div>
+      <div class="stat-label">Years Active</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">8+</div>
+      <div class="stat-label">Service Types</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">100%</div>
+      <div class="stat-label">Passion Driven</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">Rizal</div>
+      <div class="stat-label">Based in Taytay</div>
+    </div>
+  </div>
+</div>
+
+<section id="values">
+  <div class="section-inner">
+    <div class="section-tag">What We Stand For</div>
+    <h2 class="section-title">OUR<br><span>VALUES</span></h2>
+    <p class="section-sub">Every decision we make is guided by these core principles.</p>
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="value-icon"><i class="fas fa-heart"></i></div>
+        <h3>Passion for Technology</h3>
+        <p>We don't just fix computers — we love what we do. That genuine enthusiasm shows in every repair, build, and project we take on.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon"><i class="fas fa-handshake"></i></div>
+        <h3>Honest Service</h3>
+        <p>Transparent pricing, honest diagnostics, and no unnecessary upselling. You'll always know exactly what you're paying for and why.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon"><i class="fas fa-medal"></i></div>
+        <h3>Quality Workmanship</h3>
+        <p>We take pride in the quality of everything we deliver — from the smallest repair to the most complex custom build or web project.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon"><i class="fas fa-clock"></i></div>
+        <h3>Respect for Your Time</h3>
+        <p>Quick turnaround times without compromising quality. We diagnose fast, work efficiently, and keep you updated throughout.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon"><i class="fas fa-lightbulb"></i></div>
+        <h3>Continuous Learning</h3>
+        <p>Technology evolves fast, and so do we. Our team stays current with the latest hardware, software, and development practices.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon"><i class="fas fa-house-chimney"></i></div>
+        <h3>Community Roots</h3>
+        <p>We are proud to be a local Rizal business, serving our community with the same dedication we'd give family and friends.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-band">
+  <div class="cta-inner">
+    <div>
+      <h2>WORK WITH US</h2>
+      <p>Have a project in mind or a machine that needs attention? Let's talk — we're ready to help.</p>
+    </div>
+    <a href="contact.html" class="btn-white">Contact Us Today</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-main">
+    <div class="footer-brand">
+      <a href="index.html" class="logo">
+        <div class="logo-mark">MX</div>
+        <div>
+          <span class="logo-text">MICRO EXE</span>
+          <span class="logo-sub">Tech Services</span>
+        </div>
+      </a>
+      <p>A passionate tech service group based in Taytay, Rizal — delivering quality computer hardware, software, and development solutions since 2018.</p>
+      <div class="footer-social">
+        <a href="https://www.facebook.com/microexe" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://twitter.com/microexegaming" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+        <a href="#" aria-label="Skype"><i class="fab fa-skype"></i></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="mtt.html">Meet the Team</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="services.html">Computer Repair</a></li>
+        <li><a href="services.html">PC Modding & Assembly</a></li>
+        <li><a href="services.html">Diskless Solutions</a></li>
+        <li><a href="services.html">Web Development</a></li>
+        <li><a href="services.html">Mobile Apps</a></li>
+        <li><a href="services.html">Layout & Design</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact Us</h4>
+      <div class="footer-contact-item">
+        <i class="fas fa-location-dot"></i>
+        <span>#58 Buen-Mar 1 Subdivision, Barangay San Juan, Madlanghaya Street, Taytay, Rizal 1920</span>
+      </div>
+      <div class="footer-contact-item">
+        <i class="fas fa-phone"></i>
+        <span>+63 928 658 1524</span>
+      </div>
+      <div class="footer-contact-item">
+        <i class="fas fa-envelope"></i>
+        <span>inquiries@microexe.net</span>
+      </div>
+      <div class="map-wrap" style="margin-top:16px;">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d759.6879109034933!2d121.13096427453534!3d14.564181687054807!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sph!4v1568114356159!5m2!1sen!2sph" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-inner">
+      <p>&copy; 2024 <span>Micro EXE</span>. All rights reserved.</p>
+      <p>Designed &amp; Built with <span>&#9829;</span> by Micro EXE</p>
+    </div>
+  </div>
+</footer>
 
 </body>
-
 </html>
