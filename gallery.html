@@ -1,407 +1,431 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Portfolio</title>
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="scss/main.css">
-    <link rel="stylesheet" href="scss/skin.css">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gallery — Micro EXE Tech Services</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --red: #e8251a; --red-dark: #b01a12; --red-dim: rgba(232,37,26,0.12);
+    --black: #0d0d0d; --dark: #141414; --dark2: #1c1c1c; --dark3: #242424;
+    --mid: #3a3a3a; --light: #a8a8a8; --lighter: #d4d4d4; --white: #f5f3ef;
+    --font-display: 'Bebas Neue', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+    --font-mono: 'DM Mono', monospace;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font-body); background: var(--black); color: var(--white); overflow-x: hidden; line-height: 1.6; }
+  .topbar { background: var(--dark2); border-bottom: 1px solid var(--mid); padding: 8px 0; font-size: 12px; color: var(--light); letter-spacing: 0.04em; }
+  .topbar-inner { max-width: 1200px; margin: 0 auto; padding: 0 32px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+  .topbar-links { display: flex; gap: 24px; align-items: center; }
+  .topbar-links a, .topbar-social a { color: var(--light); text-decoration: none; transition: color 0.2s; }
+  .topbar-links a:hover, .topbar-social a:hover { color: var(--red); }
+  .topbar-links i { margin-right: 6px; font-size: 11px; }
+  .topbar-social { display: flex; gap: 16px; }
+  .topbar-social a { font-size: 14px; }
+  nav { position: sticky; top: 0; z-index: 100; background: rgba(13,13,13,0.95); backdrop-filter: blur(16px); border-bottom: 1px solid var(--dark3); }
+  .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 32px; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .logo-mark { width: 38px; height: 38px; background: var(--red); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 22px; color: #fff; letter-spacing: -1px; }
+  .logo-text { font-family: var(--font-display); font-size: 28px; letter-spacing: 3px; color: var(--white); line-height: 1; }
+  .logo-sub { font-family: var(--font-mono); font-size: 9px; letter-spacing: 2px; color: var(--red); text-transform: uppercase; display: block; margin-top: -2px; }
+  .nav-links { display: flex; gap: 4px; list-style: none; }
+  .nav-links a { padding: 8px 14px; text-decoration: none; color: var(--lighter); font-size: 13px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.2s; position: relative; }
+  .nav-links a::after { content: ''; position: absolute; bottom: 0; left: 14px; right: 14px; height: 2px; background: var(--red); transform: scaleX(0); transition: transform 0.2s; }
+  .nav-links a:hover { color: var(--white); }
+  .nav-links a:hover::after, .nav-links a.active::after { transform: scaleX(1); }
+  .nav-links a.active { color: var(--white); }
+  .nav-cta { background: var(--red); color: #fff !important; padding: 8px 20px !important; }
+  .nav-cta::after { display: none !important; }
+  .nav-cta:hover { background: var(--red-dark) !important; }
+  .hamburger { display: none; background: none; border: none; cursor: pointer; color: var(--white); font-size: 22px; }
+  .mobile-nav { display: none; position: fixed; inset: 0; background: rgba(13,13,13,0.98); z-index: 200; padding: 80px 32px 40px; flex-direction: column; gap: 4px; }
+  .mobile-nav.open { display: flex; }
+  .mobile-nav-close { position: absolute; top: 20px; right: 24px; background: none; border: none; color: var(--white); font-size: 28px; cursor: pointer; }
+  .mobile-nav a { font-family: var(--font-display); font-size: 40px; letter-spacing: 3px; color: var(--lighter); text-decoration: none; transition: color 0.2s; border-bottom: 1px solid var(--dark3); padding: 16px 0; }
+  .mobile-nav a:hover { color: var(--red); }
+  section { padding: 96px 32px; }
+  .section-inner { max-width: 1200px; margin: 0 auto; }
+  .section-tag { font-family: var(--font-mono); font-size: 11px; letter-spacing: 3px; color: var(--red); text-transform: uppercase; display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+  .section-tag::before { content: ''; width: 24px; height: 1px; background: var(--red); }
+  h2.section-title { font-family: var(--font-display); font-size: clamp(40px, 5vw, 64px); letter-spacing: 2px; line-height: 1; color: var(--white); margin-bottom: 20px; }
+  h2.section-title span { color: var(--red); }
+  .section-sub { font-size: 16px; color: var(--light); max-width: 560px; line-height: 1.75; }
+  .page-hero { position: relative; padding: 80px 32px; background: var(--dark); overflow: hidden; border-bottom: 1px solid var(--dark3); }
+  .page-hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 60% 100% at 80% 50%, rgba(232,37,26,0.05) 0%, transparent 70%), repeating-linear-gradient(0deg, transparent, transparent 59px, rgba(255,255,255,0.02) 59px, rgba(255,255,255,0.02) 60px), repeating-linear-gradient(90deg, transparent, transparent 59px, rgba(255,255,255,0.02) 59px, rgba(255,255,255,0.02) 60px); }
+  .page-hero-inner { max-width: 1200px; margin: 0 auto; position: relative; }
+  .page-hero-title { font-family: var(--font-display); font-size: clamp(48px, 7vw, 96px); letter-spacing: 3px; line-height: 0.9; color: var(--white); margin-bottom: 24px; }
+  .page-hero-title span { color: var(--red); }
+  .breadcrumb { display: flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 12px; letter-spacing: 1px; color: var(--light); list-style: none; padding: 0; background: transparent; border-radius: 0; margin: 0; }
+  .breadcrumb a { color: var(--light); text-decoration: none; transition: color 0.2s; }
+  .breadcrumb a:hover { color: var(--red); }
+  .breadcrumb .sep { color: var(--mid); }
+  .breadcrumb .current { color: var(--red); }
+  .cta-band { background: var(--red); padding: 72px 32px; }
+  .cta-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
+  .cta-band h2 { font-family: var(--font-display); font-size: clamp(36px, 4vw, 56px); letter-spacing: 2px; color: #fff; line-height: 1; }
+  .cta-band p { color: rgba(255,255,255,0.75); font-size: 15px; margin-top: 10px; max-width: 480px; }
+  .btn-white { background: #fff; color: var(--red); border: 2px solid #fff; padding: 14px 36px; font-family: var(--font-body); font-size: 14px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; white-space: nowrap; transition: all 0.2s; display: inline-block; }
+  .btn-white:hover { background: transparent; color: #fff; }
+  footer { background: var(--dark2); border-top: 1px solid var(--dark3); }
+  .footer-main { max-width: 1200px; margin: 0 auto; padding: 64px 32px 48px; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
+  .footer-brand .logo { margin-bottom: 20px; display: inline-flex; }
+  .footer-brand p { font-size: 14px; color: var(--light); line-height: 1.7; max-width: 280px; margin-bottom: 24px; }
+  .footer-social { display: flex; gap: 12px; }
+  .footer-social a { width: 36px; height: 36px; background: var(--dark3); border: 1px solid var(--mid); display: flex; align-items: center; justify-content: center; color: var(--light); font-size: 14px; text-decoration: none; transition: all 0.2s; }
+  .footer-social a:hover { background: var(--red); border-color: var(--red); color: #fff; }
+  .footer-col h4 { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--white); margin-bottom: 20px; font-weight: 600; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-col a { color: var(--light); text-decoration: none; font-size: 14px; transition: color 0.2s; }
+  .footer-col a:hover { color: var(--red); }
+  .footer-contact-item { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 14px; }
+  .footer-contact-item i { color: var(--red); font-size: 13px; margin-top: 3px; }
+  .footer-contact-item span { font-size: 13px; color: var(--light); line-height: 1.5; }
+  .footer-bottom { border-top: 1px solid var(--dark3); padding: 20px 32px; }
+  .footer-bottom-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+  .footer-bottom p { font-size: 12px; color: var(--mid); letter-spacing: 0.04em; }
+  .footer-bottom span { color: var(--red); }
+  .map-wrap { border: 1px solid var(--dark3); overflow: hidden; height: 240px; }
+  .map-wrap iframe { width: 100%; height: 100%; border: 0; filter: grayscale(1) invert(0.85) contrast(1.1); }
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-    <script src="./script/index.js"></script>
+  /* ─── GALLERY PAGE ─── */
+  #gallery-section { background: var(--black); }
+  .gallery-filters { display: flex; gap: 8px; flex-wrap: wrap; margin: 40px 0 48px; }
+  .filter-btn { background: transparent; border: 1px solid var(--dark3); color: var(--light); padding: 8px 20px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: all 0.2s; }
+  .filter-btn:hover, .filter-btn.active { background: var(--red); border-color: var(--red); color: #fff; }
+  .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .gallery-item { background: var(--dark2); border: 1px solid var(--dark3); overflow: hidden; transition: border-color 0.2s; }
+  .gallery-item:hover { border-color: var(--mid); }
+  .gallery-item:hover .gallery-overlay { opacity: 1; }
+  .gallery-img { height: 220px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+  .gallery-img-placeholder { font-family: var(--font-display); font-size: 42px; color: var(--mid); letter-spacing: 2px; }
+  .gallery-overlay { position: absolute; inset: 0; background: rgba(232,37,26,0.85); display: flex; align-items: center; justify-content: center; gap: 16px; opacity: 0; transition: opacity 0.3s; }
+  .gallery-overlay a { width: 44px; height: 44px; border: 2px solid #fff; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 16px; text-decoration: none; transition: background 0.2s; }
+  .gallery-overlay a:hover { background: #fff; color: var(--red); }
+  .gallery-tag { position: absolute; top: 12px; left: 12px; background: var(--red); color: #fff; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; padding: 4px 10px; font-weight: 600; }
+  .gallery-body { padding: 20px; }
+  .gallery-body h3 { font-size: 15px; font-weight: 600; color: var(--white); margin-bottom: 6px; }
+  .gallery-body p { font-size: 13px; color: var(--light); line-height: 1.6; }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+  .fade-up { animation: fadeUp 0.7s ease forwards; }
+  .delay-1 { animation-delay: 0.1s; opacity: 0; }
+  .delay-2 { animation-delay: 0.22s; opacity: 0; }
+
+  @media (max-width: 960px) {
+    .gallery-grid { grid-template-columns: 1fr 1fr; }
+    .footer-main { grid-template-columns: 1fr 1fr; gap: 32px; }
+    nav .nav-links { display: none; }
+    .hamburger { display: block; }
+  }
+  @media (max-width: 640px) {
+    section { padding: 64px 20px; }
+    .gallery-grid { grid-template-columns: 1fr; }
+    .footer-main { grid-template-columns: 1fr; }
+    .topbar { display: none; }
+    .cta-inner { flex-direction: column; }
+    .page-hero { padding: 60px 20px; }
+  }
+</style>
 </head>
+<body>
 
-<body id="wrapper">
-
-    <section id="top-header">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 col-sm-6 col-xs-12 top-header-links">
-                    <ul class="contact_links">
-                        <li><i class="fa fa-phone"></i><a href="#">+91 848 594 5080</a></li>
-                        <li><i class="fa fa-envelope"></i><a href="#">sales@aspiresoftware.in</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-6 col-sm-6 col-xs-12">
-                    <ul class="social_links">
-                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                        <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                        <li><a href="#"><i class="fa fa-skype"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        </div>
-
-    </section>
-
-    <header>
-        <nav class="navbar navbar-inverse">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-				<span class="sr-only">Toggle navigation</span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			  </button>
-                    <a class="navbar-brand" href="#">
-                        <h1>Aspire</h1><span>Software Solutions</span></a>
-                </div>
-                <div id="navbar" class="collapse navbar-collapse navbar-right">
-                    <ul class="nav navbar-nav">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="features.html">Features</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li class="active"><a href="#portfolio">Portfolio</a></li>
-                        <li><a href="faq.html">FAQ</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                        <li><a href="login.html">Sign In</a></li>
-                        <li><a href="registration.html">Sign Up</a></li>
-                    </ul>
-                </div>
-                <!--/.nav-collapse -->
-            </div>
-        </nav>
-        <!--/.nav-ends -->
-    </header>
-
-
-
-    <section id="top_banner">
-        <div class="banner">
-            <div class="inner text-center">
-                <h2>Lorem ipsum dolor sit amet</h2>
-            </div>
-        </div>
-        <div class="page_info">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-8 col-sm-8 col-xs-6">
-                        <h4>Portfolio</h4>
-                    </div>
-                    <div class="col-md-4 col-sm-4 col-xs-6" style="text-align:right;">Home<span class="sep"> / </span><span class="current">Portfolio</span></div>
-                </div>
-            </div>
-        </div>
-
-        </div>
-    </section>
-
-
-
-    <section id="portfolio">
-        <div class="container">
-            <div class="row">
-                <div class="section-heading text-center">
-                    <div class="col-md-12 col-xs-12">
-                        <h1>Our <span>Latest Work</span></h1>
-                        <p class="subheading">Lorem ipsum dolor sit amet sit legimus copiosae instructior ei ut vix denique fierentis ea saperet inimicu ut qui dolor oratio mnesarchum ea utamur impetus fuisset nam nostrud euismod volumus ne mei.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 portfolio-item">
-                    <div class="portfolio-one">
-                        <div class="portfolio-head">
-                            <div class="portfolio-img"><img alt="" src="img/portfolio-1.jpg"></div>
-                            <div class="portfolio-hover">
-                                <a class="portfolio-link" href="#"><i class="fa fa-link"></i></a>
-                                <a class="portfolio-zoom" href="#"><i class="fa fa-search"></i></a>
-                            </div>
-                        </div>
-                        <!-- End portfolio-head -->
-                        <div class="portfolio-content">
-                            <h5 class="title">Lorem Ipsum</h5>
-                            <p>Lorem ipsum dolor sit amet sit legimus copiosae instructior ei ut vix denique fierentis ea saperet inimicu ut qui dolor oratio mnesarchum.</p>
-                        </div>
-                        <!-- End portfolio-content -->
-                    </div>
-                    <!-- End portfolio-item -->
-                </div>
-                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 portfolio-item">
-                    <div class="portfolio-one">
-                        <div class="portfolio-head">
-                            <div class="portfolio-img"><img alt="" src="img/portfolio-1.jpg"></div>
-                            <div class="portfolio-hover">
-                                <a class="portfolio-link" href="#"><i class="fa fa-link"></i></a>
-                                <a class="portfolio-zoom prettyPhoto" href="#"><i class="fa fa-search"></i></a>
-                            </div>
-                        </div>
-                        <!-- End portfolio-head -->
-                        <div class="portfolio-content">
-                            <h5 class="title">Lorem Ipsum</h5>
-                            <p>Lorem ipsum dolor sit amet sit legimus copiosae instructior ei ut vix denique fierentis ea saperet inimicu ut qui dolor oratio mnesarchum.</p>
-                        </div>
-                        <!-- End portfolio-content -->
-                    </div>
-                    <!-- End portfolio-item -->
-                </div>
-                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 portfolio-item">
-                    <div class="portfolio-one">
-                        <div class="portfolio-head">
-                            <div class="portfolio-img"><img alt="" src="img/portfolio-1.jpg"></div>
-                            <div class="portfolio-hover">
-                                <a class="portfolio-link" href="#"><i class="fa fa-link"></i></a>
-                                <a class="portfolio-zoom prettyPhoto" href="#"><i class="fa fa-search"></i></a>
-                            </div>
-                        </div>
-                        <!-- End portfolio-head -->
-                        <div class="portfolio-content">
-                            <h5 class="title">Lorem Ipsum</h5>
-                            <p>Lorem ipsum dolor sit amet sit legimus copiosae instructior ei ut vix denique fierentis ea saperet inimicu ut qui dolor oratio mnesarchum.</p>
-                        </div>
-                        <!-- End portfolio-content -->
-                    </div>
-                    <!-- End portfolio-item -->
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 portfolio-item">
-                    <div class="portfolio-one">
-                        <div class="portfolio-head">
-                            <div class="portfolio-img"><img alt="" src="img/portfolio-1.jpg"></div>
-                            <div class="portfolio-hover">
-                                <a class="portfolio-link" href="#"><i class="fa fa-link"></i></a>
-                                <a class="portfolio-zoom" href="#"><i class="fa fa-search"></i></a>
-                            </div>
-                        </div>
-                        <!-- End portfolio-head -->
-                        <div class="portfolio-content">
-                            <h5 class="title">Lorem Ipsum</h5>
-                            <p>Lorem ipsum dolor sit amet sit legimus copiosae instructior ei ut vix denique fierentis ea saperet inimicu ut qui dolor oratio mnesarchum.</p>
-                        </div>
-                        <!-- End portfolio-content -->
-                    </div>
-                    <!-- End portfolio-item -->
-                </div>
-                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 portfolio-item">
-                    <div class="portfolio-one">
-                        <div class="portfolio-head">
-                            <div class="portfolio-img"><img alt="" src="img/portfolio-1.jpg"></div>
-                            <div class="portfolio-hover">
-                                <a class="portfolio-link" href="#"><i class="fa fa-link"></i></a>
-                                <a class="portfolio-zoom prettyPhoto" href="#"><i class="fa fa-search"></i></a>
-                            </div>
-                        </div>
-                        <!-- End portfolio-head -->
-                        <div class="portfolio-content">
-                            <h5 class="title">Lorem Ipsum</h5>
-                            <p>Lorem ipsum dolor sit amet sit legimus copiosae instructior ei ut vix denique fierentis ea saperet inimicu ut qui dolor oratio mnesarchum.</p>
-                        </div>
-                        <!-- End portfolio-content -->
-                    </div>
-                    <!-- End portfolio-item -->
-                </div>
-                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 portfolio-item">
-                    <div class="portfolio-one">
-                        <div class="portfolio-head">
-                            <div class="portfolio-img"><img alt="" src="img/portfolio-1.jpg"></div>
-                            <div class="portfolio-hover">
-                                <a class="portfolio-link" href="#"><i class="fa fa-link"></i></a>
-                                <a class="portfolio-zoom prettyPhoto" href="#"><i class="fa fa-search"></i></a>
-                            </div>
-                        </div>
-                        <!-- End portfolio-head -->
-                        <div class="portfolio-content">
-                            <h5 class="title">Lorem Ipsum</h5>
-                            <p>Lorem ipsum dolor sit amet sit legimus copiosae instructior ei ut vix denique fierentis ea saperet inimicu ut qui dolor oratio mnesarchum.</p>
-                        </div>
-                        <!-- End portfolio-content -->
-                    </div>
-                    <!-- End portfolio-item -->
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 portfolio-item">
-                    <div class="portfolio-one">
-                        <div class="portfolio-head">
-                            <div class="portfolio-img"><img alt="" src="img/portfolio-1.jpg"></div>
-                            <div class="portfolio-hover">
-                                <a class="portfolio-link" href="#"><i class="fa fa-link"></i></a>
-                                <a class="portfolio-zoom" href="#"><i class="fa fa-search"></i></a>
-                            </div>
-                        </div>
-                        <!-- End portfolio-head -->
-                        <div class="portfolio-content">
-                            <h5 class="title">Lorem Ipsum</h5>
-                            <p>Lorem ipsum dolor sit amet sit legimus copiosae instructior ei ut vix denique fierentis ea saperet inimicu ut qui dolor oratio mnesarchum.</p>
-                        </div>
-                        <!-- End portfolio-content -->
-                    </div>
-                    <!-- End portfolio-item -->
-                </div>
-                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 portfolio-item">
-                    <div class="portfolio-one">
-                        <div class="portfolio-head">
-                            <div class="portfolio-img"><img alt="" src="img/portfolio-1.jpg"></div>
-                            <div class="portfolio-hover">
-                                <a class="portfolio-link" href="#"><i class="fa fa-link"></i></a>
-                                <a class="portfolio-zoom prettyPhoto" href="#"><i class="fa fa-search"></i></a>
-                            </div>
-                        </div>
-                        <!-- End portfolio-head -->
-                        <div class="portfolio-content">
-                            <h5 class="title">Lorem Ipsum</h5>
-                            <p>Lorem ipsum dolor sit amet sit legimus copiosae instructior ei ut vix denique fierentis ea saperet inimicu ut qui dolor oratio mnesarchum.</p>
-                        </div>
-                        <!-- End portfolio-content -->
-                    </div>
-                    <!-- End portfolio-item -->
-                </div>
-                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 portfolio-item">
-                    <div class="portfolio-one">
-                        <div class="portfolio-head">
-                            <div class="portfolio-img"><img alt="" src="img/portfolio-1.jpg"></div>
-                            <div class="portfolio-hover">
-                                <a class="portfolio-link" href="#"><i class="fa fa-link"></i></a>
-                                <a class="portfolio-zoom prettyPhoto" href="#"><i class="fa fa-search"></i></a>
-                            </div>
-                        </div>
-                        <!-- End portfolio-head -->
-                        <div class="portfolio-content">
-                            <h5 class="title">Lorem Ipsum</h5>
-                            <p>Lorem ipsum dolor sit amet sit legimus copiosae instructior ei ut vix denique fierentis ea saperet inimicu ut qui dolor oratio mnesarchum.</p>
-                        </div>
-                        <!-- End portfolio-content -->
-                    </div>
-                    <!-- End portfolio-item -->
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12 col-sm-12 col-xs-12">
-                    <nav aria-label="Page navigation example">
-                        <ul class="pagination pagination-lg justify-content-end">
-                            <li class="page-item">
-                                <a class="page-link" href="#" tabindex="-1">Previous</a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item">
-                                <a class="page-link" href="#">Next</a>
-                            </li>
-                        </ul>
-                    </nav>
-
-                </div>
-            </div>
-
-        </div>
-
-
-
-    </section>
-
-
-
-
-
-
-    <section id="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3 col-sm-3 col-xs-12 block">
-                    <div class="footer-block">
-                        <h4>Address</h4>
-                        <hr/>
-                        <p>Lorem ipsum dolor sit amet sit legimus copiosae instructior ei ut vix denique fierentis ea saperet inimicu ut qui dolor oratio mnesarchum.
-                        </p>
-                        <a href="#" class="learnmore">Learn More <i class="fa fa-caret-right"></i></a>
-                    </div>
-                </div>
-
-                <div class="col-md-3 col-sm-3 col-xs-12 block">
-                    <div class="footer-block">
-                        <h4>Useful Links</h4>
-                        <hr/>
-                        <ul class="footer-links">
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Features</a></li>
-                            <li><a href="#">Portfolio</a></li>
-                            <li><a href="#">Contact</a></li>
-                            <li><a href="#">Sign In</a></li>
-                            <li><a href="#">Sign Up</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="col-md-3 col-sm-3 col-xs-12 block">
-                    <div class="footer-block">
-                        <h4>Community</h4>
-                        <hr/>
-                        <ul class="footer-links">
-                            <li><a href="#">Blog</a></li>
-                            <li><a href="#">Forum</a></li>
-                            <li><a href="#">Free Goods</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="col-md-3 col-sm-3 col-xs-12 <block></block>">
-                    <div class="footer-block">
-                        <h4>Recent Posts</h4>
-                        <hr/>
-                        <ul class="footer-links">
-                            <li>
-                                <a href="#" class="post">Lorem ipsum dolor sit amet</a>
-                                <p class="post-date">May 25, 2017</p>
-                            </li>
-                            <li>
-                                <a href="#" class="post">Lorem ipsum dolor sit amet</a>
-                                <p class="post-date">May 25, 2017</p>
-                            </li>
-                            <li>
-                                <a href="#" class="post">Lorem ipsum dolor sit amet</a>
-                                <p class="post-date">May 25, 2017</p>
-                            </li>
-
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-    </section>
-
-    <section id="bottom-footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 col-sm-6 col-xs-12 btm-footer-links">
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Use</a>
-                </div>
-                <div class="col-md-6 col-sm-6 col-xs-12 copyright">
-                    Developed by <a href="#">Aspire Software Solutions</a> designed by <a href="#">Designing Team</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <div id="panel">
-        <div id="panel-admin">
-            <div class="panel-admin-box">
-                <div id="tootlbar_colors">
-                    <button class="color" style="background-color:#1abac8;" onclick="mytheme(0)"></button>
-                    <button class="color" style="background-color:#ff8a00;" onclick="mytheme(1)"> </button>
-                    <button class="color" style="background-color:#b4de50;" onclick="mytheme(2)"> </button>
-                    <button class="color" style="background-color:#e54e53;" onclick="mytheme(3)"> </button>
-                    <button class="color" style="background-color:#1abc9c;" onclick="mytheme(4)"> </button>
-                    <button class="color" style="background-color:#159eee;" onclick="mytheme(5)"> </button>
-                </div>
-            </div>
-
-        </div>
-        <a class="open" href="#"><span><i class="fa fa-gear fa-spin"></i></span></a>
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-links">
+      <span>Redesigned by Micro EXE</span>
+      <a href="tel:+639286581524"><i class="fa fa-phone"></i>+63 928 658 1524</a>
+      <a href="mailto:inquiries@microexe.net"><i class="fa fa-envelope"></i>inquiries@microexe.net</a>
     </div>
-</body>
+    <div class="topbar-social">
+      <a href="https://www.facebook.com/microexe" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://twitter.com/microexegaming" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+      <a href="#" aria-label="Skype"><i class="fab fa-skype"></i></a>
+    </div>
+  </div>
+</div>
 
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-mark">MX</div>
+      <div>
+        <span class="logo-text">MICRO EXE</span>
+        <span class="logo-sub">Tech Services</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="gallery.html" class="active">Gallery</a></li>
+      <li><a href="mtt.html">Meet the Team</a></li>
+      <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+    </ul>
+    <button class="hamburger" onclick="document.querySelector('.mobile-nav').classList.add('open')" aria-label="Open menu">
+      <i class="fas fa-bars"></i>
+    </button>
+  </div>
+</nav>
+
+<div class="mobile-nav">
+  <button class="mobile-nav-close" onclick="document.querySelector('.mobile-nav').classList.remove('open')">
+    <i class="fas fa-times"></i>
+  </button>
+  <a href="index.html">Home</a>
+  <a href="services.html">Services</a>
+  <a href="about.html">About Us</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="mtt.html">Meet the Team</a>
+  <a href="contact.html">Contact Us</a>
+</div>
+
+<section class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-inner">
+    <div class="section-tag fade-up">Our Work</div>
+    <h1 class="page-hero-title fade-up delay-1">PROJECT<br><span>GALLERY</span></h1>
+    <div class="breadcrumb fade-up delay-2">
+      <a href="index.html">Home</a>
+      <span class="sep">/</span>
+      <span class="current">Gallery</span>
+    </div>
+  </div>
+</section>
+
+<section id="gallery-section">
+  <div class="section-inner">
+    <div class="section-tag">Showcase</div>
+    <h2 class="section-title">OUR LATEST<br><span>WORK</span></h2>
+    <p class="section-sub">A selection of builds, repairs, and digital projects completed by the Micro EXE team.</p>
+    <div class="gallery-filters">
+      <button class="filter-btn active">All</button>
+      <button class="filter-btn">Hardware</button>
+      <button class="filter-btn">PC Builds</button>
+      <button class="filter-btn">Web Dev</button>
+      <button class="filter-btn">Diskless</button>
+      <button class="filter-btn">Design</button>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <div class="gallery-img" style="background: linear-gradient(135deg, #1c1c1c 0%, #2a1a1a 100%);">
+          <div class="gallery-img-placeholder"><i class="fas fa-microchip" style="font-size:56px; color: #3a3a3a;"></i></div>
+          <span class="gallery-tag">PC Build</span>
+          <div class="gallery-overlay">
+            <a href="img/gallery-1.jpg"><i class="fas fa-magnifying-glass"></i></a>
+            <a href="#"><i class="fas fa-link"></i></a>
+          </div>
+        </div>
+        <div class="gallery-body">
+          <h3>Custom Gaming Rig — RTX Build</h3>
+          <p>High-end gaming PC with custom cable management and RGB lighting setup for a client in Taytay.</p>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-img" style="background: linear-gradient(135deg, #1a1a2a 0%, #1c1c1c 100%);">
+          <div class="gallery-img-placeholder"><i class="fas fa-globe" style="font-size:56px; color: #3a3a3a;"></i></div>
+          <span class="gallery-tag">Web Dev</span>
+          <div class="gallery-overlay">
+            <a href="img/gallery-2.jpg"><i class="fas fa-magnifying-glass"></i></a>
+            <a href="#"><i class="fas fa-link"></i></a>
+          </div>
+        </div>
+        <div class="gallery-body">
+          <h3>Business Website Redesign</h3>
+          <p>Full redesign and development of a local business website with modern responsive layout.</p>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-img" style="background: linear-gradient(135deg, #1c1a1a 0%, #241c1c 100%);">
+          <div class="gallery-img-placeholder"><i class="fas fa-network-wired" style="font-size:56px; color: #3a3a3a;"></i></div>
+          <span class="gallery-tag">Diskless</span>
+          <div class="gallery-overlay">
+            <a href="img/gallery-3.jpg"><i class="fas fa-magnifying-glass"></i></a>
+            <a href="#"><i class="fas fa-link"></i></a>
+          </div>
+        </div>
+        <div class="gallery-body">
+          <h3>Computer Shop Diskless Setup</h3>
+          <p>Full diskless network boot installation for a 20-unit computer shop in Rizal.</p>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-img" style="background: linear-gradient(135deg, #1c1c1c 0%, #1a2a1a 100%);">
+          <div class="gallery-img-placeholder"><i class="fas fa-screwdriver-wrench" style="font-size:56px; color: #3a3a3a;"></i></div>
+          <span class="gallery-tag">Hardware</span>
+          <div class="gallery-overlay">
+            <a href="img/gallery-4.jpg"><i class="fas fa-magnifying-glass"></i></a>
+            <a href="#"><i class="fas fa-link"></i></a>
+          </div>
+        </div>
+        <div class="gallery-body">
+          <h3>Laptop Motherboard Repair</h3>
+          <p>Component-level repair on a liquid-damaged laptop motherboard — successfully restored.</p>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-img" style="background: linear-gradient(135deg, #2a1a2a 0%, #1c1c1c 100%);">
+          <div class="gallery-img-placeholder"><i class="fas fa-mobile-screen" style="font-size:56px; color: #3a3a3a;"></i></div>
+          <span class="gallery-tag">Mobile App</span>
+          <div class="gallery-overlay">
+            <a href="img/gallery-5.jpg"><i class="fas fa-magnifying-glass"></i></a>
+            <a href="#"><i class="fas fa-link"></i></a>
+          </div>
+        </div>
+        <div class="gallery-body">
+          <h3>Android POS Application</h3>
+          <p>Point-of-sale mobile app built for a local retail client with inventory and sales tracking.</p>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-img" style="background: linear-gradient(135deg, #1a1c2a 0%, #1c1c1c 100%);">
+          <div class="gallery-img-placeholder"><i class="fas fa-pen-ruler" style="font-size:56px; color: #3a3a3a;"></i></div>
+          <span class="gallery-tag">Design</span>
+          <div class="gallery-overlay">
+            <a href="img/gallery-6.jpg"><i class="fas fa-magnifying-glass"></i></a>
+            <a href="#"><i class="fas fa-link"></i></a>
+          </div>
+        </div>
+        <div class="gallery-body">
+          <h3>Brand Identity Package</h3>
+          <p>Logo design, business card layout, and digital brand assets for a startup client.</p>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-img" style="background: linear-gradient(135deg, #2a1c1c 0%, #1c1c1c 100%);">
+          <div class="gallery-img-placeholder"><i class="fas fa-desktop" style="font-size:56px; color: #3a3a3a;"></i></div>
+          <span class="gallery-tag">PC Build</span>
+          <div class="gallery-overlay">
+            <a href="img/gallery-7.jpg"><i class="fas fa-magnifying-glass"></i></a>
+            <a href="#"><i class="fas fa-link"></i></a>
+          </div>
+        </div>
+        <div class="gallery-body">
+          <h3>Budget Office Build — i5 Setup</h3>
+          <p>Cost-effective office workstation build optimized for productivity and longevity.</p>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-img" style="background: linear-gradient(135deg, #1c2a1c 0%, #1c1c1c 100%);">
+          <div class="gallery-img-placeholder"><i class="fas fa-code" style="font-size:56px; color: #3a3a3a;"></i></div>
+          <span class="gallery-tag">Web Dev</span>
+          <div class="gallery-overlay">
+            <a href="img/gallery-8.jpg"><i class="fas fa-magnifying-glass"></i></a>
+            <a href="#"><i class="fas fa-link"></i></a>
+          </div>
+        </div>
+        <div class="gallery-body">
+          <h3>E-Commerce Store Build</h3>
+          <p>Full-stack online store with product management, cart, and payment gateway integration.</p>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-img" style="background: linear-gradient(135deg, #1c1c2a 0%, #1c1c1c 100%);">
+          <div class="gallery-img-placeholder"><i class="fas fa-server" style="font-size:56px; color: #3a3a3a;"></i></div>
+          <span class="gallery-tag">Diskless</span>
+          <div class="gallery-overlay">
+            <a href="img/gallery-9.jpg"><i class="fas fa-magnifying-glass"></i></a>
+            <a href="#"><i class="fas fa-link"></i></a>
+          </div>
+        </div>
+        <div class="gallery-body">
+          <h3>School Computer Lab Network</h3>
+          <p>Classroom diskless network deployment for 30 units with centralized image management.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-band">
+  <div class="cta-inner">
+    <div>
+      <h2>HAVE A PROJECT IN MIND?</h2>
+      <p>Let us help bring your tech vision to life. From hardware to software, we're ready.</p>
+    </div>
+    <a href="contact.html" class="btn-white">Contact Us Today</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-main">
+    <div class="footer-brand">
+      <a href="index.html" class="logo">
+        <div class="logo-mark">MX</div>
+        <div>
+          <span class="logo-text">MICRO EXE</span>
+          <span class="logo-sub">Tech Services</span>
+        </div>
+      </a>
+      <p>A passionate tech service group based in Taytay, Rizal — delivering quality computer hardware, software, and development solutions since 2018.</p>
+      <div class="footer-social">
+        <a href="https://www.facebook.com/microexe" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://twitter.com/microexegaming" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+        <a href="#" aria-label="Skype"><i class="fab fa-skype"></i></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="mtt.html">Meet the Team</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="services.html">Computer Repair</a></li>
+        <li><a href="services.html">PC Modding & Assembly</a></li>
+        <li><a href="services.html">Diskless Solutions</a></li>
+        <li><a href="services.html">Web Development</a></li>
+        <li><a href="services.html">Mobile Apps</a></li>
+        <li><a href="services.html">Layout & Design</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact Us</h4>
+      <div class="footer-contact-item">
+        <i class="fas fa-location-dot"></i>
+        <span>#58 Buen-Mar 1 Subdivision, Barangay San Juan, Madlanghaya Street, Taytay, Rizal 1920</span>
+      </div>
+      <div class="footer-contact-item">
+        <i class="fas fa-phone"></i>
+        <span>+63 928 658 1524</span>
+      </div>
+      <div class="footer-contact-item">
+        <i class="fas fa-envelope"></i>
+        <span>inquiries@microexe.net</span>
+      </div>
+      <div class="map-wrap" style="margin-top:16px;">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d759.6879109034933!2d121.13096427453534!3d14.564181687054807!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sph!4v1568114356159!5m2!1sen!2sph" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-inner">
+      <p>&copy; 2024 <span>Micro EXE</span>. All rights reserved.</p>
+      <p>Designed &amp; Built with <span>&#9829;</span> by Micro EXE</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+</script>
+
+</body>
 </html>
