@@ -1,336 +1,537 @@
-!DOCTYPE html>
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>FAQ</title>
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="scss/main.css">
-    <link rel="stylesheet" href="scss/skin.css">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meet the Team — Micro EXE Tech Services</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --red: #e8251a; --red-dark: #b01a12; --red-dim: rgba(232,37,26,0.12);
+    --black: #0d0d0d; --dark: #141414; --dark2: #1c1c1c; --dark3: #242424;
+    --mid: #3a3a3a; --light: #a8a8a8; --lighter: #d4d4d4; --white: #f5f3ef;
+    --font-display: 'Bebas Neue', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+    --font-mono: 'DM Mono', monospace;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font-body); background: var(--black); color: var(--white); overflow-x: hidden; line-height: 1.6; }
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-    <script src="./script/index.js"></script>
+  /* ─── TOPBAR ─── */
+  .topbar { background: var(--dark2); border-bottom: 1px solid var(--mid); padding: 8px 0; font-size: 12px; color: var(--light); letter-spacing: 0.04em; }
+  .topbar-inner { max-width: 1200px; margin: 0 auto; padding: 0 32px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+  .topbar-links { display: flex; gap: 24px; align-items: center; }
+  .topbar-links a, .topbar-social a { color: var(--light); text-decoration: none; transition: color 0.2s; }
+  .topbar-links a:hover, .topbar-social a:hover { color: var(--red); }
+  .topbar-links i { margin-right: 6px; font-size: 11px; }
+  .topbar-social { display: flex; gap: 16px; }
+  .topbar-social a { font-size: 14px; }
 
+  /* ─── NAV ─── */
+  nav { position: sticky; top: 0; z-index: 100; background: rgba(13,13,13,0.95); backdrop-filter: blur(16px); border-bottom: 1px solid var(--dark3); }
+  .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 32px; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .logo-mark { width: 38px; height: 38px; background: var(--red); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 22px; color: #fff; letter-spacing: -1px; }
+  .logo-text { font-family: var(--font-display); font-size: 28px; letter-spacing: 3px; color: var(--white); line-height: 1; }
+  .logo-sub { font-family: var(--font-mono); font-size: 9px; letter-spacing: 2px; color: var(--red); text-transform: uppercase; display: block; margin-top: -2px; }
+  .nav-links { display: flex; gap: 4px; list-style: none; }
+  .nav-links a { padding: 8px 14px; text-decoration: none; color: var(--lighter); font-size: 13px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.2s; position: relative; }
+  .nav-links a::after { content: ''; position: absolute; bottom: 0; left: 14px; right: 14px; height: 2px; background: var(--red); transform: scaleX(0); transition: transform 0.2s; }
+  .nav-links a:hover { color: var(--white); }
+  .nav-links a:hover::after, .nav-links a.active::after { transform: scaleX(1); }
+  .nav-links a.active { color: var(--white); }
+  .nav-cta { background: var(--red); color: #fff !important; padding: 8px 20px !important; }
+  .nav-cta::after { display: none !important; }
+  .nav-cta:hover { background: var(--red-dark) !important; }
+  .hamburger { display: none; background: none; border: none; cursor: pointer; color: var(--white); font-size: 22px; }
 
+  /* ─── MOBILE NAV ─── */
+  .mobile-nav { display: none; position: fixed; inset: 0; background: rgba(13,13,13,0.98); z-index: 200; padding: 80px 32px 40px; flex-direction: column; gap: 4px; }
+  .mobile-nav.open { display: flex; }
+  .mobile-nav-close { position: absolute; top: 20px; right: 24px; background: none; border: none; color: var(--white); font-size: 28px; cursor: pointer; }
+  .mobile-nav a { font-family: var(--font-display); font-size: 40px; letter-spacing: 3px; color: var(--lighter); text-decoration: none; transition: color 0.2s; border-bottom: 1px solid var(--dark3); padding: 16px 0; }
+  .mobile-nav a:hover { color: var(--red); }
+
+  /* ─── SHARED SECTION STYLES ─── */
+  section { padding: 96px 32px; }
+  .section-inner { max-width: 1200px; margin: 0 auto; }
+  .section-tag { font-family: var(--font-mono); font-size: 11px; letter-spacing: 3px; color: var(--red); text-transform: uppercase; display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+  .section-tag::before { content: ''; width: 24px; height: 1px; background: var(--red); }
+  h2.section-title { font-family: var(--font-display); font-size: clamp(40px, 5vw, 64px); letter-spacing: 2px; line-height: 1; color: var(--white); margin-bottom: 20px; }
+  h2.section-title span { color: var(--red); }
+  .section-sub { font-size: 16px; color: var(--light); max-width: 560px; line-height: 1.75; }
+
+  /* ─── PAGE HERO ─── */
+  .page-hero { position: relative; padding: 80px 32px; background: var(--dark); overflow: hidden; border-bottom: 1px solid var(--dark3); }
+  .page-hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 60% 100% at 80% 50%, rgba(232,37,26,0.05) 0%, transparent 70%), repeating-linear-gradient(0deg, transparent, transparent 59px, rgba(255,255,255,0.02) 59px, rgba(255,255,255,0.02) 60px), repeating-linear-gradient(90deg, transparent, transparent 59px, rgba(255,255,255,0.02) 59px, rgba(255,255,255,0.02) 60px); }
+  .page-hero-inner { max-width: 1200px; margin: 0 auto; position: relative; }
+  .page-hero-title { font-family: var(--font-display); font-size: clamp(48px, 7vw, 96px); letter-spacing: 3px; line-height: 0.9; color: var(--white); margin-bottom: 24px; }
+  .page-hero-title span { color: var(--red); }
+  .breadcrumb { display: flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 12px; letter-spacing: 1px; color: var(--light); list-style: none; padding: 0; background: transparent; margin: 0; }
+  .breadcrumb a { color: var(--light); text-decoration: none; transition: color 0.2s; }
+  .breadcrumb a:hover { color: var(--red); }
+  .breadcrumb .sep { color: var(--mid); }
+  .breadcrumb .current { color: var(--red); }
+
+  /* ─── TEAM GRID ─── */
+  #team-section { background: var(--black); }
+  .team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; background: var(--dark3); margin-top: 56px; }
+  .team-card { background: var(--black); overflow: hidden; transition: background 0.3s; position: relative; }
+  .team-card:hover { background: var(--dark2); }
+  .team-card:hover .team-social { opacity: 1; transform: translateY(0); }
+  .team-card:hover .team-overlay { opacity: 1; }
+  .team-img-wrap { position: relative; overflow: hidden; height: 280px; background: var(--dark3); display: flex; align-items: center; justify-content: center; }
+  .team-img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; filter: grayscale(0.3); transition: filter 0.3s, transform 0.4s; }
+  .team-card:hover .team-img-wrap img { filter: grayscale(0); transform: scale(1.04); }
+  .team-img-placeholder { font-family: var(--font-display); font-size: 64px; color: var(--mid); letter-spacing: 2px; }
+  .team-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(13,13,13,0.85) 0%, transparent 60%); opacity: 0.5; transition: opacity 0.3s; }
+  .team-role-tag { position: absolute; top: 16px; left: 0; background: var(--red); color: #fff; font-family: var(--font-mono); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; padding: 5px 12px; font-weight: 600; }
+  .team-social { position: absolute; bottom: 16px; left: 0; right: 0; display: flex; justify-content: center; gap: 10px; opacity: 0; transform: translateY(12px); transition: all 0.3s; }
+  .team-social a { width: 36px; height: 36px; background: rgba(13,13,13,0.85); border: 1px solid var(--mid); display: flex; align-items: center; justify-content: center; color: var(--lighter); font-size: 14px; text-decoration: none; transition: all 0.2s; }
+  .team-social a:hover { background: var(--red); border-color: var(--red); color: #fff; }
+  .team-body { padding: 24px 20px; border-top: 1px solid var(--dark3); }
+  .team-name { font-size: 17px; font-weight: 600; color: var(--white); margin-bottom: 4px; letter-spacing: 0.02em; }
+  .team-position { font-family: var(--font-mono); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--red); margin-bottom: 12px; }
+  .team-desc { font-size: 13px; color: var(--light); line-height: 1.6; }
+
+  /* ─── VALUES BAND ─── */
+  #culture-band { background: var(--dark); border-top: 1px solid var(--dark3); }
+  .culture-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--dark3); margin-top: 56px; }
+  .culture-item { background: var(--dark); padding: 40px 32px; }
+  .culture-icon { font-size: 28px; color: var(--red); margin-bottom: 20px; }
+  .culture-item h3 { font-size: 16px; font-weight: 600; color: var(--white); margin-bottom: 12px; letter-spacing: 0.02em; }
+  .culture-item p { font-size: 14px; color: var(--light); line-height: 1.7; }
+
+  /* ─── JOIN US ─── */
+  #join-us { background: var(--black); }
+  .join-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; margin-top: 56px; }
+  .join-text p { color: var(--light); font-size: 16px; line-height: 1.8; margin-bottom: 20px; }
+  .join-requirements { margin-top: 32px; display: flex; flex-direction: column; gap: 14px; }
+  .join-req { display: flex; align-items: flex-start; gap: 14px; }
+  .join-req-icon { width: 36px; height: 36px; min-width: 36px; background: var(--red-dim); border: 1px solid rgba(232,37,26,0.25); display: flex; align-items: center; justify-content: center; color: var(--red); font-size: 14px; }
+  .join-req-text h4 { font-size: 14px; font-weight: 600; color: var(--white); margin-bottom: 3px; }
+  .join-req-text p { font-size: 13px; color: var(--light); line-height: 1.5; margin: 0; }
+  .join-graphic { position: relative; }
+  .join-big-text { font-family: var(--font-display); font-size: clamp(80px, 12vw, 160px); line-height: 0.85; color: transparent; -webkit-text-stroke: 1px rgba(255,255,255,0.05); letter-spacing: 2px; user-select: none; pointer-events: none; }
+  .join-badge { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: var(--dark2); border: 1px solid var(--mid); padding: 28px 36px; text-align: center; min-width: 200px; }
+  .join-badge-label { font-family: var(--font-display); font-size: 28px; color: var(--white); letter-spacing: 2px; line-height: 1.2; }
+  .join-badge-sub { font-family: var(--font-mono); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--red); margin-top: 8px; }
+
+  /* ─── BUTTON ─── */
+  .btn-primary { background: var(--red); color: #fff; border: 2px solid var(--red); padding: 14px 32px; font-family: var(--font-body); font-size: 14px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; cursor: pointer; transition: all 0.2s; display: inline-block; }
+  .btn-primary:hover { background: var(--red-dark); border-color: var(--red-dark); }
+
+  /* ─── CTA BAND ─── */
+  .cta-band { background: var(--red); padding: 72px 32px; }
+  .cta-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
+  .cta-band h2 { font-family: var(--font-display); font-size: clamp(36px, 4vw, 56px); letter-spacing: 2px; color: #fff; line-height: 1; }
+  .cta-band p { color: rgba(255,255,255,0.75); font-size: 15px; margin-top: 10px; max-width: 480px; }
+  .btn-white { background: #fff; color: var(--red); border: 2px solid #fff; padding: 14px 36px; font-family: var(--font-body); font-size: 14px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; white-space: nowrap; transition: all 0.2s; display: inline-block; }
+  .btn-white:hover { background: transparent; color: #fff; }
+
+  /* ─── FOOTER ─── */
+  footer { background: var(--dark2); border-top: 1px solid var(--dark3); }
+  .footer-main { max-width: 1200px; margin: 0 auto; padding: 64px 32px 48px; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
+  .footer-brand .logo { margin-bottom: 20px; display: inline-flex; }
+  .footer-brand p { font-size: 14px; color: var(--light); line-height: 1.7; max-width: 280px; margin-bottom: 24px; }
+  .footer-social { display: flex; gap: 12px; }
+  .footer-social a { width: 36px; height: 36px; background: var(--dark3); border: 1px solid var(--mid); display: flex; align-items: center; justify-content: center; color: var(--light); font-size: 14px; text-decoration: none; transition: all 0.2s; }
+  .footer-social a:hover { background: var(--red); border-color: var(--red); color: #fff; }
+  .footer-col h4 { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--white); margin-bottom: 20px; font-weight: 600; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-col a { color: var(--light); text-decoration: none; font-size: 14px; transition: color 0.2s; }
+  .footer-col a:hover { color: var(--red); }
+  .footer-contact-item { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 14px; }
+  .footer-contact-item i { color: var(--red); font-size: 13px; margin-top: 3px; }
+  .footer-contact-item span { font-size: 13px; color: var(--light); line-height: 1.5; }
+  .footer-bottom { border-top: 1px solid var(--dark3); padding: 20px 32px; }
+  .footer-bottom-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+  .footer-bottom p { font-size: 12px; color: var(--mid); letter-spacing: 0.04em; }
+  .footer-bottom span { color: var(--red); }
+  .map-wrap { border: 1px solid var(--dark3); overflow: hidden; height: 240px; }
+  .map-wrap iframe { width: 100%; height: 100%; border: 0; filter: grayscale(1) invert(0.85) contrast(1.1); }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+  .fade-up { animation: fadeUp 0.7s ease forwards; }
+  .delay-1 { animation-delay: 0.1s; opacity: 0; }
+  .delay-2 { animation-delay: 0.22s; opacity: 0; }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 960px) {
+    .team-grid { grid-template-columns: repeat(2, 1fr); }
+    .culture-grid { grid-template-columns: 1fr 1fr; }
+    .join-inner { grid-template-columns: 1fr; gap: 48px; }
+    .footer-main { grid-template-columns: 1fr 1fr; gap: 32px; }
+    nav .nav-links { display: none; }
+    .hamburger { display: block; }
+  }
+  @media (max-width: 640px) {
+    section { padding: 64px 20px; }
+    .team-grid { grid-template-columns: 1fr 1fr; }
+    .culture-grid { grid-template-columns: 1fr; }
+    .footer-main { grid-template-columns: 1fr; }
+    .topbar { display: none; }
+    .cta-inner { flex-direction: column; }
+    .page-hero { padding: 60px 20px; }
+    .join-graphic { display: none; }
+  }
+  @media (max-width: 480px) {
+    .team-grid { grid-template-columns: 1fr; }
+  }
+</style>
 </head>
+<body>
 
-<body id="wrapper">
-
-    <section id="top-header">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 col-sm-6 col-xs-12 top-header-links">
-                    <ul class="contact_links">
-                        <li><i class="fa fa-phone"></i><a href="#">+91 848 594 5080</a></li>
-                        <li><i class="fa fa-envelope"></i><a href="#">sales@aspiresoftware.in</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-6 col-sm-6 col-xs-12">
-                    <ul class="social_links">
-                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                        <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                        <li><a href="#"><i class="fa fa-skype"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        </div>
-
-    </section>
-
-    <header>
-        <nav class="navbar navbar-inverse">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-				<span class="sr-only">Toggle navigation</span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			  </button>
-                    <a class="navbar-brand" href="#">
-                        <h1>Aspire</h1><span>Software Solutions</span></a>
-                </div>
-                <div id="navbar" class="collapse navbar-collapse navbar-right">
-                    <ul class="nav navbar-nav">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="features.html">Features</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="portfolio.html">Portfolio</a></li>
-                        <li class="active"><a href="faq.html">FAQ</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                        <li><a href="login.html">Sign In</a></li>
-                        <li><a href="registration.html">Sign Up</a></li>
-                    </ul>
-                </div>
-                <!--/.nav-collapse -->
-            </div>
-        </nav>
-        <!--/.nav-ends -->
-    </header>
-
-    <section id="top_banner">
-        <div class="banner">
-            <div class="inner text-center">
-                <h2>Lorem ipsum dolor sit amet</h2>
-            </div>
-        </div>
-        <div class="page_info">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-8 col-sm-8 col-xs-6">
-                        <h4>FAQ</h4>
-                    </div>
-                    <div class="col-md-4 col-sm-4 col-xs-6" style="text-align:right;">Home<span class="sep"> 	/ </span><span class="current"> FAQ</span></div>
-                </div>
-            </div>
-        </div>
-
-        </div>
-    </section>
-
-
-    <section id="faq">
-        <div class="titlebar">
-            <div class="container">
-                <div class="row">
-                    <div class="section-heading text-center">
-                        <div class="col-md-12 col-xs-12">
-                            <h2>Know Us <span>More</span></h2>
-                            <p class="subheading">Lorem ipsum dolor sit amet sit legimus copiosae instructior ei ut vix denique fierentis ea saperet inimicu ut qui dolor oratio mnesarchum ea utamur impetus fuisset nam nostrud euismod volumus ne mei.</p>
-                        </div>
-                    </div>
-                </div>
-
-
-
-                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                    <div class="rich-accordian">
-                        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-
-                            <div class="panel panel-default">
-                                <div class="panel-heading" role="tab" id="headingOne">
-                                    <h4 class="panel-title">
-                                        <div class="icon-circle"> <i class="fa fa-cog"></i></div>
-                                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    How do I purchase your product?
-                                    </a>
-                                    </h4>
-                                </div>
-                                <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                                    <div class="panel-body">
-                                        Lorem ipsum dolor sit amet, sed in nostro latine, eu option appetere mediocritatem duo. Pro duis magna perpetua ea. Dicant epicurei gubergren eos ne, ad suas ornatus graecis nam, pri quot liber ignota no. Usu et erat propriae invenire, blandit voluptua
-                                        vim at, iuvaret albucius cu ius. Te integre diceret praesent eos, impetus legimus te vim. Ne mollis veritus est.
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="panel panel-default">
-                                <div class="panel-heading" role="tab" id="headingTwo">
-                                    <h4 class="panel-title">
-                                        <div class="icon-circle"> <i class="fa fa-desktop"></i></div>
-                                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                     Do you provide product support?
-                                    </a>
-                                    </h4>
-                                </div>
-                                <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-                                    <div class="panel-body">
-                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="panel panel-default">
-                                <div class="panel-heading" role="tab" id="headingThree">
-                                    <h4 class="panel-title">
-                                        <div class="icon-circle"> <i class="fa fa-magic"></i></div>
-                                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                     Can I change the theme color?
-                                    </a>
-                                    </h4>
-                                </div>
-                                <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-                                    <div class="panel-body">
-                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                    <div class="rich-accordian">
-                        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-
-                            <div class="panel panel-default">
-                                <div class="panel-heading" role="tab" id="headingfour">
-                                    <h4 class="panel-title">
-                                        <div class="icon-circle"> <i class="fa fa-cloud-download"></i></div>
-                                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsefour" aria-expanded="true" aria-controls="collapsefour">
-                                   How to download source files
-                                    </a>
-                                    </h4>
-                                </div>
-                                <div id="collapsefour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingfour">
-                                    <div class="panel-body">
-                                        Lorem ipsum dolor sit amet, sed in nostro latine, eu option appetere mediocritatem duo. Pro duis magna perpetua ea. Dicant epicurei gubergren eos ne, ad suas ornatus graecis nam, pri quot liber ignota no. Usu et erat propriae invenire, blandit voluptua
-                                        vim at, iuvaret albucius cu ius. Te integre diceret praesent eos, impetus legimus te vim. Ne mollis veritus est.
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="panel panel-default">
-                                <div class="panel-heading" role="tab" id="headingfive">
-                                    <h4 class="panel-title">
-                                        <div class="icon-circle"> <i class="fa fa-fonticons"></i></div>
-                                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsefive" aria-expanded="false" aria-controls="collapsefive">
-                                    How to download and use icons
-                                    </a>
-                                    </h4>
-                                </div>
-                                <div id="collapsefive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingfive">
-                                    <div class="panel-body">
-                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="panel panel-default">
-                                <div class="panel-heading" role="tab" id="headingsix">
-                                    <h4 class="panel-title">
-                                        <div class="icon-circle"> <i class="fa fa-fonticons"></i></div>
-                                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsesix" aria-expanded="false" aria-controls="collapsesix">
-                                    How to organise icons to Projects
-                                    </a>
-                                    </h4>
-                                </div>
-                                <div id="collapsesix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingsix">
-                                    <div class="panel-body">
-                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-
-
-
-
-
-    <section id="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3 col-sm-3 col-xs-12 block">
-                    <div class="footer-block">
-                        <h4>Address</h4>
-                        <hr/>
-                        <p>Lorem ipsum dolor sit amet sit legimus copiosae instructior ei ut vix denique fierentis ea saperet inimicu ut qui dolor oratio mnesarchum.
-                        </p>
-                        <a href="#" class="learnmore">Learn More <i class="fa fa-caret-right"></i></a>
-                    </div>
-                </div>
-
-                <div class="col-md-3 col-sm-3 col-xs-12 block">
-                    <div class="footer-block">
-                        <h4>Useful Links</h4>
-                        <hr/>
-                        <ul class="footer-links">
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Features</a></li>
-                            <li><a href="#">Portfolio</a></li>
-                            <li><a href="#">Contact</a></li>
-                            <li><a href="#">Sign In</a></li>
-                            <li><a href="#">Sign Up</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="col-md-3 col-sm-3 col-xs-12 block">
-                    <div class="footer-block">
-                        <h4>Community</h4>
-                        <hr/>
-                        <ul class="footer-links">
-                            <li><a href="#">Blog</a></li>
-                            <li><a href="#">Forum</a></li>
-                            <li><a href="#">Free Goods</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="col-md-3 col-sm-3 col-xs-12 <block></block>">
-                    <div class="footer-block">
-                        <h4>Recent Posts</h4>
-                        <hr/>
-                        <ul class="footer-links">
-                            <li>
-                                <a href="#" class="post">Lorem ipsum dolor sit amet</a>
-                                <p class="post-date">May 25, 2017</p>
-                            </li>
-                            <li>
-                                <a href="#" class="post">Lorem ipsum dolor sit amet</a>
-                                <p class="post-date">May 25, 2017</p>
-                            </li>
-                            <li>
-                                <a href="#" class="post">Lorem ipsum dolor sit amet</a>
-                                <p class="post-date">May 25, 2017</p>
-                            </li>
-
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-    </section>
-
-    <section id="bottom-footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 col-sm-6 col-xs-12 btm-footer-links">
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Use</a>
-                </div>
-                <div class="col-md-6 col-sm-6 col-xs-12 copyright">
-                    Developed by <a href="#">Aspire Software Solutions</a> designed by <a href="#">Designing Team</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <div id="panel">
-        <div id="panel-admin">
-            <div class="panel-admin-box">
-                <div id="tootlbar_colors">
-                    <button class="color" style="background-color:#1abac8;" onclick="mytheme(0)"></button>
-                    <button class="color" style="background-color:#ff8a00;" onclick="mytheme(1)"> </button>
-                    <button class="color" style="background-color:#b4de50;" onclick="mytheme(2)"> </button>
-                    <button class="color" style="background-color:#e54e53;" onclick="mytheme(3)"> </button>
-                    <button class="color" style="background-color:#1abc9c;" onclick="mytheme(4)"> </button>
-                    <button class="color" style="background-color:#159eee;" onclick="mytheme(5)"> </button>
-                </div>
-            </div>
-
-        </div>
-        <a class="open" href="#"><span><i class="fa fa-gear fa-spin"></i></span></a>
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-links">
+      <span>Redesigned by Micro EXE</span>
+      <a href="tel:+639286581524"><i class="fa fa-phone"></i>+63 928 658 1524</a>
+      <a href="mailto:inquiries@microexe.net"><i class="fa fa-envelope"></i>inquiries@microexe.net</a>
     </div>
+    <div class="topbar-social">
+      <a href="https://www.facebook.com/microexe" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://twitter.com/microexegaming" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+      <a href="#" aria-label="Skype"><i class="fab fa-skype"></i></a>
+    </div>
+  </div>
+</div>
 
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-mark">MX</div>
+      <div>
+        <span class="logo-text">MICRO EXE</span>
+        <span class="logo-sub">Tech Services</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="mtt.html" class="active">Meet the Team</a></li>
+      <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+    </ul>
+    <button class="hamburger" onclick="document.querySelector('.mobile-nav').classList.add('open')" aria-label="Open menu">
+      <i class="fas fa-bars"></i>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav">
+  <button class="mobile-nav-close" onclick="document.querySelector('.mobile-nav').classList.remove('open')">
+    <i class="fas fa-times"></i>
+  </button>
+  <a href="index.html">Home</a>
+  <a href="services.html">Services</a>
+  <a href="about.html">About Us</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="mtt.html">Meet the Team</a>
+  <a href="contact.html">Contact Us</a>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-inner">
+    <div class="section-tag fade-up">The People Behind Micro EXE</div>
+    <h1 class="page-hero-title fade-up delay-1">MEET<br><span>THE TEAM</span></h1>
+    <div class="breadcrumb fade-up delay-2">
+      <a href="index.html">Home</a>
+      <span class="sep">/</span>
+      <span class="current">Meet the Team</span>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM GRID -->
+<section id="team-section">
+  <div class="section-inner">
+    <div class="section-tag">Our Crew</div>
+    <h2 class="section-title">THE PEOPLE WHO<br><span>MAKE IT HAPPEN</span></h2>
+    <p class="section-sub">A dedicated group of tech enthusiasts who bring skill, passion, and commitment to every single job.</p>
+    <div class="team-grid">
+
+      <div class="team-card">
+        <div class="team-img-wrap">
+          <div class="team-img-placeholder"><i class="fas fa-user"></i></div>
+          <span class="team-role-tag">Founder</span>
+          <div class="team-overlay"></div>
+          <div class="team-social">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <div class="team-body">
+          <div class="team-name">Team Member</div>
+          <div class="team-position">Founder & Lead Technician</div>
+          <p class="team-desc">Founded Micro EXE in 2018 with a vision to bring professional tech services to Taytay, Rizal. Specializes in hardware repair and custom PC builds.</p>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-img-wrap">
+          <div class="team-img-placeholder"><i class="fas fa-user"></i></div>
+          <span class="team-role-tag">Developer</span>
+          <div class="team-overlay"></div>
+          <div class="team-social">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+            <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          </div>
+        </div>
+        <div class="team-body">
+          <div class="team-name">Team Member</div>
+          <div class="team-position">Full-Stack Developer</div>
+          <p class="team-desc">Leads all web and mobile application development projects. Passionate about clean code, modern frameworks, and building scalable solutions.</p>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-img-wrap">
+          <div class="team-img-placeholder"><i class="fas fa-user"></i></div>
+          <span class="team-role-tag">Network</span>
+          <div class="team-overlay"></div>
+          <div class="team-social">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <div class="team-body">
+          <div class="team-name">Team Member</div>
+          <div class="team-position">Network & Diskless Specialist</div>
+          <p class="team-desc">Expert in diskless network solutions, LAN infrastructure, and server configuration for computer shops and classrooms across Rizal.</p>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-img-wrap">
+          <div class="team-img-placeholder"><i class="fas fa-user"></i></div>
+          <span class="team-role-tag">Design</span>
+          <div class="team-overlay"></div>
+          <div class="team-social">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Behance"><i class="fab fa-behance"></i></a>
+          </div>
+        </div>
+        <div class="team-body">
+          <div class="team-name">Team Member</div>
+          <div class="team-position">Layout & Graphic Designer</div>
+          <p class="team-desc">Handles all visual design work including branding, layout, digital graphics, and UI/UX design for client projects and internal materials.</p>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-img-wrap">
+          <div class="team-img-placeholder"><i class="fas fa-user"></i></div>
+          <span class="team-role-tag">Technician</span>
+          <div class="team-overlay"></div>
+          <div class="team-social">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <div class="team-body">
+          <div class="team-name">Team Member</div>
+          <div class="team-position">Hardware Technician</div>
+          <p class="team-desc">Skilled in component-level diagnostics, laptop and desktop repair, PC modding, and custom cable management for builds of all types.</p>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-img-wrap">
+          <div class="team-img-placeholder"><i class="fas fa-user"></i></div>
+          <span class="team-role-tag">Support</span>
+          <div class="team-overlay"></div>
+          <div class="team-social">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <div class="team-body">
+          <div class="team-name">Team Member</div>
+          <div class="team-position">Client Relations & Support</div>
+          <p class="team-desc">First point of contact for clients — handles inquiries, scheduling, follow-ups, and ensures every customer experience is smooth and satisfying.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CULTURE BAND -->
+<section id="culture-band">
+  <div class="section-inner">
+    <div class="section-tag">How We Operate</div>
+    <h2 class="section-title">OUR TEAM<br><span>CULTURE</span></h2>
+    <p class="section-sub">More than colleagues — we're a crew united by a shared love for technology and a drive to deliver the best.</p>
+    <div class="culture-grid">
+      <div class="culture-item">
+        <div class="culture-icon"><i class="fas fa-people-group"></i></div>
+        <h3>Collaborative by Nature</h3>
+        <p>Every project is a team effort. We share knowledge, skills, and responsibilities to ensure the best possible outcome for every client.</p>
+      </div>
+      <div class="culture-item">
+        <div class="culture-icon"><i class="fas fa-graduation-cap"></i></div>
+        <h3>Always Learning</h3>
+        <p>Technology moves fast. Our team actively keeps up with the latest hardware, software trends, and development practices to stay ahead.</p>
+      </div>
+      <div class="culture-item">
+        <div class="culture-icon"><i class="fas fa-fire"></i></div>
+        <h3>Driven by Passion</h3>
+        <p>We don't clock in just to clock out. Every member of the Micro EXE crew genuinely loves what they do — and it shows in the work.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JOIN US -->
+<section id="join-us">
+  <div class="section-inner">
+    <div class="section-tag">Grow with Us</div>
+    <h2 class="section-title">JOIN THE<br><span>MICRO EXE TEAM</span></h2>
+    <div class="join-inner">
+      <div class="join-text">
+        <p>We're always on the lookout for passionate individuals who share our love for technology and commitment to quality service. If you have the skills and the drive, we want to hear from you.</p>
+        <p>Whether you're a hardware technician, developer, designer, or just getting started in the tech world, there may be a place for you at Micro EXE.</p>
+        <div class="join-requirements">
+          <div class="join-req">
+            <div class="join-req-icon"><i class="fas fa-heart"></i></div>
+            <div class="join-req-text">
+              <h4>Passion for Technology</h4>
+              <p>A genuine love for tech is the most important thing we look for in any candidate.</p>
+            </div>
+          </div>
+          <div class="join-req">
+            <div class="join-req-icon"><i class="fas fa-handshake"></i></div>
+            <div class="join-req-text">
+              <h4>Team Player Mindset</h4>
+              <p>We work closely together, so the ability to collaborate and communicate is essential.</p>
+            </div>
+          </div>
+          <div class="join-req">
+            <div class="join-req-icon"><i class="fas fa-wrench"></i></div>
+            <div class="join-req-text">
+              <h4>Relevant Technical Skills</h4>
+              <p>Experience in hardware, software, networking, design, or development is a plus.</p>
+            </div>
+          </div>
+          <div class="join-req">
+            <div class="join-req-icon"><i class="fas fa-location-dot"></i></div>
+            <div class="join-req-text">
+              <h4>Based in or Near Rizal</h4>
+              <p>Most of our work is on-site in Taytay and surrounding areas of Rizal province.</p>
+            </div>
+          </div>
+        </div>
+        <a href="contact.html" class="btn-primary" style="margin-top: 36px;">Get In Touch</a>
+      </div>
+      <div class="join-graphic">
+        <div class="join-big-text">JOIN<br>US</div>
+        <div class="join-badge">
+          <div class="join-badge-label">WE ARE<br>HIRING</div>
+          <div class="join-badge-sub">Taytay, Rizal</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<div class="cta-band">
+  <div class="cta-inner">
+    <div>
+      <h2>READY TO WORK WITH US?</h2>
+      <p>Whether you're a client or a potential team member, we'd love to hear from you. Reach out today.</p>
+    </div>
+    <a href="contact.html" class="btn-white">Contact Us Today</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-main">
+    <div class="footer-brand">
+      <a href="index.html" class="logo">
+        <div class="logo-mark">MX</div>
+        <div>
+          <span class="logo-text">MICRO EXE</span>
+          <span class="logo-sub">Tech Services</span>
+        </div>
+      </a>
+      <p>A passionate tech service group based in Taytay, Rizal — delivering quality computer hardware, software, and development solutions since 2018.</p>
+      <div class="footer-social">
+        <a href="https://www.facebook.com/microexe" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://twitter.com/microexegaming" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+        <a href="#" aria-label="Skype"><i class="fab fa-skype"></i></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="mtt.html">Meet the Team</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="services.html">Computer Repair</a></li>
+        <li><a href="services.html">PC Modding & Assembly</a></li>
+        <li><a href="services.html">Diskless Solutions</a></li>
+        <li><a href="services.html">Web Development</a></li>
+        <li><a href="services.html">Mobile Apps</a></li>
+        <li><a href="services.html">Layout & Design</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact Us</h4>
+      <div class="footer-contact-item">
+        <i class="fas fa-location-dot"></i>
+        <span>#58 Buen-Mar 1 Subdivision, Barangay San Juan, Madlanghaya Street, Taytay, Rizal 1920</span>
+      </div>
+      <div class="footer-contact-item">
+        <i class="fas fa-phone"></i>
+        <span>+63 928 658 1524</span>
+      </div>
+      <div class="footer-contact-item">
+        <i class="fas fa-envelope"></i>
+        <span>inquiries@microexe.net</span>
+      </div>
+      <div class="map-wrap" style="margin-top: 16px;">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d759.6879109034933!2d121.13096427453534!3d14.564181687054807!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sph!4v1568114356159!5m2!1sen!2sph"
+          allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-inner">
+      <p>&copy; 2024 <span>Micro EXE</span>. All rights reserved.</p>
+      <p>Designed &amp; Built with <span>&#9829;</span> by Micro EXE</p>
+    </div>
+  </div>
+</footer>
 
 </body>
-
 </html>
