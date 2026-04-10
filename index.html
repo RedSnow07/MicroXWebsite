@@ -1,224 +1,1105 @@
-﻿<!DOCTYPE html>
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Home</title>
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="scss/main.css">
-    <link rel="stylesheet" href="scss/skin.css">
-	<link rel = "icon" href = "img/favicon.ico">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Micro EXE — Computer Hardware & Software Services</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-    <script src="./script/index.js"></script>
+  :root {
+    --red: #e8251a;
+    --red-dark: #b01a12;
+    --red-dim: rgba(232,37,26,0.12);
+    --black: #0d0d0d;
+    --dark: #141414;
+    --dark2: #1c1c1c;
+    --dark3: #242424;
+    --mid: #3a3a3a;
+    --light: #a8a8a8;
+    --lighter: #d4d4d4;
+    --white: #f5f3ef;
+    --accent: #ff6b35;
+    --font-display: 'Bebas Neue', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+    --font-mono: 'DM Mono', monospace;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--black);
+    color: var(--white);
+    overflow-x: hidden;
+    line-height: 1.6;
+  }
+
+  /* ─── TOP BAR ─── */
+  .topbar {
+    background: var(--dark2);
+    border-bottom: 1px solid var(--mid);
+    padding: 8px 0;
+    font-size: 12px;
+    color: var(--light);
+    letter-spacing: 0.04em;
+  }
+  .topbar-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .topbar-links { display: flex; gap: 24px; align-items: center; }
+  .topbar-links a, .topbar-social a {
+    color: var(--light);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .topbar-links a:hover, .topbar-social a:hover { color: var(--red); }
+  .topbar-links i, .topbar-social i { margin-right: 6px; font-size: 11px; }
+  .topbar-social { display: flex; gap: 16px; }
+  .topbar-social a { font-size: 14px; }
+
+  /* ─── NAV ─── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(13,13,13,0.95);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--dark3);
+    padding: 0;
+  }
+  .nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+  .logo-mark {
+    width: 38px;
+    height: 38px;
+    background: var(--red);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-size: 22px;
+    color: #fff;
+    letter-spacing: -1px;
+  }
+  .logo-text {
+    font-family: var(--font-display);
+    font-size: 28px;
+    letter-spacing: 3px;
+    color: var(--white);
+    line-height: 1;
+  }
+  .logo-sub {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: var(--red);
+    text-transform: uppercase;
+    display: block;
+    margin-top: -2px;
+  }
+  .nav-links { display: flex; gap: 4px; list-style: none; }
+  .nav-links a {
+    padding: 8px 14px;
+    text-decoration: none;
+    color: var(--lighter);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+    position: relative;
+  }
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 14px;
+    right: 14px;
+    height: 2px;
+    background: var(--red);
+    transform: scaleX(0);
+    transition: transform 0.2s;
+  }
+  .nav-links a:hover { color: var(--white); }
+  .nav-links a:hover::after, .nav-links a.active::after { transform: scaleX(1); }
+  .nav-links a.active { color: var(--white); }
+  .nav-cta {
+    background: var(--red);
+    color: #fff !important;
+    padding: 8px 20px !important;
+  }
+  .nav-cta::after { display: none !important; }
+  .nav-cta:hover { background: var(--red-dark); }
+  .hamburger { display: none; background: none; border: none; cursor: pointer; color: var(--white); font-size: 22px; }
+
+  /* ─── HERO ─── */
+  .hero {
+    position: relative;
+    min-height: 92vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: var(--black);
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 60% 50%, rgba(232,37,26,0.06) 0%, transparent 70%),
+      repeating-linear-gradient(0deg, transparent, transparent 59px, rgba(255,255,255,0.025) 59px, rgba(255,255,255,0.025) 60px),
+      repeating-linear-gradient(90deg, transparent, transparent 59px, rgba(255,255,255,0.025) 59px, rgba(255,255,255,0.025) 60px);
+  }
+  .hero-content {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 32px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+  .hero-tag {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--red);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .hero-tag::before {
+    content: '';
+    width: 32px;
+    height: 1px;
+    background: var(--red);
+  }
+  .hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(64px, 8vw, 110px);
+    line-height: 0.92;
+    letter-spacing: 2px;
+    color: var(--white);
+    margin-bottom: 28px;
+  }
+  .hero h1 .highlight {
+    color: var(--red);
+    display: block;
+  }
+  .hero-desc {
+    font-size: 16px;
+    color: var(--light);
+    max-width: 460px;
+    line-height: 1.75;
+    margin-bottom: 40px;
+  }
+  .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--red);
+    color: #fff;
+    border: 2px solid var(--red);
+    padding: 14px 32px;
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: var(--red-dark); border-color: var(--red-dark); }
+  .btn-outline {
+    background: transparent;
+    color: var(--white);
+    border: 2px solid var(--mid);
+    padding: 14px 32px;
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: inline-block;
+  }
+  .btn-outline:hover { border-color: var(--lighter); color: var(--white); }
+  .hero-stats {
+    display: flex;
+    gap: 40px;
+    margin-top: 48px;
+    padding-top: 40px;
+    border-top: 1px solid var(--dark3);
+  }
+  .stat-num {
+    font-family: var(--font-display);
+    font-size: 42px;
+    color: var(--white);
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 12px;
+    color: var(--light);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+  .hero-visual {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .hero-card {
+    background: var(--dark2);
+    border: 1px solid var(--dark3);
+    padding: 24px 28px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+  .hero-card:hover { border-color: var(--mid); }
+  .hero-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px;
+    height: 100%;
+    background: var(--red);
+  }
+  .hero-card-icon {
+    font-size: 28px;
+    color: var(--red);
+    margin-bottom: 12px;
+  }
+  .hero-card h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 6px;
+  }
+  .hero-card p {
+    font-size: 13px;
+    color: var(--light);
+    line-height: 1.6;
+  }
+  .card-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+  /* ─── SECTION COMMON ─── */
+  section { padding: 96px 32px; }
+  .section-inner { max-width: 1200px; margin: 0 auto; }
+  .section-tag {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--red);
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .section-tag::before { content: ''; width: 24px; height: 1px; background: var(--red); }
+  h2.section-title {
+    font-family: var(--font-display);
+    font-size: clamp(40px, 5vw, 64px);
+    letter-spacing: 2px;
+    line-height: 1;
+    color: var(--white);
+    margin-bottom: 20px;
+  }
+  h2.section-title span { color: var(--red); }
+  .section-sub {
+    font-size: 16px;
+    color: var(--light);
+    max-width: 560px;
+    line-height: 1.75;
+  }
+
+  /* ─── ABOUT ─── */
+  #about { background: var(--dark); }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    margin-top: 64px;
+  }
+  .about-text p {
+    color: var(--light);
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+  }
+  .about-features { margin-top: 36px; display: flex; flex-direction: column; gap: 16px; }
+  .about-feat {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .about-feat-icon {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    background: var(--red-dim);
+    border: 1px solid rgba(232,37,26,0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--red);
+    font-size: 16px;
+  }
+  .about-feat h4 { font-size: 14px; font-weight: 600; color: var(--white); margin-bottom: 4px; }
+  .about-feat p { font-size: 13px; color: var(--light); margin: 0; line-height: 1.5; }
+  .about-graphic {
+    position: relative;
+  }
+  .about-big-text {
+    font-family: var(--font-display);
+    font-size: clamp(80px, 12vw, 160px);
+    line-height: 0.85;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(255,255,255,0.06);
+    letter-spacing: 2px;
+    user-select: none;
+    pointer-events: none;
+  }
+  .about-badge {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--dark2);
+    border: 1px solid var(--mid);
+    padding: 28px 36px;
+    text-align: center;
+    min-width: 220px;
+  }
+  .about-badge-num {
+    font-family: var(--font-display);
+    font-size: 72px;
+    color: var(--red);
+    line-height: 1;
+  }
+  .about-badge-label {
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--light);
+    margin-top: 6px;
+  }
+
+  /* ─── SERVICES ─── */
+  #services { background: var(--black); }
+  .services-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 56px;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: var(--dark3);
+  }
+  .service-card {
+    background: var(--black);
+    padding: 40px 32px;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s;
+    cursor: default;
+  }
+  .service-card:hover { background: var(--dark2); }
+  .service-card:hover .service-num { opacity: 1; }
+  .service-card:hover .service-arrow { transform: translateX(4px); opacity: 1; }
+  .service-num {
+    font-family: var(--font-display);
+    font-size: 64px;
+    color: var(--red-dim);
+    position: absolute;
+    top: 16px; right: 24px;
+    line-height: 1;
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+    border: 1px solid rgba(232,37,26,0.15);
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    color: var(--red);
+  }
+  .service-icon {
+    font-size: 32px;
+    color: var(--red);
+    margin-bottom: 20px;
+  }
+  .service-card h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 12px;
+    letter-spacing: 0.02em;
+  }
+  .service-card p {
+    font-size: 14px;
+    color: var(--light);
+    line-height: 1.7;
+  }
+  .service-arrow {
+    margin-top: 24px;
+    font-size: 18px;
+    color: var(--red);
+    opacity: 0;
+    transition: all 0.2s;
+    display: inline-block;
+  }
+
+  /* ─── NEWS ─── */
+  #news { background: var(--dark); }
+  .news-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 56px;
+  }
+  .news-card {
+    background: var(--dark2);
+    border: 1px solid var(--dark3);
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+  .news-card:hover { border-color: var(--mid); }
+  .news-card-img {
+    height: 200px;
+    background: var(--dark3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+  }
+  .news-card-img-placeholder {
+    font-family: var(--font-display);
+    font-size: 48px;
+    color: var(--mid);
+    letter-spacing: 2px;
+  }
+  .news-tag {
+    position: absolute;
+    top: 16px; left: 16px;
+    background: var(--red);
+    color: #fff;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    font-weight: 600;
+  }
+  .news-card-body { padding: 24px; }
+  .news-card-date {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--light);
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+  }
+  .news-card h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1.4;
+    margin-bottom: 12px;
+  }
+  .news-card p {
+    font-size: 13px;
+    color: var(--light);
+    line-height: 1.65;
+  }
+  .news-card a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--red);
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    margin-top: 16px;
+    letter-spacing: 0.04em;
+    transition: gap 0.2s;
+  }
+  .news-card a:hover { gap: 10px; }
+
+  /* ─── CTA BAND ─── */
+  .cta-band {
+    background: var(--red);
+    padding: 72px 32px;
+  }
+  .cta-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+  .cta-band h2 {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 4vw, 56px);
+    letter-spacing: 2px;
+    color: #fff;
+    line-height: 1;
+  }
+  .cta-band p {
+    color: rgba(255,255,255,0.75);
+    font-size: 15px;
+    margin-top: 10px;
+    max-width: 480px;
+  }
+  .btn-white {
+    background: #fff;
+    color: var(--red);
+    border: 2px solid #fff;
+    padding: 14px 36px;
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: all 0.2s;
+    display: inline-block;
+  }
+  .btn-white:hover { background: transparent; color: #fff; }
+
+  /* ─── FOOTER ─── */
+  footer { background: var(--dark2); border-top: 1px solid var(--dark3); }
+  .footer-main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 64px 32px 48px;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 48px;
+  }
+  .footer-brand .logo { margin-bottom: 20px; display: inline-flex; }
+  .footer-brand p {
+    font-size: 14px;
+    color: var(--light);
+    line-height: 1.7;
+    max-width: 280px;
+    margin-bottom: 24px;
+  }
+  .footer-social { display: flex; gap: 12px; }
+  .footer-social a {
+    width: 36px;
+    height: 36px;
+    background: var(--dark3);
+    border: 1px solid var(--mid);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--light);
+    font-size: 14px;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .footer-social a:hover { background: var(--red); border-color: var(--red); color: #fff; }
+  .footer-col h4 {
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 20px;
+    font-weight: 600;
+  }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-col a {
+    color: var(--light);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.2s;
+  }
+  .footer-col a:hover { color: var(--red); }
+  .footer-contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .footer-contact-item i { color: var(--red); font-size: 13px; margin-top: 3px; }
+  .footer-contact-item span { font-size: 13px; color: var(--light); line-height: 1.5; }
+  .footer-bottom {
+    border-top: 1px solid var(--dark3);
+    padding: 20px 32px;
+  }
+  .footer-bottom-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .footer-bottom p {
+    font-size: 12px;
+    color: var(--mid);
+    letter-spacing: 0.04em;
+  }
+  .footer-bottom span { color: var(--red); }
+
+  /* ─── MAP EMBED ─── */
+  .map-wrap {
+    border: 1px solid var(--dark3);
+    overflow: hidden;
+    height: 240px;
+  }
+  .map-wrap iframe { width: 100%; height: 100%; border: 0; filter: grayscale(1) invert(0.85) contrast(1.1); }
+
+  /* ─── MOBILE NAV ─── */
+  .mobile-nav {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(13,13,13,0.98);
+    z-index: 200;
+    padding: 80px 32px 40px;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .mobile-nav.open { display: flex; }
+  .mobile-nav-close {
+    position: absolute;
+    top: 20px; right: 24px;
+    background: none;
+    border: none;
+    color: var(--white);
+    font-size: 28px;
+    cursor: pointer;
+  }
+  .mobile-nav a {
+    font-family: var(--font-display);
+    font-size: 40px;
+    letter-spacing: 3px;
+    color: var(--lighter);
+    text-decoration: none;
+    transition: color 0.2s;
+    border-bottom: 1px solid var(--dark3);
+    padding: 16px 0;
+  }
+  .mobile-nav a:hover { color: var(--red); }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .fade-up { animation: fadeUp 0.7s ease forwards; }
+  .delay-1 { animation-delay: 0.1s; opacity: 0; }
+  .delay-2 { animation-delay: 0.22s; opacity: 0; }
+  .delay-3 { animation-delay: 0.34s; opacity: 0; }
+  .delay-4 { animation-delay: 0.46s; opacity: 0; }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 960px) {
+    .hero-content { grid-template-columns: 1fr; gap: 48px; }
+    .about-grid { grid-template-columns: 1fr; gap: 48px; }
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .news-grid { grid-template-columns: 1fr 1fr; }
+    .footer-main { grid-template-columns: 1fr 1fr; gap: 32px; }
+    .hero-visual { display: none; }
+    nav .nav-links { display: none; }
+    .hamburger { display: block; }
+  }
+  @media (max-width: 640px) {
+    section { padding: 64px 20px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .news-grid { grid-template-columns: 1fr; }
+    .footer-main { grid-template-columns: 1fr; }
+    .hero-content { padding: 60px 20px; }
+    .hero-stats { gap: 24px; flex-wrap: wrap; }
+    .topbar { display: none; }
+    .cta-inner { flex-direction: column; }
+  }
+</style>
 </head>
 
-<body id="wrapper" class="red">
-
-    
-
-    <header>
-        <nav class="navbar navbar-inverse">
-            <div class="container">
-                <div class="row">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-				<span class="sr-only">Toggle navigation</span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			  </button>
-                    </div>
-                    <div id="navbar" class="collapse navbar-collapse navbar-right">
-                        <ul class="nav navbar-nav">
-                            <li class="active"><a href="#">Home</a></li>
-                            <li><a href="services.html">Services</a></li>
-                            <li><a href="about.html">About Us</a></li>
-                            <li><a href="gallery.html">Gallery</a></li>
-                            <li><a href="mtt.html">Meet the Team</a></li>
-                            <li><a href="contact.html">Contact Us</a></li>
-                        </ul>
-                    </div>
-                    <!--/.nav-collapse -->
-                </div>
-            </div>
-        </nav>
-    </header>
-    <!--/.nav-ends -->
-
-    <div id="myCarousel" class="carousel slide">
-        <!-- Indicators -->
-
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner">
-            <div class="item active">
-                <div class="fill" style="background-image:url('img/mcxslide1.jpg');"></div>
-                <div class="carousel-caption slide-up">
-                    <h1 class="banner_heading"><img src="img/mcxblacks.png" height="250" width="300"><span>Micro EXE</span></h1></img>
-                    <p class="banner_txt">Blurred BG, services done via slideshow.</p>
-                </div>
-            
-        </div>
+<body>
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-links">
+      <span>Redesigned by Micro EXE</span>
+      <a href="tel:+639286581524"><i class="fa fa-phone"></i>+63 928 658 1524</a>
+      <a href="mailto:inquiries@microexe.net"><i class="fa fa-envelope"></i>inquiries@microexe.net</a>
     </div>
-	</div>
+    <div class="topbar-social">
+      <a href="https://www.facebook.com/microexe" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://twitter.com/microexegaming" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+      <a href="#" aria-label="Skype"><i class="fab fa-skype"></i></a>
+    </div>
+  </div>
+</div>
 
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-mark">MX</div>
+      <div>
+        <span class="logo-text">MICRO EXE</span>
+        <span class="logo-sub">Tech Services</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="mtt.html">Meet the Team</a></li>
+      <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+    </ul>
+    <button class="hamburger" onclick="document.querySelector('.mobile-nav').classList.add('open')" aria-label="Open menu">
+      <i class="fas fa-bars"></i>
+    </button>
+  </div>
+</nav>
 
+<!-- MOBILE NAV -->
+<div class="mobile-nav">
+  <button class="mobile-nav-close" onclick="document.querySelector('.mobile-nav').classList.remove('open')">
+    <i class="fas fa-times"></i>
+  </button>
+  <a href="index.html">Home</a>
+  <a href="services.html">Services</a>
+  <a href="about.html">About Us</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="mtt.html">Meet the Team</a>
+  <a href="contact.html">Contact Us</a>
+</div>
 
-    <section id="about">
-        
-
-        <div class="container-fluid">
-
-            <div class="col-md-7 col-md-offset-5 col-sm-8 col-sm-offset-2 col-xs-12 text-inner ">
-                <div class="text-block">
-                    <div class="section-heading">
-                        <h1>ABOUT <span>US</span></h1>
-                        <p class="subheading">Micro EXE is a start-up service group that was created in December 2018 and 
-						they aim to provide the best quality 
-						service in computer hardware and software maintenance. Driven with passion, 
-						the team of Micro EXE delivers technical efficiency and precision to ensure optimum service and 
-						satisfies customer’s technical needs.</p>
-
-                    <button type="button" class="btn btn-primary slide">Learn More  <i class="fa fa-caret-right"></i> </button>
-
-
-                </div>
-            </div>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-left">
+      <div class="hero-tag fade-up">Since December 2018 &mdash; Taytay, Rizal</div>
+      <h1 class="fade-up delay-1">
+        EXPERT
+        <span class="highlight">TECH</span>
+        SERVICES
+      </h1>
+      <p class="hero-desc fade-up delay-2">
+        Micro EXE is your trusted computer hardware and software maintenance specialists in Rizal. We deliver precision, speed, and passion on every job.
+      </p>
+      <div class="hero-actions fade-up delay-3">
+        <a href="services.html" class="btn-primary">View Services</a>
+        <a href="contact.html" class="btn-outline">Get a Quote</a>
+      </div>
+      <div class="hero-stats fade-up delay-4">
+        <div>
+          <div class="stat-num">6+</div>
+          <div class="stat-label">Years Active</div>
         </div>
-    </section>
-
-
-    <section id="process">
-        <div class="container">
-            <div class="section-heading text-center">
-                <div class="col-md-12 col-xs-12">
-                    <h1>What <span>We Do</span></h1>
-                    <p class="subheading">We offer wide variety of services such as:</p>
-					
-					<ul class="aboutul" style="text-align: center;">
-                        <li><h3>Computer Repair - Computer Hardware & Software Maintenance
-						Computer Modding & Assembly - Diskless Solutions - Web Development and Graphics
-						- Mobile APplication Development - System Development - Layout & Design</li>  </h3>
-
-                    </ul>
-                </div>
-            </div>
-            
-
+        <div>
+          <div class="stat-num">8+</div>
+          <div class="stat-label">Service Types</div>
         </div>
-    </section>
-
-
-    <section id="testimonial">
-        <div class="container">
-            <div class="section-heading text-center">
-                <div class="col-md-12 col-xs-12">
-					
-                    <h1><span>Latest Tech News</span><h1>
-                
-				</div>
-            </div>
-
-            <div class="row">
-                
-
-                <div class="col-md-4 col-sm-12 block">
-                    <div class="testimonial_box">
-                        <p>Lorem ipsum dolor sit amet sit legimus copiosae instructior ei ut vix denique fierentis ea saperet inimicu ut qui dolor oratio mnesarchum ea utamur impetus fuisset. </p>
-                    </div>
-                    
-                </div>
-				
-				<div class="col-md-4 col-sm-12 block ">
-					<img src="img/rx5700xt.jpg" height="250" width="360" style="margin-bottom:10px;"></img>
-                    <div class="testimonial_box">
-                        <p>Nvidia to release GTX 1660 Super to compete with AMD's 5700XT. </p>
-						<p><a href="">Learn More</a></p>
-                    </div>
-                </div>
-
-                <div class="col-md-4 col-sm-12 block">
-                    <div class="testimonial_box">
-                        <p>Lorem ipsum dolor sit amet sit legimus copiosae instructior ei ut vix denique fierentis ea saperet inimicu ut qui dolor oratio mnesarchum ea utamur impetus fuisset. </p>
-                    </div>
-                    
-                </div>
-			</div>
-
-            </div>
-
-
-    </section>
-
-
-
-
-
-    <section id="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3 col-sm-3 col-xs-12 block">
-                    <div class="footer-block">
-                        <p><iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d759.6879109034933!2d121.13096427453534!3d14.564181687054807!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sph!4v1568114356159!5m2!1sen!2sph" width="300" height="250" frameborder="0" style="border:0;" allowfullscreen=""></iframe></p>
-                    </div>
-                </div>
-
-                <div class="col-md-3 col-sm-3 col-xs-12 block">
-                    <div class="footer-block" style="margin-left:50px;">
-                        <h4>Address</h4>
-                        <hr/>
-                        <p>#58 Buen-Mar 1 Subdivision, Barangay San Juan, Madlanghaya Street, Taytay, Rizal. 1920
-                        </p>
-                        <a href="#" class="learnmore">Learn More <i class="fa fa-caret-right"></i></a>
-                    </div>
-                </div>
-
-                
-
-                
-            </div>
+        <div>
+          <div class="stat-num">100%</div>
+          <div class="stat-label">Passion Driven</div>
         </div>
-
-
-    </section>
-<!--
-    <section id="bottom-footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 col-sm-6 col-xs-12 btm-footer-links">
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Use</a>
-                </div>
-				-->
-				<section id="top-header">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-7 col-sm-7 col-xs-7 top-header-links">
-				
-                    
-                
-                    <ul class="contact_links">
-					<li><p>Redesigned by Micro EXE</p></li>
-                        <li><i class="fa fa-phone"></i><a href="#">+09286581524</a></li>
-                        <li><i class="fa fa-envelope"></i><a href="#">inquiries@microexe.net</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-5 col-sm-5 col-xs-5 social">
-                    <ul class="social_links">
-                        <li><a href="https://www.facebook.com/microexe"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="https://twitter.com/microexegaming"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-skype"></i></a></li>
-                    </ul>
-                </div>
-            </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card fade-up delay-1">
+        <div class="hero-card-icon"><i class="fas fa-microchip"></i></div>
+        <h3>Hardware Repair & Assembly</h3>
+        <p>Professional diagnosis, repair, and custom PC builds from budget to high-end gaming rigs.</p>
+      </div>
+      <div class="card-row">
+        <div class="hero-card fade-up delay-2">
+          <div class="hero-card-icon"><i class="fas fa-code"></i></div>
+          <h3>Web & App Dev</h3>
+          <p>Full-stack web and mobile application development tailored to your business.</p>
         </div>
-        
+        <div class="hero-card fade-up delay-3">
+          <div class="hero-card-icon"><i class="fas fa-network-wired"></i></div>
+          <h3>Diskless Solutions</h3>
+          <p>Network boot infrastructure for computer shops and classrooms.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    </section>
-                
-    </section>
-	</body>
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div>
+        <div class="section-tag">About Micro EXE</div>
+        <h2 class="section-title">BUILT ON<br><span>PASSION</span></h2>
+        <div class="about-text">
+          <p>Micro EXE is a start-up service group founded in December 2018 in Taytay, Rizal. Driven by a genuine love for technology, we provide top-quality computer hardware and software maintenance services to homes, businesses, and organizations.</p>
+          <p>Our team combines technical efficiency with a customer-first approach — ensuring every client's machine runs at its absolute best.</p>
+        </div>
+        <div class="about-features">
+          <div class="about-feat">
+            <div class="about-feat-icon"><i class="fas fa-bolt"></i></div>
+            <div>
+              <h4>Fast Turnaround</h4>
+              <p>We respect your time. Most repairs are diagnosed and resolved within 24–48 hours.</p>
+            </div>
+          </div>
+          <div class="about-feat">
+            <div class="about-feat-icon"><i class="fas fa-shield-halved"></i></div>
+            <div>
+              <h4>Reliable & Trusted</h4>
+              <p>Quality workmanship with transparent pricing — no surprises, ever.</p>
+            </div>
+          </div>
+          <div class="about-feat">
+            <div class="about-feat-icon"><i class="fas fa-users"></i></div>
+            <div>
+              <h4>Dedicated Team</h4>
+              <p>A passionate crew of technicians who genuinely care about the outcome.</p>
+            </div>
+          </div>
+        </div>
+        <a href="about.html" class="btn-primary" style="margin-top: 36px; display: inline-block;">Learn More About Us</a>
+      </div>
+      <div class="about-graphic">
+        <div class="about-big-text">MCX</div>
+        <div class="about-badge">
+          <div class="about-badge-num">2018</div>
+          <div class="about-badge-label">Est. in Taytay, Rizal</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-inner">
+    <div class="services-header">
+      <div>
+        <div class="section-tag">What We Do</div>
+        <h2 class="section-title">OUR<br><span>SERVICES</span></h2>
+      </div>
+      <a href="services.html" class="btn-outline">All Services <i class="fas fa-arrow-right" style="margin-left:8px;"></i></a>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-num">01</div>
+        <div class="service-icon"><i class="fas fa-screwdriver-wrench"></i></div>
+        <h3>Computer Repair</h3>
+        <p>Hardware diagnostics, component replacement, motherboard repair, and full system restoration.</p>
+        <span class="service-arrow"><i class="fas fa-arrow-right"></i></span>
+      </div>
+      <div class="service-card">
+        <div class="service-num">02</div>
+        <div class="service-icon"><i class="fas fa-microchip"></i></div>
+        <h3>Hardware & Modding</h3>
+        <p>Custom PC builds, modding, cable management, RGB setups, and hardware upgrades.</p>
+        <span class="service-arrow"><i class="fas fa-arrow-right"></i></span>
+      </div>
+      <div class="service-card">
+        <div class="service-num">03</div>
+        <div class="service-icon"><i class="fas fa-network-wired"></i></div>
+        <h3>Diskless Solutions</h3>
+        <p>Network boot systems for computer shops, schools, and enterprise classrooms.</p>
+        <span class="service-arrow"><i class="fas fa-arrow-right"></i></span>
+      </div>
+      <div class="service-card">
+        <div class="service-num">04</div>
+        <div class="service-icon"><i class="fas fa-globe"></i></div>
+        <h3>Web Development</h3>
+        <p>Modern, responsive websites and web applications built for performance and results.</p>
+        <span class="service-arrow"><i class="fas fa-arrow-right"></i></span>
+      </div>
+      <div class="service-card">
+        <div class="service-num">05</div>
+        <div class="service-icon"><i class="fas fa-mobile-screen"></i></div>
+        <h3>Mobile App Development</h3>
+        <p>Android and iOS applications designed with user experience at the forefront.</p>
+        <span class="service-arrow"><i class="fas fa-arrow-right"></i></span>
+      </div>
+      <div class="service-card">
+        <div class="service-num">06</div>
+        <div class="service-icon"><i class="fas fa-pen-ruler"></i></div>
+        <h3>Layout & Design</h3>
+        <p>Graphics, layout, and visual identity design for digital and print media.</p>
+        <span class="service-arrow"><i class="fas fa-arrow-right"></i></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWS -->
+<section id="news">
+  <div class="section-inner">
+    <div class="section-tag">Stay Informed</div>
+    <h2 class="section-title">LATEST<br><span>TECH NEWS</span></h2>
+    <div class="news-grid">
+      <div class="news-card">
+        <div class="news-card-img" style="background: linear-gradient(135deg, #1c1c1c 0%, #242424 100%);">
+          <div class="news-card-img-placeholder">GPU</div>
+          <span class="news-tag">Hardware</span>
+        </div>
+        <div class="news-card-body">
+          <div class="news-card-date">Latest News</div>
+          <h3>Next-Gen GPU Architecture: What It Means for Your PC</h3>
+          <p>The latest generation of graphics cards brings unprecedented performance-per-watt improvements — here's what you should know before upgrading.</p>
+          <a href="#">Read More <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="news-card">
+        <div class="news-card-img" style="background: linear-gradient(135deg, #1a1a2a 0%, #1c1c1c 100%);">
+          <div class="news-card-img-placeholder">AI</div>
+          <span class="news-tag">Software</span>
+        </div>
+        <div class="news-card-body">
+          <div class="news-card-date">Latest News</div>
+          <h3>AI-Powered Diagnostic Tools Are Changing PC Repair</h3>
+          <p>Automated hardware diagnosis using machine learning is making it faster than ever to identify failing components before they cause data loss.</p>
+          <a href="#">Read More <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="news-card">
+        <div class="news-card-img" style="background: linear-gradient(135deg, #1c1212 0%, #1c1c1c 100%);">
+          <div class="news-card-img-placeholder">NET</div>
+          <span class="news-tag">Networking</span>
+        </div>
+        <div class="news-card-body">
+          <div class="news-card-date">Latest News</div>
+          <h3>Wi-Fi 7 Rollout: Is It Time to Upgrade Your Setup?</h3>
+          <p>Wi-Fi 7 routers are now widely available. We break down whether the speed gains are worth it for home users and computer shops alike.</p>
+          <a href="#">Read More <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<div class="cta-band">
+  <div class="cta-inner">
+    <div>
+      <h2>READY TO GET STARTED?</h2>
+      <p>Reach out today for a free consultation on your hardware or software needs. No job is too big or too small.</p>
+    </div>
+    <a href="contact.html" class="btn-white">Contact Us Today</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-main">
+    <div class="footer-brand">
+      <a href="index.html" class="logo">
+        <div class="logo-mark">MX</div>
+        <div>
+          <span class="logo-text">MICRO EXE</span>
+          <span class="logo-sub">Tech Services</span>
+        </div>
+      </a>
+      <p>A passionate tech service group based in Taytay, Rizal — delivering quality computer hardware, software, and development solutions since 2018.</p>
+      <div class="footer-social">
+        <a href="https://www.facebook.com/microexe" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://twitter.com/microexegaming" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+        <a href="#" aria-label="Skype"><i class="fab fa-skype"></i></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="mtt.html">Meet the Team</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="services.html">Computer Repair</a></li>
+        <li><a href="services.html">PC Modding & Assembly</a></li>
+        <li><a href="services.html">Diskless Solutions</a></li>
+        <li><a href="services.html">Web Development</a></li>
+        <li><a href="services.html">Mobile Apps</a></li>
+        <li><a href="services.html">Layout & Design</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact Us</h4>
+      <div class="footer-contact-item">
+        <i class="fas fa-location-dot"></i>
+        <span>#58 Buen-Mar 1 Subdivision, Barangay San Juan, Madlanghaya Street, Taytay, Rizal 1920</span>
+      </div>
+      <div class="footer-contact-item">
+        <i class="fas fa-phone"></i>
+        <span>+63 928 658 1524</span>
+      </div>
+      <div class="footer-contact-item">
+        <i class="fas fa-envelope"></i>
+        <span>inquiries@microexe.net</span>
+      </div>
+      <div class="map-wrap" style="margin-top: 16px;">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d759.6879109034933!2d121.13096427453534!3d14.564181687054807!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sph!4v1568114356159!5m2!1sen!2sph"
+          allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-inner">
+      <p>&copy; 2024 <span>Micro EXE</span>. All rights reserved.</p>
+      <p>Designed &amp; Built with <span>&#9829;</span> by Micro EXE</p>
+    </div>
+  </div>
+</footer>
+
+</body>
 </html>
