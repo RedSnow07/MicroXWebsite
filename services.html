@@ -1,489 +1,427 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Features</title>
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="scss/main.css">
-    <link rel="stylesheet" href="scss/skin.css">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Services — Micro EXE Tech Services</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --red: #e8251a; --red-dark: #b01a12; --red-dim: rgba(232,37,26,0.12);
+    --black: #0d0d0d; --dark: #141414; --dark2: #1c1c1c; --dark3: #242424;
+    --mid: #3a3a3a; --light: #a8a8a8; --lighter: #d4d4d4; --white: #f5f3ef;
+    --font-display: 'Bebas Neue', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+    --font-mono: 'DM Mono', monospace;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font-body); background: var(--black); color: var(--white); overflow-x: hidden; line-height: 1.6; }
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-    <script src="./script/index.js"></script>
+  /* TOPBAR */
+  .topbar { background: var(--dark2); border-bottom: 1px solid var(--mid); padding: 8px 0; font-size: 12px; color: var(--light); letter-spacing: 0.04em; }
+  .topbar-inner { max-width: 1200px; margin: 0 auto; padding: 0 32px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+  .topbar-links { display: flex; gap: 24px; align-items: center; }
+  .topbar-links a, .topbar-social a { color: var(--light); text-decoration: none; transition: color 0.2s; }
+  .topbar-links a:hover, .topbar-social a:hover { color: var(--red); }
+  .topbar-links i { margin-right: 6px; font-size: 11px; }
+  .topbar-social { display: flex; gap: 16px; }
+  .topbar-social a { font-size: 14px; }
+
+  /* NAV */
+  nav { position: sticky; top: 0; z-index: 100; background: rgba(13,13,13,0.95); backdrop-filter: blur(16px); border-bottom: 1px solid var(--dark3); }
+  .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 32px; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .logo-mark { width: 38px; height: 38px; background: var(--red); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 22px; color: #fff; letter-spacing: -1px; }
+  .logo-text { font-family: var(--font-display); font-size: 28px; letter-spacing: 3px; color: var(--white); line-height: 1; }
+  .logo-sub { font-family: var(--font-mono); font-size: 9px; letter-spacing: 2px; color: var(--red); text-transform: uppercase; display: block; margin-top: -2px; }
+  .nav-links { display: flex; gap: 4px; list-style: none; }
+  .nav-links a { padding: 8px 14px; text-decoration: none; color: var(--lighter); font-size: 13px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.2s; position: relative; }
+  .nav-links a::after { content: ''; position: absolute; bottom: 0; left: 14px; right: 14px; height: 2px; background: var(--red); transform: scaleX(0); transition: transform 0.2s; }
+  .nav-links a:hover { color: var(--white); }
+  .nav-links a:hover::after, .nav-links a.active::after { transform: scaleX(1); }
+  .nav-links a.active { color: var(--white); }
+  .nav-cta { background: var(--red); color: #fff !important; padding: 8px 20px !important; }
+  .nav-cta::after { display: none !important; }
+  .nav-cta:hover { background: var(--red-dark) !important; }
+  .hamburger { display: none; background: none; border: none; cursor: pointer; color: var(--white); font-size: 22px; }
+
+  /* MOBILE NAV */
+  .mobile-nav { display: none; position: fixed; inset: 0; background: rgba(13,13,13,0.98); z-index: 200; padding: 80px 32px 40px; flex-direction: column; gap: 4px; }
+  .mobile-nav.open { display: flex; }
+  .mobile-nav-close { position: absolute; top: 20px; right: 24px; background: none; border: none; color: var(--white); font-size: 28px; cursor: pointer; }
+  .mobile-nav a { font-family: var(--font-display); font-size: 40px; letter-spacing: 3px; color: var(--lighter); text-decoration: none; transition: color 0.2s; border-bottom: 1px solid var(--dark3); padding: 16px 0; }
+  .mobile-nav a:hover { color: var(--red); }
+
+  /* SECTIONS */
+  section { padding: 96px 32px; }
+  .section-inner { max-width: 1200px; margin: 0 auto; }
+  .section-tag { font-family: var(--font-mono); font-size: 11px; letter-spacing: 3px; color: var(--red); text-transform: uppercase; display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+  .section-tag::before { content: ''; width: 24px; height: 1px; background: var(--red); }
+  h2.section-title { font-family: var(--font-display); font-size: clamp(40px, 5vw, 64px); letter-spacing: 2px; line-height: 1; color: var(--white); margin-bottom: 20px; }
+  h2.section-title span { color: var(--red); }
+  .section-sub { font-size: 16px; color: var(--light); max-width: 560px; line-height: 1.75; }
+
+  /* BUTTONS */
+  .btn-primary { background: var(--red); color: #fff; border: 2px solid var(--red); padding: 14px 32px; font-family: var(--font-body); font-size: 14px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; cursor: pointer; transition: all 0.2s; display: inline-block; }
+  .btn-primary:hover { background: var(--red-dark); border-color: var(--red-dark); }
+  .btn-outline { background: transparent; color: var(--white); border: 2px solid var(--mid); padding: 14px 32px; font-family: var(--font-body); font-size: 14px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; cursor: pointer; transition: all 0.2s; display: inline-block; }
+  .btn-outline:hover { border-color: var(--lighter); }
+
+  /* PAGE HERO */
+  .page-hero { position: relative; padding: 80px 32px; background: var(--dark); overflow: hidden; border-bottom: 1px solid var(--dark3); }
+  .page-hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 60% 100% at 80% 50%, rgba(232,37,26,0.05) 0%, transparent 70%), repeating-linear-gradient(0deg, transparent, transparent 59px, rgba(255,255,255,0.02) 59px, rgba(255,255,255,0.02) 60px), repeating-linear-gradient(90deg, transparent, transparent 59px, rgba(255,255,255,0.02) 59px, rgba(255,255,255,0.02) 60px); }
+  .page-hero-inner { max-width: 1200px; margin: 0 auto; position: relative; }
+  .page-hero-title { font-family: var(--font-display); font-size: clamp(48px, 7vw, 96px); letter-spacing: 3px; line-height: 0.9; color: var(--white); margin-bottom: 24px; }
+  .page-hero-title span { color: var(--red); }
+  .breadcrumb { display: flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 12px; letter-spacing: 1px; color: var(--light); list-style: none; padding: 0; background: transparent; border-radius: 0; margin: 0; }
+  .breadcrumb a { color: var(--light); text-decoration: none; transition: color 0.2s; }
+  .breadcrumb a:hover { color: var(--red); }
+  .breadcrumb .sep { color: var(--mid); }
+  .breadcrumb .current { color: var(--red); }
+
+  /* CTA BAND */
+  .cta-band { background: var(--red); padding: 72px 32px; }
+  .cta-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
+  .cta-band h2 { font-family: var(--font-display); font-size: clamp(36px, 4vw, 56px); letter-spacing: 2px; color: #fff; line-height: 1; }
+  .cta-band p { color: rgba(255,255,255,0.75); font-size: 15px; margin-top: 10px; max-width: 480px; }
+  .btn-white { background: #fff; color: var(--red); border: 2px solid #fff; padding: 14px 36px; font-family: var(--font-body); font-size: 14px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; white-space: nowrap; transition: all 0.2s; display: inline-block; }
+  .btn-white:hover { background: transparent; color: #fff; }
+
+  /* FOOTER */
+  footer { background: var(--dark2); border-top: 1px solid var(--dark3); }
+  .footer-main { max-width: 1200px; margin: 0 auto; padding: 64px 32px 48px; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
+  .footer-brand .logo { margin-bottom: 20px; display: inline-flex; }
+  .footer-brand p { font-size: 14px; color: var(--light); line-height: 1.7; max-width: 280px; margin-bottom: 24px; }
+  .footer-social { display: flex; gap: 12px; }
+  .footer-social a { width: 36px; height: 36px; background: var(--dark3); border: 1px solid var(--mid); display: flex; align-items: center; justify-content: center; color: var(--light); font-size: 14px; text-decoration: none; transition: all 0.2s; }
+  .footer-social a:hover { background: var(--red); border-color: var(--red); color: #fff; }
+  .footer-col h4 { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--white); margin-bottom: 20px; font-weight: 600; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-col a { color: var(--light); text-decoration: none; font-size: 14px; transition: color 0.2s; }
+  .footer-col a:hover { color: var(--red); }
+  .footer-contact-item { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 14px; }
+  .footer-contact-item i { color: var(--red); font-size: 13px; margin-top: 3px; }
+  .footer-contact-item span { font-size: 13px; color: var(--light); line-height: 1.5; }
+  .footer-bottom { border-top: 1px solid var(--dark3); padding: 20px 32px; }
+  .footer-bottom-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+  .footer-bottom p { font-size: 12px; color: var(--mid); letter-spacing: 0.04em; }
+  .footer-bottom span { color: var(--red); }
+  .map-wrap { border: 1px solid var(--dark3); overflow: hidden; height: 240px; }
+  .map-wrap iframe { width: 100%; height: 100%; border: 0; filter: grayscale(1) invert(0.85) contrast(1.1); }
+
+  /* ─── SERVICES PAGE ─── */
+  #services-main { background: var(--black); }
+  .services-full-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--dark3); margin-top: 56px; }
+  .service-detail-card { background: var(--black); padding: 48px 36px; position: relative; overflow: hidden; transition: background 0.3s; }
+  .service-detail-card:hover { background: var(--dark2); }
+  .service-detail-card:hover .svc-num { opacity: 1; }
+  .svc-num { font-family: var(--font-display); font-size: 26px; color: var(--red); position: absolute; top: 16px; right: 20px; opacity: 0; transition: opacity 0.3s; width: 52px; height: 52px; border: 1px solid rgba(232,37,26,0.2); display: flex; align-items: center; justify-content: center; }
+  .svc-icon { font-size: 36px; color: var(--red); margin-bottom: 24px; }
+  .service-detail-card h3 { font-size: 20px; font-weight: 600; color: var(--white); margin-bottom: 14px; }
+  .service-detail-card > p { font-size: 14px; color: var(--light); line-height: 1.7; margin-bottom: 20px; }
+  .svc-list { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--dark3); padding-top: 20px; display: flex; flex-direction: column; gap: 8px; }
+  .svc-list li { font-size: 13px; color: var(--light); display: flex; align-items: center; gap: 8px; }
+  .svc-list li::before { content: ''; width: 4px; height: 4px; background: var(--red); border-radius: 50%; flex-shrink: 0; }
+
+  /* PROCESS */
+  #process-section { background: var(--dark); }
+  .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; background: var(--dark3); margin-top: 56px; }
+  .process-step { background: var(--dark); padding: 40px 28px; }
+  .process-step-num { font-family: var(--font-display); font-size: 72px; color: rgba(232,37,26,0.07); line-height: 1; margin-bottom: 16px; }
+  .process-step-icon { font-size: 28px; color: var(--red); margin-bottom: 16px; }
+  .process-step h3 { font-size: 15px; font-weight: 600; color: var(--white); margin-bottom: 10px; letter-spacing: 0.06em; text-transform: uppercase; }
+  .process-step p { font-size: 13px; color: var(--light); line-height: 1.65; }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+  .fade-up { animation: fadeUp 0.7s ease forwards; }
+  .delay-1 { animation-delay: 0.1s; opacity: 0; }
+  .delay-2 { animation-delay: 0.22s; opacity: 0; }
+
+  /* RESPONSIVE */
+  @media (max-width: 960px) {
+    .services-full-grid { grid-template-columns: repeat(2, 1fr); }
+    .process-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-main { grid-template-columns: 1fr 1fr; gap: 32px; }
+    nav .nav-links { display: none; }
+    .hamburger { display: block; }
+  }
+  @media (max-width: 640px) {
+    section { padding: 64px 20px; }
+    .services-full-grid, .process-grid { grid-template-columns: 1fr; }
+    .footer-main { grid-template-columns: 1fr; }
+    .topbar { display: none; }
+    .cta-inner { flex-direction: column; }
+    .page-hero { padding: 60px 20px; }
+  }
+</style>
 </head>
+<body>
 
-<body id="wrapper">
-
-    <section id="top-header">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 col-sm-6 col-xs-12 top-header-links">
-                    <ul class="contact_links">
-                        <li><i class="fa fa-phone"></i><a href="#">+91 848 594 5080</a></li>
-                        <li><i class="fa fa-envelope"></i><a href="#">sales@aspiresoftware.in</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-6 col-sm-6 col-xs-12">
-                    <ul class="social_links">
-                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                        <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                        <li><a href="#"><i class="fa fa-skype"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        </div>
-
-    </section>
-
-    <header>
-        <nav class="navbar navbar-inverse">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-				<span class="sr-only">Toggle navigation</span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			  </button>
-                    <a class="navbar-brand" href="#">
-                        <h1>Aspire</h1><span>Software Solutions</span></a>
-                </div>
-                <div id="navbar" class="collapse navbar-collapse navbar-right">
-                    <ul class="nav navbar-nav">
-                        <li><a href="index.html">Home</a></li>
-                        <li class="active"><a href="#about">Features</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="portfolio.html">Portfolio</a></li>
-                        <li><a href="faq.html">FAQ</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                        <li><a href="login.html">Sign In</a></li>
-                        <li><a href="registration.html">Sign Up</a></li>
-                    </ul>
-                </div>
-                <!--/.nav-collapse -->
-            </div>
-        </nav>
-        <!--/.nav-ends -->
-    </header>
-
-
-
-
-
-
-
-    <section id="features-page">
-        <div class="subsection1">
-            <div class="container">
-                <div class="section-heading text-center">
-                    <h1>Our <span>Features</span></h1>
-                    <p class="subheading">Lorem ipsum dolor sit amet sit legimus copiosae instructior ei ut.</p>
-                </div>
-                <div class="col sm_12">
-                    <div class="col-sm-4 wpb_column block">
-                        <div class="wpb_wrapper">
-                            <div class="flip">
-                                <div class="iconbox iconbox-style icon-color card clearfix">
-                                    <div class="face front">
-                                        <table>
-                                            <tbody>
-                                                <tr>
-                                                    <td>
-                                                        <i class="fa fa-laptop boxicon"></i>
-                                                        <h3>100% Responsive</h3>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <div class="iconbox-box2 face back">
-                                        <table>
-                                            <tbody>
-                                                <tr>
-                                                    <td>
-                                                        <h3>100% Responsive</h3>
-                                                        <p>Lorem ipsum dolor sit amet sit legimus copiosae instructior ei ut vix denique fierentis ea saperet inimicu ut</p>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4 wpb_column block">
-                        <div class="wpb_wrapper">
-                            <div class="flip">
-                                <div class="iconbox  iconbox-style icon-color card clearfix">
-                                    <div class="iconbox-box1 face front">
-                                        <table>
-                                            <tbody>
-                                                <tr>
-                                                    <td>
-                                                        <i class="fa fa-bullhorn boxicon"></i>
-                                                        <h3>Powerful Features</h3>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <div class="iconbox-box2 face back">
-                                        <table>
-                                            <tbody>
-                                                <tr>
-                                                    <td>
-                                                        <h3>Powerful Features</h3>
-                                                        <p>Lorem ipsum dolor sit amet sit legimus copiosae instructior ei ut vix denique fierentis ea saperet inimicu ut</p>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4 wpb_colum block">
-                        <div class="wpb_wrapper">
-                            <div class="flip">
-                                <div class="iconbox  iconbox-style icon-color card clearfix">
-                                    <div class="iconbox-box1 face front">
-                                        <table>
-                                            <tbody>
-                                                <tr>
-                                                    <td>
-                                                        <i class="fa fa-support boxicon"></i>
-                                                        <h3>Customer Support</h3>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <div class="iconbox-box2 face back">
-                                        <table>
-                                            <tbody>
-                                                <tr>
-                                                    <td>
-                                                        <h3>Customer Support</h3>
-                                                        <p>Lorem ipsum dolor sit amet sit legimus copiosae instructior ei ut vix denique fierentis ea saperet inimicu ut</p>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="subsection2">
-            <div class="container">
-                <div class="col-xs-12 col-sm_12 col-md-12 col-lg-12 left">
-                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 wpb_column">
-                        <div class="wpb_wrapper">
-                            <h3>We really love what we do & our work on every project truly reflects that.</h3>
-                            <hr>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6 wpb_column block">
-                        <div class="wpb_wrapper">
-                            <div class="iconbox iconbox-style-2 icon-color clearfix">
-                                <div class="iconbox-icon">
-                                    <i class="fa fa-lightbulb-o sl-layers boxicon"></i>
-                                </div>
-                                <div class="iconbox-content">
-                                    <h4>IDEA</h4>
-                                    <p>Lorem ipsum dolor sit amet sit legimus copiosae instructior ei ut vix denique fierentis ea saperet inimicu ut qui dolor oratio mnesarchum</p>
-                                </div>
-                            </div>
-                            <div class="spacer"></div>
-                            <div class="iconbox iconbox-style-2 icon-color clearfix">
-                                <div class="iconbox-icon">
-                                    <i class="fa fa-magic sl-book-open boxicon"></i>
-                                </div>
-                                <div class="iconbox-content nomargin">
-                                    <h4>DESIGN</h4>
-                                    <p>Lorem ipsum dolor sit amet sit legimus copiosae instructior ei ut vix denique fierentis ea saperet inimicu ut qui dolor oratio mnesarchum</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6 wpb_column">
-                        <div class="wpb_wrapper">
-                            <div class="iconbox iconbox-style-2 icon-color clearfix">
-                                <!-- icon-color-greyscale -->
-                                <div class="iconbox-icon">
-                                    <i class="fa fa-cloud-download sl-badge boxicon"></i>
-                                </div>
-                                <div class="iconbox-content">
-                                    <h4>CONCEPT</h4>
-                                    <p>Lorem ipsum dolor sit amet sit legimus copiosae instructior ei ut vix denique fierentis ea saperet inimicu ut qui dolor oratio mnesarchum</p>
-                                </div>
-                            </div>
-                            <div class="spacer"></div>
-                            <div class="iconbox iconbox-style-2 icon-color clearfix">
-                                <div class="iconbox-icon">
-                                    <i class="fa fa-cog sl-check boxicon"></i>
-                                </div>
-                                <div class="iconbox-content nomargin">
-                                    <h4>DEVELOP</h4>
-                                    <p>Lorem ipsum dolor sit amet sit legimus copiosae instructior ei ut vix denique fierentis ea saperet inimicu ut qui dolor oratio mnesarchum</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="subsection3" style=" overflow-x:hidden;">
-
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 col-sm-6 col-xs-12 left-section">
-                        <div class="subfeature">
-                            <div class="col-md-12 col-sm-12 col-xs-12">
-                                <h1><span>Services that </span>we provide.</h1>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 col-sm-6 col-xs-12 right-section right-background">
-                        <div class="subfeature">
-                            <div class="featureblock">
-                                <div class="col-md-2 col-xs-2 icon"><i class="fa fa-laptop feature_icon"></i></div>
-                                <div class="col-md-10 col-xs-10">
-                                    <h4>100% Responsive</h4>
-                                    <p>Lorem ipsum dolor sit amet sit legimus copiosae instructior fierentis ea saperet inimicu ut qui dolor oratio mnesarchum</p>
-                                </div>
-                            </div>
-                            <div class="featureblock">
-                                <div class="col-md-2 col-xs-2 icon"><i class="fa fa-bullhorn feature_icon"></i></div>
-                                <div class="col-md-10 col-xs-10">
-                                    <h4>Powerful Features</h4>
-                                    <p>Lorem ipsum dolor sit amet sit legimus copiosae instructior fierentis ea saperet inimicu ut qui dolor oratio mnesarchum</p>
-                                </div>
-                            </div>
-                            <div class="featureblock nomargin">
-                                <div class="col-md-2 col-xs-2 icon"><i class="fa fa-support feature_icon"></i></div>
-                                <div class="col-md-10 col-xs-10">
-                                    <h4>Customer Support</h4>
-                                    <p>Lorem ipsum dolor sit amet sit legimus copiosae instructior fierentis ea saperet inimicu ut qui dolor oratio mnesarchum</p>
-
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-        <!--pricing-->
-        <div class="subsection4">
-            <div class="container">
-                <div class="col span_12">
-                    <div class="col-sm-12 wpb_column column_container">
-                        <div class="wpb_wrapper">
-                            <div class="section-heading text-center">
-                                <h1>Our <span>Plans</span></h1>
-                                <p class="subheading">Lorem ipsum dolor sit amet sit legimus copiosae instructior ei ut vix denique fierentis ea saperet inimicu ut qui dolor oratio mnesarchum ea utamur impetus fuisset nam nostrud euismod volumus ne mei.</p>
-                            </div>
-                            <div class="row" style="margin-top:30px;">
-                                <div class="wpb_column vc_column_container col-sm-4 block grow">
-                                    <div class="vc_column-inner">
-                                        <div class="wpb_wrapper">
-                                            <div class="pricing-plan pricing-color-true">
-                                                <div class="pricing-plan-head pricing-plan-1">
-                                                    <h3>Starter Edition</h3>
-                                                    <div class="pricing-price">
-                                                        <span class="pricing-amount">$29.00</span>
-                                                        <span class="pricing-per">per month</span>
-                                                    </div>
-                                                </div>
-                                                <ul>
-                                                    <li><strong>Free</strong> Setup</li>
-                                                    <li><strong>10GB</strong> Storage</li>
-                                                    <li><strong>100GB</strong> Bandwith</li>
-                                                    <li><strong>5</strong> Products</li>
-                                                    <!-- <li><strong>Basic</strong> Stats</li> -->
-                                                </ul>
-                                                <div class="pricing-signup">
-                                                    <a href="#" class="button color-5">Buy Now</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="wpb_column vc_column_container col-sm-4 block grow">
-                                    <div class="vc_column-inner">
-                                        <div class="wpb_wrapper">
-                                            <div class="pricing-plan pricing-color-true ">
-                                                <div class="pricing-plan-head pricing-plan-2">
-                                                    <div class="featured-ribbon">Best Value</div>
-                                                    <h3>Diamond Edition</h3>
-                                                    <div class="pricing-price">
-                                                        <span class="pricing-amount">$49.00</span>
-                                                        <span class="pricing-per">per month</span>
-                                                    </div>
-                                                </div>
-                                                <ul>
-                                                    <li><strong>Free</strong> Setup</li>
-                                                    <li><strong>100GB</strong> Storage</li>
-                                                    <li><strong>1000GB</strong> Bandwith</li>
-                                                    <li><strong>25</strong> Products</li>
-                                                    <!-- <li><b>Complex</b>&nbsp;Stats</li> -->
-                                                </ul>
-                                                <div class="pricing-signup">
-                                                    <a href="#" class="button color-5">Buy Now</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="wpb_column vc_column_container col-sm-4 block grow">
-                                    <div class="vc_column-inner ">
-                                        <div class="wpb_wrapper">
-                                            <div class="pricing-plan pricing-color-true">
-                                                <div class="pricing-plan-head pricing-plan-1">
-                                                    <h3>Platinum Edition</h3>
-                                                    <div class="pricing-price">
-                                                        <span class="pricing-amount">$99.00</span>
-                                                        <span class="pricing-per">per week</span>
-                                                    </div>
-                                                </div>
-                                                <ul>
-                                                    <li><strong>Free</strong> Setup</li>
-                                                    <li><strong>50GB</strong> Storage</li>
-                                                    <li><strong>500GB</strong> Bandwith</li>
-                                                    <li><b>Unlimited</b> Products</li>
-                                                    <!-- <li><b>Complex</b> Stats</li> -->
-                                                </ul>
-                                                <div class="pricing-signup">
-                                                    <a href="#" class="button color-5">Buy Now</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3 col-sm-3 col-xs-12 block">
-                    <div class="footer-block">
-                        <h4>Address</h4>
-                        <hr/>
-                        <p>Lorem ipsum dolor sit amet sit legimus copiosae instructior ei ut vix denique fierentis ea saperet inimicu ut qui dolor oratio mnesarchum.
-                        </p>
-                        <a href="#" class="learnmore">Learn More <i class="fa fa-caret-right"></i></a>
-                    </div>
-                </div>
-
-                <div class="col-md-3 col-sm-3 col-xs-12 block">
-                    <div class="footer-block">
-                        <h4>Useful Links</h4>
-                        <hr/>
-                        <ul class="footer-links">
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Features</a></li>
-                            <li><a href="#">Portfolio</a></li>
-                            <li><a href="#">Contact</a></li>
-                            <li><a href="#">Sign In</a></li>
-                            <li><a href="#">Sign Up</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="col-md-3 col-sm-3 col-xs-12 block">
-                    <div class="footer-block">
-                        <h4>Community</h4>
-                        <hr/>
-                        <ul class="footer-links">
-                            <li><a href="#">Blog</a></li>
-                            <li><a href="#">Forum</a></li>
-                            <li><a href="#">Free Goods</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="col-md-3 col-sm-3 col-xs-12 <block></block>">
-                    <div class="footer-block">
-                        <h4>Recent Posts</h4>
-                        <hr/>
-                        <ul class="footer-links">
-                            <li>
-                                <a href="#" class="post">Lorem ipsum dolor sit amet</a>
-                                <p class="post-date">May 25, 2017</p>
-                            </li>
-                            <li>
-                                <a href="#" class="post">Lorem ipsum dolor sit amet</a>
-                                <p class="post-date">May 25, 2017</p>
-                            </li>
-                            <li>
-                                <a href="#" class="post">Lorem ipsum dolor sit amet</a>
-                                <p class="post-date">May 25, 2017</p>
-                            </li>
-
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-    </section>
-
-    <section id="bottom-footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 col-sm-6 col-xs-12 btm-footer-links">
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Use</a>
-                </div>
-                <div class="col-md-6 col-sm-6 col-xs-12 copyright">
-                    Developed by <a href="#">Aspire Software Solutions</a> designed by <a href="#">Designing Team</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div id="panel">
-        <div id="panel-admin">
-            <div class="panel-admin-box">
-                <div id="tootlbar_colors">
-                    <button class="color" style="background-color:#1abac8;" onclick="mytheme(0)"></button>
-                    <button class="color" style="background-color:#ff8a00;" onclick="mytheme(1)"> </button>
-                    <button class="color" style="background-color:#b4de50;" onclick="mytheme(2)"> </button>
-                    <button class="color" style="background-color:#e54e53;" onclick="mytheme(3)"> </button>
-                    <button class="color" style="background-color:#1abc9c;" onclick="mytheme(4)"> </button>
-                    <button class="color" style="background-color:#159eee;" onclick="mytheme(5)"> </button>
-                </div>
-            </div>
-
-        </div>
-        <a class="open" href="#"><span><i class="fa fa-gear fa-spin"></i></span></a>
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-links">
+      <span>Redesigned by Micro EXE</span>
+      <a href="tel:+639286581524"><i class="fa fa-phone"></i>+63 928 658 1524</a>
+      <a href="mailto:inquiries@microexe.net"><i class="fa fa-envelope"></i>inquiries@microexe.net</a>
     </div>
+    <div class="topbar-social">
+      <a href="https://www.facebook.com/microexe" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://twitter.com/microexegaming" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+      <a href="#" aria-label="Skype"><i class="fab fa-skype"></i></a>
+    </div>
+  </div>
+</div>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-mark">MX</div>
+      <div>
+        <span class="logo-text">MICRO EXE</span>
+        <span class="logo-sub">Tech Services</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html" class="active">Services</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="mtt.html">Meet the Team</a></li>
+      <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+    </ul>
+    <button class="hamburger" onclick="document.querySelector('.mobile-nav').classList.add('open')" aria-label="Open menu">
+      <i class="fas fa-bars"></i>
+    </button>
+  </div>
+</nav>
+
+<div class="mobile-nav">
+  <button class="mobile-nav-close" onclick="document.querySelector('.mobile-nav').classList.remove('open')">
+    <i class="fas fa-times"></i>
+  </button>
+  <a href="index.html">Home</a>
+  <a href="services.html">Services</a>
+  <a href="about.html">About Us</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="mtt.html">Meet the Team</a>
+  <a href="contact.html">Contact Us</a>
+</div>
+
+<section class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-inner">
+    <div class="section-tag fade-up">What We Offer</div>
+    <h1 class="page-hero-title fade-up delay-1">OUR<br><span>SERVICES</span></h1>
+    <div class="breadcrumb fade-up delay-2">
+      <a href="index.html">Home</a>
+      <span class="sep">/</span>
+      <span class="current">Services</span>
+    </div>
+  </div>
+</section>
+
+<section id="services-main">
+  <div class="section-inner">
+    <div class="section-tag">Our Expertise</div>
+    <h2 class="section-title">WHAT WE<br><span>SPECIALIZE IN</span></h2>
+    <p class="section-sub">From hardware repairs to full-stack web development, Micro EXE delivers comprehensive tech solutions tailored to your needs.</p>
+    <div class="services-full-grid">
+      <div class="service-detail-card">
+        <div class="svc-num">01</div>
+        <div class="svc-icon"><i class="fas fa-screwdriver-wrench"></i></div>
+        <h3>Computer Repair</h3>
+        <p>Expert hardware diagnostics, component replacement, and full system restoration for desktops, laptops, and workstations.</p>
+        <ul class="svc-list">
+          <li>Hardware diagnostics & profiling</li>
+          <li>Component replacement</li>
+          <li>Motherboard-level repair</li>
+          <li>OS reinstallation & recovery</li>
+          <li>Virus & malware removal</li>
+        </ul>
+      </div>
+      <div class="service-detail-card">
+        <div class="svc-num">02</div>
+        <div class="svc-icon"><i class="fas fa-microchip"></i></div>
+        <h3>Hardware & Modding</h3>
+        <p>Custom PC builds, cable management, RGB setups, performance upgrades, and hardware modding for any budget or style.</p>
+        <ul class="svc-list">
+          <li>Custom PC assembly</li>
+          <li>Clean cable management</li>
+          <li>RGB & lighting setup</li>
+          <li>Hardware upgrades</li>
+          <li>Overclocking & tuning</li>
+        </ul>
+      </div>
+      <div class="service-detail-card">
+        <div class="svc-num">03</div>
+        <div class="svc-icon"><i class="fas fa-network-wired"></i></div>
+        <h3>Diskless Solutions</h3>
+        <p>Network boot infrastructure design and deployment for computer shops, schools, and enterprise classroom environments.</p>
+        <ul class="svc-list">
+          <li>Network boot server setup</li>
+          <li>Client node configuration</li>
+          <li>Image & game management</li>
+          <li>Bandwidth optimization</li>
+          <li>Ongoing maintenance</li>
+        </ul>
+      </div>
+      <div class="service-detail-card">
+        <div class="svc-num">04</div>
+        <div class="svc-icon"><i class="fas fa-globe"></i></div>
+        <h3>Web Development</h3>
+        <p>Modern, responsive websites and web applications designed for performance, scalability, and real business results.</p>
+        <ul class="svc-list">
+          <li>Responsive UI/UX design</li>
+          <li>Front-end development</li>
+          <li>Back-end & database setup</li>
+          <li>E-commerce integration</li>
+          <li>CMS & admin dashboards</li>
+        </ul>
+      </div>
+      <div class="service-detail-card">
+        <div class="svc-num">05</div>
+        <div class="svc-icon"><i class="fas fa-mobile-screen"></i></div>
+        <h3>Mobile App Development</h3>
+        <p>Android and iOS mobile applications built with a user-first philosophy and a focus on performance and reliability.</p>
+        <ul class="svc-list">
+          <li>Android development</li>
+          <li>iOS development</li>
+          <li>UI/UX prototyping</li>
+          <li>REST API integration</li>
+          <li>App store deployment</li>
+        </ul>
+      </div>
+      <div class="service-detail-card">
+        <div class="svc-num">06</div>
+        <div class="svc-icon"><i class="fas fa-pen-ruler"></i></div>
+        <h3>Layout & Design</h3>
+        <p>Graphics, visual identity, layout design, and branding materials for digital platforms and print media.</p>
+        <ul class="svc-list">
+          <li>Logo & brand identity</li>
+          <li>Print & digital layout</li>
+          <li>Social media graphics</li>
+          <li>UI / interface design</li>
+          <li>Presentation design</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="process-section">
+  <div class="section-inner">
+    <div class="section-tag">How We Work</div>
+    <h2 class="section-title">OUR<br><span>PROCESS</span></h2>
+    <p class="section-sub">Every job follows a clear, transparent workflow — from first contact to final delivery.</p>
+    <div class="process-grid">
+      <div class="process-step">
+        <div class="process-step-num">01</div>
+        <div class="process-step-icon"><i class="fas fa-comments"></i></div>
+        <h3>Consult</h3>
+        <p>We start with a free consultation to understand your needs, define the scope of work, and set a clear timeline.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-step-num">02</div>
+        <div class="process-step-icon"><i class="fas fa-magnifying-glass"></i></div>
+        <h3>Diagnose</h3>
+        <p>Thorough technical assessment using professional tools to accurately identify hardware or software issues.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-step-num">03</div>
+        <div class="process-step-icon"><i class="fas fa-screwdriver-wrench"></i></div>
+        <h3>Execute</h3>
+        <p>Skilled technicians carry out the work with precision and care — repairs, builds, or development with quality assured.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-step-num">04</div>
+        <div class="process-step-icon"><i class="fas fa-circle-check"></i></div>
+        <h3>Deliver</h3>
+        <p>Final testing, quality check, and handoff — with transparent reporting and ongoing support available post-delivery.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-band">
+  <div class="cta-inner">
+    <div>
+      <h2>NEED A SERVICE?</h2>
+      <p>Reach out today for a free consultation on your hardware or software needs. No job is too big or too small.</p>
+    </div>
+    <a href="contact.html" class="btn-white">Contact Us Today</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-main">
+    <div class="footer-brand">
+      <a href="index.html" class="logo">
+        <div class="logo-mark">MX</div>
+        <div>
+          <span class="logo-text">MICRO EXE</span>
+          <span class="logo-sub">Tech Services</span>
+        </div>
+      </a>
+      <p>A passionate tech service group based in Taytay, Rizal — delivering quality computer hardware, software, and development solutions since 2018.</p>
+      <div class="footer-social">
+        <a href="https://www.facebook.com/microexe" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://twitter.com/microexegaming" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+        <a href="#" aria-label="Skype"><i class="fab fa-skype"></i></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="mtt.html">Meet the Team</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="services.html">Computer Repair</a></li>
+        <li><a href="services.html">PC Modding & Assembly</a></li>
+        <li><a href="services.html">Diskless Solutions</a></li>
+        <li><a href="services.html">Web Development</a></li>
+        <li><a href="services.html">Mobile Apps</a></li>
+        <li><a href="services.html">Layout & Design</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact Us</h4>
+      <div class="footer-contact-item">
+        <i class="fas fa-location-dot"></i>
+        <span>#58 Buen-Mar 1 Subdivision, Barangay San Juan, Madlanghaya Street, Taytay, Rizal 1920</span>
+      </div>
+      <div class="footer-contact-item">
+        <i class="fas fa-phone"></i>
+        <span>+63 928 658 1524</span>
+      </div>
+      <div class="footer-contact-item">
+        <i class="fas fa-envelope"></i>
+        <span>inquiries@microexe.net</span>
+      </div>
+      <div class="map-wrap" style="margin-top:16px;">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d759.6879109034933!2d121.13096427453534!3d14.564181687054807!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sph!4v1568114356159!5m2!1sen!2sph" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-inner">
+      <p>&copy; 2024 <span>Micro EXE</span>. All rights reserved.</p>
+      <p>Designed &amp; Built with <span>&#9829;</span> by Micro EXE</p>
+    </div>
+  </div>
+</footer>
 
 </body>
-
 </html>
